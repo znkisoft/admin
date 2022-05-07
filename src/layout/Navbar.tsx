@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navbar, Center, Tooltip, UnstyledButton, createStyles, Group } from "@mantine/core";
+import { Navbar as MNavbar, Center, Tooltip, UnstyledButton, createStyles, Group } from "@mantine/core";
 import { Logout } from "tabler-icons-react";
 import { NavbarLinkProps } from "../types/layout";
 
@@ -40,7 +40,7 @@ function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
   );
 }
 
-export function NavbarMinimal(navbarItems: NavbarLinkProps[]) {
+export default function Navbar(navbarItems: NavbarLinkProps[]) {
   const [active, setActive] = useState(2);
 
   const links = navbarItems.map((link, index) => (
@@ -48,18 +48,18 @@ export function NavbarMinimal(navbarItems: NavbarLinkProps[]) {
   ));
 
   return (
-    <Navbar height={1280} width={{ base: 80 }} p="md">
-      <Center></Center>
-      <Navbar.Section grow mt={50}>
+    <MNavbar height={1280} width={{ base: 80 }} p="md">
+      <Center>TODO</Center>
+      <MNavbar.Section grow mt={50}>
         <Group direction="column" align="center" spacing={0}>
           {links}
         </Group>
-      </Navbar.Section>
-      <Navbar.Section>
+      </MNavbar.Section>
+      <MNavbar.Section>
         <Group direction="column" align="center" spacing={0}>
           <NavbarLink icon={Logout} label="Logout" />
         </Group>
-      </Navbar.Section>
-    </Navbar>
+      </MNavbar.Section>
+    </MNavbar>
   );
 }

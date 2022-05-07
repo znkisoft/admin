@@ -2,7 +2,9 @@ import { lazy } from "react";
 import { useRoutes } from "react-router-dom";
 import MainLayout from "./layout/MainLayout";
 import Dashboard from "./pages/Dashboard";
+import FAQ from "./pages/FAQ";
 import HomePage from "./pages/Home";
+import NotFound from "./pages/NotFound";
 
 // TODO add dynamic import
 // TODO add auth page
@@ -18,6 +20,14 @@ const MainRoutes = {
     {
       path: "/dashboard",
       element: <Dashboard />,
+    },
+    {
+      path: "/404",
+      element: <NotFound />,
+    },
+    {
+      path: "/faq",
+      element: <FAQ />,
     },
   ],
 };

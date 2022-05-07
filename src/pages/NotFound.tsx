@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { createStyles, Title, Text, Button, Container, Group } from "@mantine/core";
-import { useRouter } from "next/router";
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -40,15 +39,13 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function NotFoundTitle() {
+export default function NotFound() {
   const { classes } = useStyles();
-  const router = useRouter();
 
-  useEffect(() => {
-    setTimeout(() => {
-      router.push("/");
-    }, 3000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //   }, 3000);
+  // }, []);
 
   return (
     <Container className={classes.root}>
