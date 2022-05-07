@@ -1,4 +1,5 @@
 import { createStyles, Paper } from "@mantine/core";
+import { ReactNode } from "react";
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -6,7 +7,11 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function AppContent({ children }) {
+interface Props {
+  children: ReactNode;
+}
+
+const AppContent = ({ children }: Props) => {
   const { classes } = useStyles();
 
   return (
@@ -14,4 +19,6 @@ export default function AppContent({ children }) {
       {children}
     </Paper>
   );
-}
+};
+
+export default AppContent;
