@@ -1,7 +1,7 @@
 import { lazy } from "react";
 import { useRoutes } from "react-router-dom";
 import MainLayout from "./layout/MainLayout";
-import Dashboard from "./pages/dashboard";
+import Dashboard from "./pages/Dashboard";
 import HomePage from "./pages/Home";
 
 // TODO add dynamic import
