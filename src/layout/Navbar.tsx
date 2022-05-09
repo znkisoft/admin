@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Navbar as MNavbar, Center, Tooltip, UnstyledButton, createStyles, Group } from "@mantine/core";
 import { Logout } from "tabler-icons-react";
 import { NavbarLinkProps } from "../types/layout";
+import { Link } from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -29,11 +30,16 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
+function NavbarLink({ icon: Icon, label, link, active, onClick }: NavbarLinkProps) {
   const { classes, cx } = useStyles();
   return (
     <Tooltip label={label} position="right" withArrow transitionDuration={0}>
-      <UnstyledButton onClick={onClick} className={cx(classes.link, { [classes.active]: active })}>
+      <UnstyledButton
+        component={Link}
+        to={link}
+        onClick={onClick}
+        className={cx(classes.link, { [classes.active]: active })}
+      >
         <Icon />
       </UnstyledButton>
     </Tooltip>
@@ -48,7 +54,7 @@ export default function Navbar(navbarItems: NavbarLinkProps[]) {
   ));
 
   return (
-    <MNavbar height={1280} width={{ base: 80 }} p="md">
+    <MNavbar width={{ base: 80 }} p="md">
       <Center>TODO</Center>
       <MNavbar.Section grow mt={50}>
         <Group direction="column" align="center" spacing={0}>
@@ -57,7 +63,7 @@ export default function Navbar(navbarItems: NavbarLinkProps[]) {
       </MNavbar.Section>
       <MNavbar.Section>
         <Group direction="column" align="center" spacing={0}>
-          <NavbarLink icon={Logout} label="Logout" />
+          <NavbarLink icon={Logout} label="Logout" link="/logout" />
         </Group>
       </MNavbar.Section>
     </MNavbar>

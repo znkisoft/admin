@@ -5,22 +5,24 @@ import {
   Fingerprint,
   CalendarStats,
   User,
+  BrandDocker,
   Settings,
   Link,
-  Database,
+  AppWindow,
+  ZoomQuestion,
 } from "tabler-icons-react";
 import { FooterLinksProps, HeaderSearchProps, NavbarLinkProps } from "../types/layout";
 
 export const navbarConfig: NavbarLinkProps[] = [
-  { icon: Home2, label: "Home" },
-  { icon: Gauge, label: "Dashboard" },
-  { icon: DeviceDesktopAnalytics, label: "Server Stats" },
-  { icon: Database, label: "Database" },
-  { icon: Link, label: "URL Shortener" },
-  { icon: CalendarStats, label: "Releases" },
-  { icon: User, label: "Account" },
-  { icon: Fingerprint, label: "Security" },
-  { icon: Settings, label: "Settings" },
+  { icon: AppWindow, label: "Terminal", link: "/terminal" },
+  { icon: Gauge, label: "Dashboard", link: "/dashboard" },
+  { icon: DeviceDesktopAnalytics, label: "Server Stats", link: "/server" },
+  { icon: BrandDocker, label: "Docker Management", link: "/docker" },
+  { icon: Link, label: "URL Shortener", link: "/uRL" },
+  { icon: CalendarStats, label: "Releases", link: "/releases" },
+  { icon: User, label: "Account", link: "/account" },
+  { icon: ZoomQuestion, label: "FAQ", link: "/faq" },
+  { icon: Settings, label: "Settings", link: "/settings" },
 ];
 
 export const headerConfig: HeaderSearchProps = {
