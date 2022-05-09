@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { createStyles, Title, Text, Button, Container, Group } from "@mantine/core";
+import { Link } from "react-router-dom";
+import HomePage from "./Home";
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -56,7 +58,7 @@ export default function NotFound() {
         URL.
       </Text>
       <Group position="center">
-        <Button variant="subtle" size="md">
+        <Button variant="subtle" size="md" component={Link} to={"/"}>
           Take me back to home page
         </Button>
       </Group>
