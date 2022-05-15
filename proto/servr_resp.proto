@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option go_package = "github.com/znkisoft/watchdog";
+
+import "server.proto";
+import "google/protobuf/timestamp.proto";
+
+message ServerStatusRequest {
+  string server_id = 1;
+}
+
+message ServerStatusResponse {
+  ServerStatus status = 1;
+  google.protobuf.Timestamp last_updated = 2;
+}
+
+message PluginRequest {
+  PluginType type = 1;
+}
+
+message PluginResponse {
+  oneof PluginInfo {
+    UptimeInfo uptime_info = 1;
+    SysTimeInfo sys_time_info = 2;
+  }
+}
+
+message PluginListResponse {
+  repeated string plugins = 1;
+}
