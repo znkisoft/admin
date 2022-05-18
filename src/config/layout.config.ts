@@ -10,13 +10,14 @@ import {
   Link,
   AppWindow,
   ZoomQuestion,
+  Terminal,
 } from "tabler-icons-react";
 import { FooterLinksProps, HeaderSearchProps, NavbarLinkProps } from "../types/layout";
 
 export const navbarConfig: NavbarLinkProps[] = [
-  { icon: AppWindow, label: "Terminal", link: "/terminal" },
-  { icon: Gauge, label: "Dashboard", link: "/dashboard" },
-  { icon: DeviceDesktopAnalytics, label: "Server Stats", link: "/server" },
+  { icon: Terminal, label: "Terminal", link: "/tty" },
+  { icon: DeviceDesktopAnalytics, label: "Dashboard", link: "/dashboard" },
+  { icon: AppWindow, label: "Server Stats", link: "/server" },
   { icon: BrandDocker, label: "Docker Management", link: "/docker" },
   { icon: Link, label: "URL Shortener", link: "/uRL" },
   { icon: CalendarStats, label: "Releases", link: "/releases" },

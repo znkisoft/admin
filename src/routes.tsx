@@ -5,7 +5,7 @@ import Dashboard from "./pages/Dashboard";
 import FAQ from "./pages/FAQ";
 import HomePage from "./pages/Home";
 import NotFound from "./pages/NotFound";
-import Server from "./pages/Server";
+import TTY from "./pages/TTY";
 
 // TODO add dynamic import
 // TODO add auth page
@@ -27,8 +27,8 @@ const MainRoutes = {
       element: <FAQ />,
     },
     {
-      path: "/server",
-      element: <Server />,
+      path: "/tty",
+      element: <TTY />,
     },
     {
       path: "*",
