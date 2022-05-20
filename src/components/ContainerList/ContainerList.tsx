@@ -1,5 +1,8 @@
 import React, { FC } from "react";
 import { Table } from "@mantine/core";
+import ActionButtons from "components/ActionButtons";
+import { IActionButtonConfig } from "components/ActionButtons/ActionButtons";
+import { PlayerPlay, PlayerStop, Repeat, SquareX, Trash } from "tabler-icons-react";
 
 const elements = [
   { position: 6, mass: 12.011, symbol: "C", name: "Carbon" },
@@ -9,6 +12,37 @@ const elements = [
   { position: 58, mass: 140.12, symbol: "Ce", name: "Cerium" },
 ];
 
+const Rows = ["Name", "Status", "Image", "Create Time", "Published Ports", "Quick Actions"];
+
+const quickActions: Array<IActionButtonConfig> = [
+  {
+    icon: PlayerPlay,
+    label: "start",
+    onClick: undefined,
+  },
+  {
+    icon: PlayerStop,
+    label: "stop",
+    onClick: undefined,
+  },
+  {
+    icon: Repeat,
+    label: "restart",
+    onClick: undefined,
+  },
+  {
+    icon: SquareX,
+    label: "kill",
+    onClick: undefined,
+  },
+  {
+    icon: Trash,
+    label: "remove",
+    onClick: undefined,
+  },
+];
+
+// TODO repalce with React-Table
 const ContainerList: FC = () => {
   const rows = elements.map((element) => (
     <tr key={element.name}>
@@ -16,18 +50,19 @@ const ContainerList: FC = () => {
       <td>{element.name}</td>
       <td>{element.symbol}</td>
       <td>{element.mass}</td>
+      <td>{element.mass}</td>
+      <td>
+        <ActionButtons data={quickActions} />
+      </td>
     </tr>
   ));
+
+  const head = Rows.map((row) => <th key={row}>{row}</th>);
 
   return (
     <Table highlightOnHover>
       <thead>
-        <tr>
-          <th>Element position</th>
-          <th>Element name</th>
-          <th>Symbol</th>
-          <th>Atomic mass</th>
-        </tr>
+        <tr>{head}</tr>
       </thead>
       <tbody>{rows}</tbody>
     </Table>
