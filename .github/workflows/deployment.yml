@@ -1,5 +1,5 @@
 name: admin page depolyment
-on: 
+on:
   push:
     branches:
       - main
@@ -7,25 +7,25 @@ jobs:
   Build:
     runs-on: ubuntu-latest
     steps:
-    - name: checkout code
-      uses: actions/checkout@v2
-    - name: actions/setup-node@v2
-      uses: actions/setup-node@v2   
-      with:
-        node: 16.14
-    - name: yarn cache
-      id: yarn-cahce-dir-path
-      run: echo "::set-output name=dir::$(yarn cache dir)"
-    - uses: actions/cache@v2
-      id: yarn-cache
-      with: 
-        path: ${{ steps.yarn-cahce-dir-path.outputs.dir }}
-        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: | 
-          ${{ runner.os }}-yarn-
-    - run: yarn install && yarn build
-    - name: deploy
-      uses: JamesIves/github-pages-deploy-action@v4.2.3
-      with:
-        branch: gh-pages
-        folder: build
+      - name: checkout code
+        uses: actions/checkout@v2
+      - name: actions/setup-node@v2
+        uses: actions/setup-node@v2
+        with:
+          node: 16.14
+      - name: yarn cache
+        id: yarn-cahce-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cahce-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - run: yarn install && yarn build
+      - name: deploy
+        uses: JamesIves/github-pages-deploy-action@v4.2.3
+        with:
+          branch: gh-pages
+          folder: build
