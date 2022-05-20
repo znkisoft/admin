@@ -3,7 +3,6 @@ import { FitAddon } from "xterm-addon-fit";
 import { Terminal } from "xterm";
 import axios from "axios";
 import "xterm/css/xterm.css";
-import { ThemeProvider } from ".pnpm/@emotion+react@11.7.1_7cpxmzzodpxnolj5zcc5cr63ji/node_modules/@emotion/react";
 
 const socketURL = "ws://127.0.0.1:8080/api/ws";
 const ws = new WebSocket(socketURL);
