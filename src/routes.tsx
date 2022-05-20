@@ -1,4 +1,4 @@
-import { lazy } from "react";
+import { lazy } from "react"; // TODO lazy load routes
 import { useRoutes } from "react-router-dom";
 import MainLayout from "./layout/MainLayout";
 import Dashboard from "./pages/Dashboard";
