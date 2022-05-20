@@ -2,6 +2,7 @@ import { lazy } from "react"; // TODO lazy load routes
 import { useRoutes } from "react-router-dom";
 import MainLayout from "./layout/MainLayout";
 import Dashboard from "./pages/Dashboard";
+import DockerPage from "./pages/DockerPage";
 import FAQ from "./pages/FAQ";
 import HomePage from "./pages/Home";
 import NotFound from "./pages/NotFound";
@@ -25,6 +26,10 @@ const MainRoutes = {
     {
       path: "/faq",
       element: <FAQ />,
+    },
+    {
+      path: "/docker",
+      element: <DockerPage />,
     },
     {
       path: "/tty",
