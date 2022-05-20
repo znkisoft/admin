@@ -30,6 +30,7 @@
     "zod": "^3.16.0"
   },
   "devDependencies": {
+    "openapi-typescript": "^5.3.0",
     "@types/long": "^4.0.2",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
