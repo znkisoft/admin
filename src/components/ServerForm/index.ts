@@ -1,3 +1,3 @@
-import ServerForm from './ServerForm';
+import ServerForm from "./ServerForm";
 
 export default ServerForm;
