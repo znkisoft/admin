@@ -1,5 +1,4 @@
-import React from "react";
-import { createStyles, Image, Accordion, Grid, Col, Container, Title } from "@mantine/core";
+import { Col, Container, createStyles, Grid, Title } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -36,24 +35,6 @@ export default function FAQ() {
             <Title order={2} align="left" className={classes.title}>
               Frequently Asked Questions
             </Title>
-
-            <Accordion iconPosition="right" initialItem={0}>
-              <Accordion.Item label="How can I reset my password?" className={classes.item}>
-                {placeholder}
-              </Accordion.Item>
-              <Accordion.Item label="Can I create more that one account?" className={classes.item}>
-                {placeholder}
-              </Accordion.Item>
-              <Accordion.Item label="How can I subscribe to monthly newsletter?" className={classes.item}>
-                {placeholder}
-              </Accordion.Item>
-              <Accordion.Item label="Do you store credit card information securely?" className={classes.item}>
-                {placeholder}
-              </Accordion.Item>
-              <Accordion.Item label="What payment systems to you work with?" className={classes.item}>
-                {placeholder}
-              </Accordion.Item>
-            </Accordion>
           </Col>
         </Grid>
       </Container>
