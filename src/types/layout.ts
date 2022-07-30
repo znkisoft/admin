@@ -19,6 +19,5 @@ export interface FooterLinksProps {
   }[]
 }
 
-export type UserMenuProps = {
-  data: Omit<NavbarLinkProps, "active">[]
-}
+export type UserMenuItemsProps = (Omit<NavbarLinkProps, "active"> & {loggedIn:boolean})[]
+
