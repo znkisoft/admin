@@ -13,22 +13,22 @@ export interface paths {
      * than inspecting a single container. For example, the list of linked
      * containers is not propagated .
      */
-    get: operations["ContainerList"];
-  };
+    get: operations["ContainerList"]
+  }
   "/containers/create": {
-    post: operations["ContainerCreate"];
-  };
+    post: operations["ContainerCreate"]
+  }
   "/containers/{id}/json": {
     /** Return low-level information about a container. */
-    get: operations["ContainerInspect"];
-  };
+    get: operations["ContainerInspect"]
+  }
   "/containers/{id}/top": {
     /**
      * On Unix systems, this is done by running the `ps` command. This endpoint
      * is not supported on Windows.
      */
-    get: operations["ContainerTop"];
-  };
+    get: operations["ContainerTop"]
+  }
   "/containers/{id}/logs": {
     /**
      * Get `stdout` and `stderr` logs from a container.
@@ -36,8 +36,8 @@ export interface paths {
      * Note: This endpoint works only for containers with the `json-file` or
      * `journald` logging driver.
      */
-    get: operations["ContainerLogs"];
-  };
+    get: operations["ContainerLogs"]
+  }
   "/containers/{id}/changes": {
     /**
      * Returns which files in a container's filesystem have been added, deleted,
@@ -47,12 +47,12 @@ export interface paths {
      * - `1`: Added
      * - `2`: Deleted
      */
-    get: operations["ContainerChanges"];
-  };
+    get: operations["ContainerChanges"]
+  }
   "/containers/{id}/export": {
     /** Export the contents of a container as a tarball. */
-    get: operations["ContainerExport"];
-  };
+    get: operations["ContainerExport"]
+  }
   "/containers/{id}/stats": {
     /**
      * This endpoint returns a live stream of a container’s resource usage
@@ -82,38 +82,38 @@ export interface paths {
      * * number_cpus = `lenght(cpu_stats.cpu_usage.percpu_usage)` or `cpu_stats.online_cpus`
      * * CPU usage % = `(cpu_delta / system_cpu_delta) * number_cpus * 100.0`
      */
-    get: operations["ContainerStats"];
-  };
+    get: operations["ContainerStats"]
+  }
   "/containers/{id}/resize": {
     /** Resize the TTY for a container. */
-    post: operations["ContainerResize"];
-  };
+    post: operations["ContainerResize"]
+  }
   "/containers/{id}/start": {
-    post: operations["ContainerStart"];
-  };
+    post: operations["ContainerStart"]
+  }
   "/containers/{id}/stop": {
-    post: operations["ContainerStop"];
-  };
+    post: operations["ContainerStop"]
+  }
   "/containers/{id}/restart": {
-    post: operations["ContainerRestart"];
-  };
+    post: operations["ContainerRestart"]
+  }
   "/containers/{id}/kill": {
     /**
      * Send a POSIX signal to a container, defaulting to killing to the
      * container.
      */
-    post: operations["ContainerKill"];
-  };
+    post: operations["ContainerKill"]
+  }
   "/containers/{id}/update": {
     /**
      * Change various configuration options of a container without having to
      * recreate it.
      */
-    post: operations["ContainerUpdate"];
-  };
+    post: operations["ContainerUpdate"]
+  }
   "/containers/{id}/rename": {
-    post: operations["ContainerRename"];
-  };
+    post: operations["ContainerRename"]
+  }
   "/containers/{id}/pause": {
     /**
      * Use the freezer cgroup to suspend all processes in a container.
@@ -123,12 +123,12 @@ export interface paths {
      * cgroup the process is unaware, and unable to capture, that it is being
      * suspended, and subsequently resumed.
      */
-    post: operations["ContainerPause"];
-  };
+    post: operations["ContainerPause"]
+  }
   "/containers/{id}/unpause": {
     /** Resume a container which has been paused. */
-    post: operations["ContainerUnpause"];
-  };
+    post: operations["ContainerUnpause"]
+  }
   "/containers/{id}/attach": {
     /**
      * Attach to a container to read its output or send it input. You can attach
@@ -225,37 +225,37 @@ export interface paths {
      * connection is simply the raw data from the process PTY and client's
      * `stdin`.
      */
-    post: operations["ContainerAttach"];
-  };
+    post: operations["ContainerAttach"]
+  }
   "/containers/{id}/attach/ws": {
-    get: operations["ContainerAttachWebsocket"];
-  };
+    get: operations["ContainerAttachWebsocket"]
+  }
   "/containers/{id}/wait": {
     /** Block until a container stops, then returns the exit code. */
-    post: operations["ContainerWait"];
-  };
+    post: operations["ContainerWait"]
+  }
   "/containers/{id}": {
-    delete: operations["ContainerDelete"];
-  };
+    delete: operations["ContainerDelete"]
+  }
   "/containers/{id}/archive": {
     /** Get a tar archive of a resource in the filesystem of container id. */
-    get: operations["ContainerArchive"];
+    get: operations["ContainerArchive"]
     /** Upload a tar archive to be extracted to a path in the filesystem of container id. */
-    put: operations["PutContainerArchive"];
+    put: operations["PutContainerArchive"]
     /**
      * A response header `X-Docker-Container-Path-Stat` is returned, containing
      * a base64 - encoded JSON object with some filesystem header information
      * about the path.
      */
-    head: operations["ContainerArchiveInfo"];
-  };
+    head: operations["ContainerArchiveInfo"]
+  }
   "/containers/prune": {
-    post: operations["ContainerPrune"];
-  };
+    post: operations["ContainerPrune"]
+  }
   "/images/json": {
     /** Returns a list of images on the server. Note that it uses a different, smaller representation of an image than inspecting a single image. */
-    get: operations["ImageList"];
-  };
+    get: operations["ImageList"]
+  }
   "/build": {
     /**
      * Build an image from a tar archive with a `Dockerfile` in it.
@@ -266,23 +266,23 @@ export interface paths {
      *
      * The build is canceled if the client drops the connection by quitting or being killed.
      */
-    post: operations["ImageBuild"];
-  };
+    post: operations["ImageBuild"]
+  }
   "/build/prune": {
-    post: operations["BuildPrune"];
-  };
+    post: operations["BuildPrune"]
+  }
   "/images/create": {
     /** Create an image by either pulling it from a registry or importing it. */
-    post: operations["ImageCreate"];
-  };
+    post: operations["ImageCreate"]
+  }
   "/images/{name}/json": {
     /** Return low-level information about an image. */
-    get: operations["ImageInspect"];
-  };
+    get: operations["ImageInspect"]
+  }
   "/images/{name}/history": {
     /** Return parent layers of an image. */
-    get: operations["ImageHistory"];
-  };
+    get: operations["ImageHistory"]
+  }
   "/images/{name}/push": {
     /**
      * Push an image to a registry.
@@ -293,12 +293,12 @@ export interface paths {
      *
      * The push is cancelled if the HTTP connection is closed.
      */
-    post: operations["ImagePush"];
-  };
+    post: operations["ImagePush"]
+  }
   "/images/{name}/tag": {
     /** Tag an image so that it becomes part of a repository. */
-    post: operations["ImageTag"];
-  };
+    post: operations["ImageTag"]
+  }
   "/images/{name}": {
     /**
      * Remove an image, along with any untagged parent images that were
@@ -307,38 +307,38 @@ export interface paths {
      * Images can't be removed if they have descendant images, are being
      * used by a running container or are being used by a build.
      */
-    delete: operations["ImageDelete"];
-  };
+    delete: operations["ImageDelete"]
+  }
   "/images/search": {
     /** Search for an image on Docker Hub. */
-    get: operations["ImageSearch"];
-  };
+    get: operations["ImageSearch"]
+  }
   "/images/prune": {
-    post: operations["ImagePrune"];
-  };
+    post: operations["ImagePrune"]
+  }
   "/auth": {
     /**
      * Validate credentials for a registry and, if available, get an identity
      * token for accessing the registry without password.
      */
-    post: operations["SystemAuth"];
-  };
+    post: operations["SystemAuth"]
+  }
   "/info": {
-    get: operations["SystemInfo"];
-  };
+    get: operations["SystemInfo"]
+  }
   "/version": {
     /** Returns the version of Docker that is running and various information about the system that Docker is running on. */
-    get: operations["SystemVersion"];
-  };
+    get: operations["SystemVersion"]
+  }
   "/_ping": {
     /** This is a dummy endpoint you can use to test if the server is accessible. */
-    get: operations["SystemPing"];
+    get: operations["SystemPing"]
     /** This is a dummy endpoint you can use to test if the server is accessible. */
-    head: operations["SystemPingHead"];
-  };
+    head: operations["SystemPingHead"]
+  }
   "/commit": {
-    post: operations["ImageCommit"];
-  };
+    post: operations["ImageCommit"]
+  }
   "/events": {
     /**
      * Stream real-time events from the server.
@@ -365,11 +365,11 @@ export interface paths {
      *
      * The Builder reports `prune` events
      */
-    get: operations["SystemEvents"];
-  };
+    get: operations["SystemEvents"]
+  }
   "/system/df": {
-    get: operations["SystemDataUsage"];
-  };
+    get: operations["SystemDataUsage"]
+  }
   "/images/{name}/get": {
     /**
      * Get a tarball containing all images and metadata for a repository.
@@ -396,8 +396,8 @@ export interface paths {
      * }
      * ```
      */
-    get: operations["ImageGet"];
-  };
+    get: operations["ImageGet"]
+  }
   "/images/get": {
     /**
      * Get a tarball containing all images and metadata for several image
@@ -411,53 +411,53 @@ export interface paths {
      *
      * For details on the format, see the [export image endpoint](#operation/ImageGet).
      */
-    get: operations["ImageGetAll"];
-  };
+    get: operations["ImageGetAll"]
+  }
   "/images/load": {
     /**
      * Load a set of images and tags into a repository.
      *
      * For details on the format, see the [export image endpoint](#operation/ImageGet).
      */
-    post: operations["ImageLoad"];
-  };
+    post: operations["ImageLoad"]
+  }
   "/containers/{id}/exec": {
     /** Run a command inside a running container. */
-    post: operations["ContainerExec"];
-  };
+    post: operations["ContainerExec"]
+  }
   "/exec/{id}/start": {
     /**
      * Starts a previously set up exec instance. If detach is true, this endpoint
      * returns immediately after starting the command. Otherwise, it sets up an
      * interactive session with the command.
      */
-    post: operations["ExecStart"];
-  };
+    post: operations["ExecStart"]
+  }
   "/exec/{id}/resize": {
     /**
      * Resize the TTY session used by an exec instance. This endpoint only works
      * if `tty` was specified as part of creating and starting the exec instance.
      */
-    post: operations["ExecResize"];
-  };
+    post: operations["ExecResize"]
+  }
   "/exec/{id}/json": {
     /** Return low-level information about an exec instance. */
-    get: operations["ExecInspect"];
-  };
+    get: operations["ExecInspect"]
+  }
   "/volumes": {
-    get: operations["VolumeList"];
-  };
+    get: operations["VolumeList"]
+  }
   "/volumes/create": {
-    post: operations["VolumeCreate"];
-  };
+    post: operations["VolumeCreate"]
+  }
   "/volumes/{name}": {
-    get: operations["VolumeInspect"];
+    get: operations["VolumeInspect"]
     /** Instruct the driver to remove the volume. */
-    delete: operations["VolumeDelete"];
-  };
+    delete: operations["VolumeDelete"]
+  }
   "/volumes/prune": {
-    post: operations["VolumePrune"];
-  };
+    post: operations["VolumePrune"]
+  }
   "/networks": {
     /**
      * Returns a list of networks. For details on the format, see the
@@ -467,107 +467,107 @@ export interface paths {
      * inspecting a single network. For example, the list of containers attached
      * to the network is not propagated in API versions 1.28 and up.
      */
-    get: operations["NetworkList"];
-  };
+    get: operations["NetworkList"]
+  }
   "/networks/{id}": {
-    get: operations["NetworkInspect"];
-    delete: operations["NetworkDelete"];
-  };
+    get: operations["NetworkInspect"]
+    delete: operations["NetworkDelete"]
+  }
   "/networks/create": {
-    post: operations["NetworkCreate"];
-  };
+    post: operations["NetworkCreate"]
+  }
   "/networks/{id}/connect": {
-    post: operations["NetworkConnect"];
-  };
+    post: operations["NetworkConnect"]
+  }
   "/networks/{id}/disconnect": {
-    post: operations["NetworkDisconnect"];
-  };
+    post: operations["NetworkDisconnect"]
+  }
   "/networks/prune": {
-    post: operations["NetworkPrune"];
-  };
+    post: operations["NetworkPrune"]
+  }
   "/plugins": {
     /** Returns information about installed plugins. */
-    get: operations["PluginList"];
-  };
+    get: operations["PluginList"]
+  }
   "/plugins/privileges": {
-    get: operations["GetPluginPrivileges"];
-  };
+    get: operations["GetPluginPrivileges"]
+  }
   "/plugins/pull": {
     /**
      * Pulls and installs a plugin. After the plugin is installed, it can be
      * enabled using the [`POST /plugins/{name}/enable` endpoint](#operation/PostPluginsEnable).
      */
-    post: operations["PluginPull"];
-  };
+    post: operations["PluginPull"]
+  }
   "/plugins/{name}/json": {
-    get: operations["PluginInspect"];
-  };
+    get: operations["PluginInspect"]
+  }
   "/plugins/{name}": {
-    delete: operations["PluginDelete"];
-  };
+    delete: operations["PluginDelete"]
+  }
   "/plugins/{name}/enable": {
-    post: operations["PluginEnable"];
-  };
+    post: operations["PluginEnable"]
+  }
   "/plugins/{name}/disable": {
-    post: operations["PluginDisable"];
-  };
+    post: operations["PluginDisable"]
+  }
   "/plugins/{name}/upgrade": {
-    post: operations["PluginUpgrade"];
-  };
+    post: operations["PluginUpgrade"]
+  }
   "/plugins/create": {
-    post: operations["PluginCreate"];
-  };
+    post: operations["PluginCreate"]
+  }
   "/plugins/{name}/push": {
     /** Push a plugin to the registry. */
-    post: operations["PluginPush"];
-  };
+    post: operations["PluginPush"]
+  }
   "/plugins/{name}/set": {
-    post: operations["PluginSet"];
-  };
+    post: operations["PluginSet"]
+  }
   "/nodes": {
-    get: operations["NodeList"];
-  };
+    get: operations["NodeList"]
+  }
   "/nodes/{id}": {
-    get: operations["NodeInspect"];
-    delete: operations["NodeDelete"];
-  };
+    get: operations["NodeInspect"]
+    delete: operations["NodeDelete"]
+  }
   "/nodes/{id}/update": {
-    post: operations["NodeUpdate"];
-  };
+    post: operations["NodeUpdate"]
+  }
   "/swarm": {
-    get: operations["SwarmInspect"];
-  };
+    get: operations["SwarmInspect"]
+  }
   "/swarm/init": {
-    post: operations["SwarmInit"];
-  };
+    post: operations["SwarmInit"]
+  }
   "/swarm/join": {
-    post: operations["SwarmJoin"];
-  };
+    post: operations["SwarmJoin"]
+  }
   "/swarm/leave": {
-    post: operations["SwarmLeave"];
-  };
+    post: operations["SwarmLeave"]
+  }
   "/swarm/update": {
-    post: operations["SwarmUpdate"];
-  };
+    post: operations["SwarmUpdate"]
+  }
   "/swarm/unlockkey": {
-    get: operations["SwarmUnlockkey"];
-  };
+    get: operations["SwarmUnlockkey"]
+  }
   "/swarm/unlock": {
-    post: operations["SwarmUnlock"];
-  };
+    post: operations["SwarmUnlock"]
+  }
   "/services": {
-    get: operations["ServiceList"];
-  };
+    get: operations["ServiceList"]
+  }
   "/services/create": {
-    post: operations["ServiceCreate"];
-  };
+    post: operations["ServiceCreate"]
+  }
   "/services/{id}": {
-    get: operations["ServiceInspect"];
-    delete: operations["ServiceDelete"];
-  };
+    get: operations["ServiceInspect"]
+    delete: operations["ServiceDelete"]
+  }
   "/services/{id}/update": {
-    post: operations["ServiceUpdate"];
-  };
+    post: operations["ServiceUpdate"]
+  }
   "/services/{id}/logs": {
     /**
      * Get `stdout` and `stderr` logs from a service. See also
@@ -576,14 +576,14 @@ export interface paths {
      * **Note**: This endpoint works only for services with the `local`,
      * `json-file` or `journald` logging drivers.
      */
-    get: operations["ServiceLogs"];
-  };
+    get: operations["ServiceLogs"]
+  }
   "/tasks": {
-    get: operations["TaskList"];
-  };
+    get: operations["TaskList"]
+  }
   "/tasks/{id}": {
-    get: operations["TaskInspect"];
-  };
+    get: operations["TaskInspect"]
+  }
   "/tasks/{id}/logs": {
     /**
      * Get `stdout` and `stderr` logs from a task.
@@ -592,38 +592,38 @@ export interface paths {
      * **Note**: This endpoint works only for services with the `local`,
      * `json-file` or `journald` logging drivers.
      */
-    get: operations["TaskLogs"];
-  };
+    get: operations["TaskLogs"]
+  }
   "/secrets": {
-    get: operations["SecretList"];
-  };
+    get: operations["SecretList"]
+  }
   "/secrets/create": {
-    post: operations["SecretCreate"];
-  };
+    post: operations["SecretCreate"]
+  }
   "/secrets/{id}": {
-    get: operations["SecretInspect"];
-    delete: operations["SecretDelete"];
-  };
+    get: operations["SecretInspect"]
+    delete: operations["SecretDelete"]
+  }
   "/secrets/{id}/update": {
-    post: operations["SecretUpdate"];
-  };
+    post: operations["SecretUpdate"]
+  }
   "/configs": {
-    get: operations["ConfigList"];
-  };
+    get: operations["ConfigList"]
+  }
   "/configs/create": {
-    post: operations["ConfigCreate"];
-  };
+    post: operations["ConfigCreate"]
+  }
   "/configs/{id}": {
-    get: operations["ConfigInspect"];
-    delete: operations["ConfigDelete"];
-  };
+    get: operations["ConfigInspect"]
+    delete: operations["ConfigDelete"]
+  }
   "/configs/{id}/update": {
-    post: operations["ConfigUpdate"];
-  };
+    post: operations["ConfigUpdate"]
+  }
   "/distribution/{name}/json": {
     /** Return image digest and platform information by contacting the registry. */
-    get: operations["DistributionInspect"];
-  };
+    get: operations["DistributionInspect"]
+  }
   "/session": {
     /**
      * Start a new interactive session with a server. Session allows server to
@@ -651,8 +651,8 @@ export interface paths {
      * Upgrade: h2c
      * ```
      */
-    post: operations["Session"];
-  };
+    post: operations["Session"]
+  }
 }
 
 export interface definitions {
@@ -665,74 +665,74 @@ export interface definitions {
      * Format: ip-address
      * @description Host IP address that the container's port is mapped to
      */
-    IP?: string;
+    IP?: string
     /**
      * Format: uint16
      * @description Port on the container
      */
-    PrivatePort: number;
+    PrivatePort: number
     /**
      * Format: uint16
      * @description Port exposed on the host
      */
-    PublicPort?: number;
+    PublicPort?: number
     /** @enum {string} */
-    Type: "tcp" | "udp" | "sctp";
-  };
+    Type: "tcp" | "udp" | "sctp"
+  }
   /** @description A mount point inside a container */
   MountPoint: {
-    Type?: string;
-    Name?: string;
-    Source?: string;
-    Destination?: string;
-    Driver?: string;
-    Mode?: string;
-    RW?: boolean;
-    Propagation?: string;
-  };
+    Type?: string
+    Name?: string
+    Source?: string
+    Destination?: string
+    Driver?: string
+    Mode?: string
+    RW?: boolean
+    Propagation?: string
+  }
   /**
    * @description A device mapping between the host and container
    * @example [object Object]
    */
   DeviceMapping: {
-    PathOnHost?: string;
-    PathInContainer?: string;
-    CgroupPermissions?: string;
-  };
+    PathOnHost?: string
+    PathInContainer?: string
+    CgroupPermissions?: string
+  }
   /** @description A request for devices to be sent to device drivers */
   DeviceRequest: {
     /** @example nvidia */
-    Driver?: string;
+    Driver?: string
     /** @example -1 */
-    Count?: number;
+    Count?: number
     /** @example 0,1,GPU-fef8089b-4820-abfc-e83e-94318197576e */
-    DeviceIDs?: string[];
+    DeviceIDs?: string[]
     /**
      * @description A list of capabilities; an OR list of AND lists of capabilities.
      *
      * @example gpu,nvidia,compute
      */
-    Capabilities?: string[][];
+    Capabilities?: string[][]
     /**
      * @description Driver-specific options, specified as a key/value pairs. These options
      * are passed directly to the driver.
      */
-    Options?: { [key: string]: string };
-  };
+    Options?: { [key: string]: string }
+  }
   ThrottleDevice: {
     /** @description Device path */
-    Path?: string;
+    Path?: string
     /**
      * Format: int64
      * @description Rate
      */
-    Rate?: number;
-  };
+    Rate?: number
+  }
   Mount: {
     /** @description Container path. */
-    Target?: string;
+    Target?: string
     /** @description Mount source (e.g. a volume name, a host path). */
-    Source?: string;
+    Source?: string
     /**
      * @description The mount type. Available types:
      *
@@ -743,46 +743,46 @@ export interface definitions {
      *
      * @enum {string}
      */
-    Type?: "bind" | "volume" | "tmpfs" | "npipe";
+    Type?: "bind" | "volume" | "tmpfs" | "npipe"
     /** @description Whether the mount should be read-only. */
-    ReadOnly?: boolean;
+    ReadOnly?: boolean
     /** @description The consistency requirement for the mount: `default`, `consistent`, `cached`, or `delegated`. */
-    Consistency?: string;
+    Consistency?: string
     /** @description Optional configuration for the `bind` type. */
     BindOptions?: {
       /**
        * @description A propagation mode with the value `[r]private`, `[r]shared`, or `[r]slave`.
        * @enum {string}
        */
-      Propagation?: "private" | "rprivate" | "shared" | "rshared" | "slave" | "rslave";
+      Propagation?: "private" | "rprivate" | "shared" | "rshared" | "slave" | "rslave"
       /** @description Disable recursive bind mount. */
-      NonRecursive?: boolean;
-    };
+      NonRecursive?: boolean
+    }
     /** @description Optional configuration for the `volume` type. */
     VolumeOptions?: {
       /** @description Populate volume with data from the target. */
-      NoCopy?: boolean;
+      NoCopy?: boolean
       /** @description User-defined key/value metadata. */
-      Labels?: { [key: string]: string };
+      Labels?: { [key: string]: string }
       /** @description Map of driver specific options */
       DriverConfig?: {
         /** @description Name of the driver to use to create the volume. */
-        Name?: string;
+        Name?: string
         /** @description key/value map of driver specific options. */
-        Options?: { [key: string]: string };
-      };
-    };
+        Options?: { [key: string]: string }
+      }
+    }
     /** @description Optional configuration for the `tmpfs` type. */
     TmpfsOptions?: {
       /**
        * Format: int64
        * @description The size for the tmpfs mount in bytes.
        */
-      SizeBytes?: number;
+      SizeBytes?: number
       /** @description The permission mode for the tmpfs mount in an integer. */
-      Mode?: number;
-    };
-  };
+      Mode?: number
+    }
+  }
   /**
    * @description The behavior to apply when the container exits. The default is not to
    * restart.
@@ -799,31 +799,31 @@ export interface definitions {
      *
      * @enum {string}
      */
-    Name?: "" | "always" | "unless-stopped" | "on-failure";
+    Name?: "" | "always" | "unless-stopped" | "on-failure"
     /** @description If `on-failure` is used, the number of times to retry before giving up. */
-    MaximumRetryCount?: number;
-  };
+    MaximumRetryCount?: number
+  }
   /** @description A container's resources (cgroups config, ulimits, etc) */
   Resources: {
     /**
      * @description An integer value representing this container's relative CPU weight
      * versus other containers.
      */
-    CpuShares?: number;
+    CpuShares?: number
     /**
      * Format: int64
      * @description Memory limit in bytes.
      */
-    Memory?: number;
+    Memory?: number
     /**
      * @description Path to `cgroups` under which the container's `cgroup` is created. If
      * the path is not absolute, the path is considered to be relative to the
      * `cgroups` path of the init process. Cgroups are created if they do not
      * already exist.
      */
-    CgroupParent?: string;
+    CgroupParent?: string
     /** @description Block IO weight (relative weight). */
-    BlkioWeight?: number;
+    BlkioWeight?: number
     /**
      * @description Block IO weight (relative device weight) in the form:
      *
@@ -832,9 +832,9 @@ export interface definitions {
      * ```
      */
     BlkioWeightDevice?: {
-      Path?: string;
-      Weight?: number;
-    }[];
+      Path?: string
+      Weight?: number
+    }[]
     /**
      * @description Limit read rate (bytes per second) from a device, in the form:
      *
@@ -842,7 +842,7 @@ export interface definitions {
      * [{"Path": "device_path", "Rate": rate}]
      * ```
      */
-    BlkioDeviceReadBps?: definitions["ThrottleDevice"][];
+    BlkioDeviceReadBps?: definitions["ThrottleDevice"][]
     /**
      * @description Limit write rate (bytes per second) to a device, in the form:
      *
@@ -850,7 +850,7 @@ export interface definitions {
      * [{"Path": "device_path", "Rate": rate}]
      * ```
      */
-    BlkioDeviceWriteBps?: definitions["ThrottleDevice"][];
+    BlkioDeviceWriteBps?: definitions["ThrottleDevice"][]
     /**
      * @description Limit read rate (IO per second) from a device, in the form:
      *
@@ -858,7 +858,7 @@ export interface definitions {
      * [{"Path": "device_path", "Rate": rate}]
      * ```
      */
-    BlkioDeviceReadIOps?: definitions["ThrottleDevice"][];
+    BlkioDeviceReadIOps?: definitions["ThrottleDevice"][]
     /**
      * @description Limit write rate (IO per second) to a device, in the form:
      *
@@ -866,46 +866,46 @@ export interface definitions {
      * [{"Path": "device_path", "Rate": rate}]
      * ```
      */
-    BlkioDeviceWriteIOps?: definitions["ThrottleDevice"][];
+    BlkioDeviceWriteIOps?: definitions["ThrottleDevice"][]
     /**
      * Format: int64
      * @description The length of a CPU period in microseconds.
      */
-    CpuPeriod?: number;
+    CpuPeriod?: number
     /**
      * Format: int64
      * @description Microseconds of CPU time that the container can get in a CPU period.
      */
-    CpuQuota?: number;
+    CpuQuota?: number
     /**
      * Format: int64
      * @description The length of a CPU real-time period in microseconds. Set to 0 to
      * allocate no time allocated to real-time tasks.
      */
-    CpuRealtimePeriod?: number;
+    CpuRealtimePeriod?: number
     /**
      * Format: int64
      * @description The length of a CPU real-time runtime in microseconds. Set to 0 to
      * allocate no time allocated to real-time tasks.
      */
-    CpuRealtimeRuntime?: number;
+    CpuRealtimeRuntime?: number
     /**
      * @description CPUs in which to allow execution (e.g., `0-3`, `0,1`).
      *
      * @example 0-3
      */
-    CpusetCpus?: string;
+    CpusetCpus?: string
     /**
      * @description Memory nodes (MEMs) in which to allow execution (0-3, 0,1). Only
      * effective on NUMA systems.
      */
-    CpusetMems?: string;
+    CpusetMems?: string
     /** @description A list of devices to add to the container. */
-    Devices?: definitions["DeviceMapping"][];
+    Devices?: definitions["DeviceMapping"][]
     /** @description a list of cgroup rules to apply to the container */
-    DeviceCgroupRules?: string[];
+    DeviceCgroupRules?: string[]
     /** @description A list of requests for devices to be sent to device drivers. */
-    DeviceRequests?: definitions["DeviceRequest"][];
+    DeviceRequests?: definitions["DeviceRequest"][]
     /**
      * Format: int64
      * @description Kernel memory limit in bytes.
@@ -917,48 +917,48 @@ export interface definitions {
      *
      * @example 209715200
      */
-    KernelMemory?: number;
+    KernelMemory?: number
     /**
      * Format: int64
      * @description Hard limit for kernel TCP buffer memory (in bytes).
      */
-    KernelMemoryTCP?: number;
+    KernelMemoryTCP?: number
     /**
      * Format: int64
      * @description Memory soft limit in bytes.
      */
-    MemoryReservation?: number;
+    MemoryReservation?: number
     /**
      * Format: int64
      * @description Total memory limit (memory + swap). Set as `-1` to enable unlimited
      * swap.
      */
-    MemorySwap?: number;
+    MemorySwap?: number
     /**
      * Format: int64
      * @description Tune a container's memory swappiness behavior. Accepts an integer
      * between 0 and 100.
      */
-    MemorySwappiness?: number;
+    MemorySwappiness?: number
     /**
      * Format: int64
      * @description CPU quota in units of 10<sup>-9</sup> CPUs.
      */
-    NanoCpus?: number;
+    NanoCpus?: number
     /** @description Disable OOM Killer for the container. */
-    OomKillDisable?: boolean;
+    OomKillDisable?: boolean
     /**
      * @description Run an init inside the container that forwards signals and reaps
      * processes. This field is omitted if empty, and the default (as
      * configured on the daemon) is used.
      */
-    Init?: boolean;
+    Init?: boolean
     /**
      * Format: int64
      * @description Tune a container's PIDs limit. Set `0` or `-1` for unlimited, or `null`
      * to not change.
      */
-    PidsLimit?: number;
+    PidsLimit?: number
     /**
      * @description A list of resource limits to set in the container. For example:
      *
@@ -968,12 +968,12 @@ export interface definitions {
      */
     Ulimits?: {
       /** @description Name of ulimit */
-      Name?: string;
+      Name?: string
       /** @description Soft limit */
-      Soft?: number;
+      Soft?: number
       /** @description Hard limit */
-      Hard?: number;
-    }[];
+      Hard?: number
+    }[]
     /**
      * Format: int64
      * @description The number of usable CPUs (Windows only).
@@ -982,7 +982,7 @@ export interface definitions {
      * mutually exclusive. The order of precedence is `CPUCount` first, then
      * `CPUShares`, and `CPUPercent` last.
      */
-    CpuCount?: number;
+    CpuCount?: number
     /**
      * Format: int64
      * @description The usable percentage of the available CPUs (Windows only).
@@ -991,39 +991,39 @@ export interface definitions {
      * mutually exclusive. The order of precedence is `CPUCount` first, then
      * `CPUShares`, and `CPUPercent` last.
      */
-    CpuPercent?: number;
+    CpuPercent?: number
     /**
      * Format: int64
      * @description Maximum IOps for the container system drive (Windows only)
      */
-    IOMaximumIOps?: number;
+    IOMaximumIOps?: number
     /**
      * Format: int64
      * @description Maximum IO in bytes per second for the container system drive
      * (Windows only).
      */
-    IOMaximumBandwidth?: number;
-  };
+    IOMaximumBandwidth?: number
+  }
   /** @description An object describing a limit on resources which can be requested by a task. */
   Limit: {
     /**
      * Format: int64
      * @example 4000000000
      */
-    NanoCPUs?: number;
+    NanoCPUs?: number
     /**
      * Format: int64
      * @example 8272408576
      */
-    MemoryBytes?: number;
+    MemoryBytes?: number
     /**
      * Format: int64
      * @description Limits the maximum number of PIDs in the container. Set `0` for unlimited.
      *
      * @example 100
      */
-    Pids?: number;
-  };
+    Pids?: number
+  }
   /**
    * @description An object describing the resources which can be advertised by a node and
    * requested by a task.
@@ -1033,14 +1033,14 @@ export interface definitions {
      * Format: int64
      * @example 4000000000
      */
-    NanoCPUs?: number;
+    NanoCPUs?: number
     /**
      * Format: int64
      * @example 8272408576
      */
-    MemoryBytes?: number;
-    GenericResources?: definitions["GenericResources"];
-  };
+    MemoryBytes?: number
+    GenericResources?: definitions["GenericResources"]
+  }
   /**
    * @description User-defined resources can be either Integer resources (e.g, `SSD=3`) or
    * String resources (e.g, `GPU=UUID1`).
@@ -1049,15 +1049,15 @@ export interface definitions {
    */
   GenericResources: {
     NamedResourceSpec?: {
-      Kind?: string;
-      Value?: string;
-    };
+      Kind?: string
+      Value?: string
+    }
     DiscreteResourceSpec?: {
-      Kind?: string;
+      Kind?: string
       /** Format: int64 */
-      Value?: number;
-    };
-  }[];
+      Value?: number
+    }
+  }[]
   /** @description A test to perform to check that the container is healthy. */
   HealthConfig: {
     /**
@@ -1068,29 +1068,29 @@ export interface definitions {
      * - `["CMD", args...]` exec arguments directly
      * - `["CMD-SHELL", command]` run command with system's default shell
      */
-    Test?: string[];
+    Test?: string[]
     /**
      * @description The time to wait between checks in nanoseconds. It should be 0 or at
      * least 1000000 (1 ms). 0 means inherit.
      */
-    Interval?: number;
+    Interval?: number
     /**
      * @description The time to wait before considering the check to have hung. It should
      * be 0 or at least 1000000 (1 ms). 0 means inherit.
      */
-    Timeout?: number;
+    Timeout?: number
     /**
      * @description The number of consecutive failures needed to consider a container as
      * unhealthy. 0 means inherit.
      */
-    Retries?: number;
+    Retries?: number
     /**
      * @description Start period for the container to initialize before starting
      * health-retries countdown in nanoseconds. It should be 0 or at least
      * 1000000 (1 ms). 0 means inherit.
      */
-    StartPeriod?: number;
-  };
+    StartPeriod?: number
+  }
   /** @description Health stores information about the container's healthcheck results. */
   Health: {
     /**
@@ -1104,12 +1104,12 @@ export interface definitions {
      * @example healthy
      * @enum {string}
      */
-    Status?: "none" | "starting" | "healthy" | "unhealthy";
+    Status?: "none" | "starting" | "healthy" | "unhealthy"
     /** @description FailingStreak is the number of consecutive failures */
-    FailingStreak?: number;
+    FailingStreak?: number
     /** @description Log contains the last few results (oldest first) */
-    Log?: definitions["HealthcheckResult"][];
-  };
+    Log?: definitions["HealthcheckResult"][]
+  }
   /** @description HealthcheckResult stores information about a single run of a healthcheck probe */
   HealthcheckResult: {
     /**
@@ -1119,7 +1119,7 @@ export interface definitions {
      *
      * @example 2020-01-04T10:44:24.496525531Z
      */
-    Start?: string;
+    Start?: string
     /**
      * Format: dateTime
      * @description Date and time at which this check ended in
@@ -1127,7 +1127,7 @@ export interface definitions {
      *
      * @example 2020-01-04T10:45:21.364524523Z
      */
-    End?: string;
+    End?: string
     /**
      * @description ExitCode meanings:
      *
@@ -1136,10 +1136,10 @@ export interface definitions {
      * - `2` reserved (considered unhealthy)
      * - other values: error running probe
      */
-    ExitCode?: number;
+    ExitCode?: number
     /** @description Output from last check */
-    Output?: string;
-  };
+    Output?: string
+  }
   /** @description Container configuration that depends on the host we are running on */
   HostConfig: definitions["Resources"] & {
     /**
@@ -1182,48 +1182,48 @@ export interface definitions {
      *   For slave volumes, the mount must be set to either `shared` or
      *   `slave`.
      */
-    Binds?: string[];
+    Binds?: string[]
     /** @description Path to a file where the container ID is written */
-    ContainerIDFile?: string;
+    ContainerIDFile?: string
     /** @description The logging configuration for this container */
     LogConfig?: {
       /** @enum {string} */
-      Type?: "json-file" | "syslog" | "journald" | "gelf" | "fluentd" | "awslogs" | "splunk" | "etwlogs" | "none";
-      Config?: { [key: string]: string };
-    };
+      Type?: "json-file" | "syslog" | "journald" | "gelf" | "fluentd" | "awslogs" | "splunk" | "etwlogs" | "none"
+      Config?: { [key: string]: string }
+    }
     /**
      * @description Network mode to use for this container. Supported standard values
      * are: `bridge`, `host`, `none`, and `container:<name|id>`. Any
      * other value is taken as a custom network's name to which this
      * container should connect to.
      */
-    NetworkMode?: string;
-    PortBindings?: definitions["PortMap"];
-    RestartPolicy?: definitions["RestartPolicy"];
+    NetworkMode?: string
+    PortBindings?: definitions["PortMap"]
+    RestartPolicy?: definitions["RestartPolicy"]
     /**
      * @description Automatically remove the container when the container's process
      * exits. This has no effect if `RestartPolicy` is set.
      */
-    AutoRemove?: boolean;
+    AutoRemove?: boolean
     /** @description Driver that this container uses to mount volumes. */
-    VolumeDriver?: string;
+    VolumeDriver?: string
     /**
      * @description A list of volumes to inherit from another container, specified in
      * the form `<container name>[:<ro|rw>]`.
      */
-    VolumesFrom?: string[];
+    VolumesFrom?: string[]
     /** @description Specification for mounts to be added to the container. */
-    Mounts?: definitions["Mount"][];
+    Mounts?: definitions["Mount"][]
     /**
      * @description A list of kernel capabilities to add to the container. Conflicts
      * with option 'Capabilities'.
      */
-    CapAdd?: string[];
+    CapAdd?: string[]
     /**
      * @description A list of kernel capabilities to drop from the container. Conflicts
      * with option 'Capabilities'.
      */
-    CapDrop?: string[];
+    CapDrop?: string[]
     /**
      * @description cgroup namespace mode for the container. Possible values are:
      *
@@ -1235,20 +1235,20 @@ export interface definitions {
      *
      * @enum {string}
      */
-    CgroupnsMode?: "private" | "host";
+    CgroupnsMode?: "private" | "host"
     /** @description A list of DNS servers for the container to use. */
-    Dns?: string[];
+    Dns?: string[]
     /** @description A list of DNS options. */
-    DnsOptions?: string[];
+    DnsOptions?: string[]
     /** @description A list of DNS search domains. */
-    DnsSearch?: string[];
+    DnsSearch?: string[]
     /**
      * @description A list of hostnames/IP mappings to add to the container's `/etc/hosts`
      * file. Specified in the form `["hostname:IP"]`.
      */
-    ExtraHosts?: string[];
+    ExtraHosts?: string[]
     /** @description A list of additional groups that the container process will run as. */
-    GroupAdd?: string[];
+    GroupAdd?: string[]
     /**
      * @description IPC sharing mode for the container. Possible values are:
      *
@@ -1261,18 +1261,18 @@ export interface definitions {
      * If not specified, daemon default is used, which can either be `"private"`
      * or `"shareable"`, depending on daemon version and configuration.
      */
-    IpcMode?: string;
+    IpcMode?: string
     /** @description Cgroup to use for the container. */
-    Cgroup?: string;
+    Cgroup?: string
     /** @description A list of links for the container in the form `container_name:alias`. */
-    Links?: string[];
+    Links?: string[]
     /**
      * @description An integer value containing the score given to the container in
      * order to tune OOM killer preferences.
      *
      * @example 500
      */
-    OomScoreAdj?: number;
+    OomScoreAdj?: number
     /**
      * @description Set the PID (Process) Namespace mode for the container. It can be
      * either:
@@ -1280,9 +1280,9 @@ export interface definitions {
      * - `"container:<name|id>"`: joins another container's PID namespace
      * - `"host"`: use the host's PID namespace inside the container
      */
-    PidMode?: string;
+    PidMode?: string
     /** @description Gives the container full access to the host. */
-    Privileged?: boolean;
+    Privileged?: boolean
     /**
      * @description Allocates an ephemeral host port for all of a container's
      * exposed ports.
@@ -1295,13 +1295,13 @@ export interface definitions {
      * the kernel. For example, on Linux the range is defined by
      * `/proc/sys/net/ipv4/ip_local_port_range`.
      */
-    PublishAllPorts?: boolean;
+    PublishAllPorts?: boolean
     /** @description Mount the container's root filesystem as read only. */
-    ReadonlyRootfs?: boolean;
+    ReadonlyRootfs?: boolean
     /** @description A list of string values to customize labels for MLS systems, such as SELinux. */
-    SecurityOpt?: string[];
+    SecurityOpt?: string[]
     /** @description Storage driver options for this container, in the form `{"size": "120G"}`. */
-    StorageOpt?: { [key: string]: string };
+    StorageOpt?: { [key: string]: string }
     /**
      * @description A map of container directories which should be replaced by tmpfs
      * mounts, and their corresponding mount options. For example:
@@ -1310,16 +1310,16 @@ export interface definitions {
      * { "/run": "rw,noexec,nosuid,size=65536k" }
      * ```
      */
-    Tmpfs?: { [key: string]: string };
+    Tmpfs?: { [key: string]: string }
     /** @description UTS namespace to use for the container. */
-    UTSMode?: string;
+    UTSMode?: string
     /**
      * @description Sets the usernamespace mode for the container when usernamespace
      * remapping option is enabled.
      */
-    UsernsMode?: string;
+    UsernsMode?: string
     /** @description Size of `/dev/shm` in bytes. If omitted, the system uses 64MB. */
-    ShmSize?: number;
+    ShmSize?: number
     /**
      * @description A list of kernel parameters (sysctls) to set in the container.
      * For example:
@@ -1328,80 +1328,80 @@ export interface definitions {
      * {"net.ipv4.ip_forward": "1"}
      * ```
      */
-    Sysctls?: { [key: string]: string };
+    Sysctls?: { [key: string]: string }
     /** @description Runtime to use with this container. */
-    Runtime?: string;
+    Runtime?: string
     /** @description Initial console size, as an `[height, width]` array. (Windows only) */
-    ConsoleSize?: number[];
+    ConsoleSize?: number[]
     /**
      * @description Isolation technology of the container. (Windows only)
      *
      * @enum {string}
      */
-    Isolation?: "default" | "process" | "hyperv";
+    Isolation?: "default" | "process" | "hyperv"
     /**
      * @description The list of paths to be masked inside the container (this overrides
      * the default set of paths).
      */
-    MaskedPaths?: string[];
+    MaskedPaths?: string[]
     /**
      * @description The list of paths to be set as read-only inside the container
      * (this overrides the default set of paths).
      */
-    ReadonlyPaths?: string[];
-  };
+    ReadonlyPaths?: string[]
+  }
   /** @description Configuration for a container that is portable between hosts */
   ContainerConfig: {
     /** @description The hostname to use for the container, as a valid RFC 1123 hostname. */
-    Hostname?: string;
+    Hostname?: string
     /** @description The domain name to use for the container. */
-    Domainname?: string;
+    Domainname?: string
     /** @description The user that commands are run as inside the container. */
-    User?: string;
+    User?: string
     /** @description Whether to attach to `stdin`. */
-    AttachStdin?: boolean;
+    AttachStdin?: boolean
     /**
      * @description Whether to attach to `stdout`.
      * @default true
      */
-    AttachStdout?: boolean;
+    AttachStdout?: boolean
     /**
      * @description Whether to attach to `stderr`.
      * @default true
      */
-    AttachStderr?: boolean;
+    AttachStderr?: boolean
     /**
      * @description An object mapping ports to an empty object in the form:
      *
      * `{"<port>/<tcp|udp|sctp>": {}}`
      */
-    ExposedPorts?: { [key: string]: {} };
+    ExposedPorts?: { [key: string]: {} }
     /** @description Attach standard streams to a TTY, including `stdin` if it is not closed. */
-    Tty?: boolean;
+    Tty?: boolean
     /** @description Open `stdin` */
-    OpenStdin?: boolean;
+    OpenStdin?: boolean
     /** @description Close `stdin` after one attached client disconnects */
-    StdinOnce?: boolean;
+    StdinOnce?: boolean
     /**
      * @description A list of environment variables to set inside the container in the
      * form `["VAR=value", ...]`. A variable without `=` is removed from the
      * environment, rather than to have an empty value.
      */
-    Env?: string[];
+    Env?: string[]
     /** @description Command to run specified as a string or an array of strings. */
-    Cmd?: string[];
-    Healthcheck?: definitions["HealthConfig"];
+    Cmd?: string[]
+    Healthcheck?: definitions["HealthConfig"]
     /** @description Command is already escaped (Windows only) */
-    ArgsEscaped?: boolean;
+    ArgsEscaped?: boolean
     /** @description The name of the image to use when creating the container/ */
-    Image?: string;
+    Image?: string
     /**
      * @description An object mapping mount point paths inside the container to empty
      * objects.
      */
-    Volumes?: { [key: string]: {} };
+    Volumes?: { [key: string]: {} }
     /** @description The working directory for commands to run in. */
-    WorkingDir?: string;
+    WorkingDir?: string
     /**
      * @description The entry point for the container as a string or an array of strings.
      *
@@ -1409,29 +1409,29 @@ export interface definitions {
      * entry point is reset to system default (i.e., the entry point used by
      * docker when there is no `ENTRYPOINT` instruction in the `Dockerfile`).
      */
-    Entrypoint?: string[];
+    Entrypoint?: string[]
     /** @description Disable networking for the container. */
-    NetworkDisabled?: boolean;
+    NetworkDisabled?: boolean
     /** @description MAC address of the container. */
-    MacAddress?: string;
+    MacAddress?: string
     /** @description `ONBUILD` metadata that were defined in the image's `Dockerfile`. */
-    OnBuild?: string[];
+    OnBuild?: string[]
     /** @description User-defined key/value metadata. */
-    Labels?: { [key: string]: string };
+    Labels?: { [key: string]: string }
     /**
      * @description Signal to stop a container as a string or unsigned integer.
      *
      * @default SIGTERM
      */
-    StopSignal?: string;
+    StopSignal?: string
     /**
      * @description Timeout to stop a container in seconds.
      * @default 10
      */
-    StopTimeout?: number;
+    StopTimeout?: number
     /** @description Shell for when `RUN`, `CMD`, and `ENTRYPOINT` uses a shell. */
-    Shell?: string[];
-  };
+    Shell?: string[]
+  }
   /**
    * @description NetworkingConfig represents the container's networking configuration for
    * each of its interfaces.
@@ -1442,40 +1442,40 @@ export interface definitions {
    */
   NetworkingConfig: {
     /** @description A mapping of network name to endpoint configuration for that network. */
-    EndpointsConfig?: { [key: string]: definitions["EndpointSettings"] };
-  };
+    EndpointsConfig?: { [key: string]: definitions["EndpointSettings"] }
+  }
   /** @description NetworkSettings exposes the network settings in the API */
   NetworkSettings: {
     /**
      * @description Name of the network'a bridge (for example, `docker0`).
      * @example docker0
      */
-    Bridge?: string;
+    Bridge?: string
     /**
      * @description SandboxID uniquely represents a container's network stack.
      * @example 9d12daf2c33f5959c8bf90aa513e4f65b561738661003029ec84830cd503a0c3
      */
-    SandboxID?: string;
+    SandboxID?: string
     /** @description Indicates if hairpin NAT should be enabled on the virtual interface. */
-    HairpinMode?: boolean;
+    HairpinMode?: boolean
     /**
      * @description IPv6 unicast address using the link-local prefix.
      * @example fe80::42:acff:fe11:1
      */
-    LinkLocalIPv6Address?: string;
+    LinkLocalIPv6Address?: string
     /**
      * @description Prefix length of the IPv6 unicast address.
      * @example 64
      */
-    LinkLocalIPv6PrefixLen?: number;
-    Ports?: definitions["PortMap"];
+    LinkLocalIPv6PrefixLen?: number
+    Ports?: definitions["PortMap"]
     /**
      * @description SandboxKey identifies the sandbox
      * @example /var/run/docker/netns/8ab54b426c38
      */
-    SandboxKey?: string;
-    SecondaryIPAddresses?: definitions["Address"][];
-    SecondaryIPv6Addresses?: definitions["Address"][];
+    SandboxKey?: string
+    SecondaryIPAddresses?: definitions["Address"][]
+    SecondaryIPv6Addresses?: definitions["Address"][]
     /**
      * @description EndpointID uniquely represents a service endpoint in a Sandbox.
      *
@@ -1489,7 +1489,7 @@ export interface definitions {
      *
      * @example b88f5b905aabf2893f3cbc4ee42d1ea7980bbc0a92e2c8922b1e1795298afb0b
      */
-    EndpointID?: string;
+    EndpointID?: string
     /**
      * @description Gateway address for the default "bridge" network.
      *
@@ -1503,7 +1503,7 @@ export interface definitions {
      *
      * @example 172.17.0.1
      */
-    Gateway?: string;
+    Gateway?: string
     /**
      * @description Global IPv6 address for the default "bridge" network.
      *
@@ -1517,7 +1517,7 @@ export interface definitions {
      *
      * @example 2001:db8::5689
      */
-    GlobalIPv6Address?: string;
+    GlobalIPv6Address?: string
     /**
      * @description Mask length of the global IPv6 address.
      *
@@ -1531,7 +1531,7 @@ export interface definitions {
      *
      * @example 64
      */
-    GlobalIPv6PrefixLen?: number;
+    GlobalIPv6PrefixLen?: number
     /**
      * @description IPv4 address for the default "bridge" network.
      *
@@ -1545,7 +1545,7 @@ export interface definitions {
      *
      * @example 172.17.0.4
      */
-    IPAddress?: string;
+    IPAddress?: string
     /**
      * @description Mask length of the IPv4 address.
      *
@@ -1559,7 +1559,7 @@ export interface definitions {
      *
      * @example 16
      */
-    IPPrefixLen?: number;
+    IPPrefixLen?: number
     /**
      * @description IPv6 gateway address for this network.
      *
@@ -1573,7 +1573,7 @@ export interface definitions {
      *
      * @example 2001:db8:2::100
      */
-    IPv6Gateway?: string;
+    IPv6Gateway?: string
     /**
      * @description MAC address for the container on the default "bridge" network.
      *
@@ -1587,17 +1587,17 @@ export interface definitions {
      *
      * @example 02:42:ac:11:00:04
      */
-    MacAddress?: string;
+    MacAddress?: string
     /** @description Information about all networks that the container is connected to. */
-    Networks?: { [key: string]: definitions["EndpointSettings"] };
-  };
+    Networks?: { [key: string]: definitions["EndpointSettings"] }
+  }
   /** @description Address represents an IPv4 or IPv6 IP address. */
   Address: {
     /** @description IP address. */
-    Addr?: string;
+    Addr?: string
     /** @description Mask length of the IP address. */
-    PrefixLen?: number;
-  };
+    PrefixLen?: number
+  }
   /**
    * @description PortMap describes the mapping of container ports to host ports, using the
    * container's port-number and protocol as key in the format `<port>/<protocol>`,
@@ -1608,7 +1608,7 @@ export interface definitions {
    *
    * @example [object Object]
    */
-  PortMap: { [key: string]: definitions["PortBinding"][] };
+  PortMap: { [key: string]: definitions["PortBinding"][] }
   /**
    * @description PortBinding represents a binding between a host IP address and a host
    * port.
@@ -1618,87 +1618,87 @@ export interface definitions {
      * @description Host IP address that the container's port is mapped to.
      * @example 127.0.0.1
      */
-    HostIp?: string;
+    HostIp?: string
     /**
      * @description Host port number that the container's port is mapped to.
      * @example 4443
      */
-    HostPort?: string;
-  };
+    HostPort?: string
+  }
   /** @description Information about a container's graph driver. */
   GraphDriverData: {
-    Name: string;
-    Data: { [key: string]: string };
-  };
+    Name: string
+    Data: { [key: string]: string }
+  }
   Image: {
-    Id: string;
-    RepoTags?: string[];
-    RepoDigests?: string[];
-    Parent: string;
-    Comment: string;
-    Created: string;
-    Container: string;
-    ContainerConfig?: definitions["ContainerConfig"];
-    DockerVersion: string;
-    Author: string;
-    Config?: definitions["ContainerConfig"];
-    Architecture: string;
-    Os: string;
-    OsVersion?: string;
+    Id: string
+    RepoTags?: string[]
+    RepoDigests?: string[]
+    Parent: string
+    Comment: string
+    Created: string
+    Container: string
+    ContainerConfig?: definitions["ContainerConfig"]
+    DockerVersion: string
+    Author: string
+    Config?: definitions["ContainerConfig"]
+    Architecture: string
+    Os: string
+    OsVersion?: string
     /** Format: int64 */
-    Size: number;
+    Size: number
     /** Format: int64 */
-    VirtualSize: number;
-    GraphDriver: definitions["GraphDriverData"];
+    VirtualSize: number
+    GraphDriver: definitions["GraphDriverData"]
     RootFS: {
-      Type: string;
-      Layers?: string[];
-      BaseLayer?: string;
-    };
+      Type: string
+      Layers?: string[]
+      BaseLayer?: string
+    }
     Metadata?: {
       /** Format: dateTime */
-      LastTagTime?: string;
-    };
-  };
+      LastTagTime?: string
+    }
+  }
   ImageSummary: {
-    Id: string;
-    ParentId: string;
-    RepoTags: string[];
-    RepoDigests: string[];
-    Created: number;
-    Size: number;
-    SharedSize: number;
-    VirtualSize: number;
-    Labels: { [key: string]: string };
-    Containers: number;
-  };
+    Id: string
+    ParentId: string
+    RepoTags: string[]
+    RepoDigests: string[]
+    Created: number
+    Size: number
+    SharedSize: number
+    VirtualSize: number
+    Labels: { [key: string]: string }
+    Containers: number
+  }
   /** @example [object Object] */
   AuthConfig: {
-    username?: string;
-    password?: string;
-    email?: string;
-    serveraddress?: string;
-  };
+    username?: string
+    password?: string
+    email?: string
+    serveraddress?: string
+  }
   ProcessConfig: {
-    privileged?: boolean;
-    user?: string;
-    tty?: boolean;
-    entrypoint?: string;
-    arguments?: string[];
-  };
+    privileged?: boolean
+    user?: string
+    tty?: boolean
+    entrypoint?: string
+    arguments?: string[]
+  }
   /** @example [object Object] */
   Volume: {
     /** @description Name of the volume. */
-    Name: string;
+    Name: string
     /** @description Name of the volume driver used by the volume. */
-    Driver: string;
+    Driver: string
     /** @description Mount path of the volume on the host. */
-    Mountpoint: string;
+    Mountpoint: string
     /**
      * Format: dateTime
      * @description Date/Time the volume was created.
      */
-    CreatedAt?: string;
+    CreatedAt?: string
     /**
      * @description Low-level details about the volume, provided by the volume driver.
      * Details are returned as a map with key/value pairs:
@@ -1707,9 +1707,9 @@ export interface definitions {
      * The `Status` field is optional, and is omitted if the volume driver
      * does not support this feature.
      */
-    Status?: { [key: string]: { [key: string]: unknown } };
+    Status?: { [key: string]: { [key: string]: unknown } }
     /** @description User-defined key/value metadata. */
-    Labels: { [key: string]: string };
+    Labels: { [key: string]: string }
     /**
      * @description The level at which the volume exists. Either `global` for cluster-wide,
      * or `local` for machine level.
@@ -1717,9 +1717,9 @@ export interface definitions {
      * @default local
      * @enum {string}
      */
-    Scope: "local" | "global";
+    Scope: "local" | "global"
     /** @description The driver specific options used when creating the volume. */
-    Options: { [key: string]: string };
+    Options: { [key: string]: string }
     /**
      * @description Usage details about the volume. This information is used by the
      * `GET /system/df` endpoint, and omitted in other endpoints.
@@ -1733,39 +1733,39 @@ export interface definitions {
        *
        * @default -1
        */
-      Size: number;
+      Size: number
       /**
        * @description The number of containers referencing this volume. This field
        * is set to `-1` if the reference-count is not available.
        *
        * @default -1
        */
-      RefCount: number;
-    };
-  };
+      RefCount: number
+    }
+  }
   /** @example [object Object] */
   Network: {
-    Name?: string;
-    Id?: string;
+    Name?: string
+    Id?: string
     /** Format: dateTime */
-    Created?: string;
-    Scope?: string;
-    Driver?: string;
-    EnableIPv6?: boolean;
-    IPAM?: definitions["IPAM"];
-    Internal?: boolean;
-    Attachable?: boolean;
-    Ingress?: boolean;
-    Containers?: { [key: string]: definitions["NetworkContainer"] };
-    Options?: { [key: string]: string };
-    Labels?: { [key: string]: string };
-  };
+    Created?: string
+    Scope?: string
+    Driver?: string
+    EnableIPv6?: boolean
+    IPAM?: definitions["IPAM"]
+    Internal?: boolean
+    Attachable?: boolean
+    Ingress?: boolean
+    Containers?: { [key: string]: definitions["NetworkContainer"] }
+    Options?: { [key: string]: string }
+    Labels?: { [key: string]: string }
+  }
   IPAM: {
     /**
      * @description Name of the IPAM driver to use.
      * @default default
      */
-    Driver?: string;
+    Driver?: string
     /**
      * @description List of IPAM configuration options, specified as a map:
      *
@@ -1773,36 +1773,36 @@ export interface definitions {
      * {"Subnet": <CIDR>, "IPRange": <CIDR>, "Gateway": <IP address>, "AuxAddress": <device_name:IP address>}
      * ```
      */
-    Config?: { [key: string]: string }[];
+    Config?: { [key: string]: string }[]
     /** @description Driver-specific options, specified as a map. */
-    Options?: { [key: string]: string };
-  };
+    Options?: { [key: string]: string }
+  }
   NetworkContainer: {
-    Name?: string;
-    EndpointID?: string;
-    MacAddress?: string;
-    IPv4Address?: string;
-    IPv6Address?: string;
-  };
+    Name?: string
+    EndpointID?: string
+    MacAddress?: string
+    IPv4Address?: string
+    IPv6Address?: string
+  }
   BuildInfo: {
-    id?: string;
-    stream?: string;
-    error?: string;
-    errorDetail?: definitions["ErrorDetail"];
-    status?: string;
-    progress?: string;
-    progressDetail?: definitions["ProgressDetail"];
-    aux?: definitions["ImageID"];
-  };
+    id?: string
+    stream?: string
+    error?: string
+    errorDetail?: definitions["ErrorDetail"]
+    status?: string
+    progress?: string
+    progressDetail?: definitions["ProgressDetail"]
+    aux?: definitions["ImageID"]
+  }
   BuildCache: {
-    ID?: string;
-    Parent?: string;
-    Type?: string;
-    Description?: string;
-    InUse?: boolean;
-    Shared?: boolean;
+    ID?: string
+    Parent?: string
+    Type?: string
+    Description?: string
+    InUse?: boolean
+    Shared?: boolean
     /** @description Amount of disk space used by the build cache (in bytes). */
-    Size?: number;
+    Size?: number
     /**
      * Format: dateTime
      * @description Date and time at which the build cache was created in
@@ -1810,7 +1810,7 @@ export interface definitions {
      *
      * @example 2016-08-18T10:44:24.496525531Z
      */
-    CreatedAt?: string;
+    CreatedAt?: string
     /**
      * Format: dateTime
      * @description Date and time at which the build cache was last used in
@@ -1818,259 +1818,259 @@ export interface definitions {
      *
      * @example 2017-08-09T07:09:37.632105588Z
      */
-    LastUsedAt?: string;
-    UsageCount?: number;
-  };
+    LastUsedAt?: string
+    UsageCount?: number
+  }
   /**
    * @description Image ID or Digest
    * @example [object Object]
    */
   ImageID: {
-    ID?: string;
-  };
+    ID?: string
+  }
   CreateImageInfo: {
-    id?: string;
-    error?: string;
-    status?: string;
-    progress?: string;
-    progressDetail?: definitions["ProgressDetail"];
-  };
+    id?: string
+    error?: string
+    status?: string
+    progress?: string
+    progressDetail?: definitions["ProgressDetail"]
+  }
   PushImageInfo: {
-    error?: string;
-    status?: string;
-    progress?: string;
-    progressDetail?: definitions["ProgressDetail"];
-  };
+    error?: string
+    status?: string
+    progress?: string
+    progressDetail?: definitions["ProgressDetail"]
+  }
   ErrorDetail: {
-    code?: number;
-    message?: string;
-  };
+    code?: number
+    message?: string
+  }
   ProgressDetail: {
-    current?: number;
-    total?: number;
-  };
+    current?: number
+    total?: number
+  }
   /**
    * @description Represents an error.
    * @example [object Object]
    */
   ErrorResponse: {
     /** @description The error message. */
-    message: string;
-  };
+    message: string
+  }
   /** @description Response to an API call that returns just an Id */
   IdResponse: {
     /** @description The id of the newly created object. */
-    Id: string;
-  };
+    Id: string
+  }
   /** @description Configuration for a network endpoint. */
   EndpointSettings: {
-    IPAMConfig?: definitions["EndpointIPAMConfig"];
+    IPAMConfig?: definitions["EndpointIPAMConfig"]
     /** @example container_1,container_2 */
-    Links?: string[];
+    Links?: string[]
     /** @example server_x,server_y */
-    Aliases?: string[];
+    Aliases?: string[]
     /**
      * @description Unique ID of the network.
      *
      * @example 08754567f1f40222263eab4102e1c733ae697e8e354aa9cd6e18d7402835292a
      */
-    NetworkID?: string;
+    NetworkID?: string
     /**
      * @description Unique ID for the service endpoint in a Sandbox.
      *
      * @example b88f5b905aabf2893f3cbc4ee42d1ea7980bbc0a92e2c8922b1e1795298afb0b
      */
-    EndpointID?: string;
+    EndpointID?: string
     /**
      * @description Gateway address for this network.
      *
      * @example 172.17.0.1
      */
-    Gateway?: string;
+    Gateway?: string
     /**
      * @description IPv4 address.
      *
      * @example 172.17.0.4
      */
-    IPAddress?: string;
+    IPAddress?: string
     /**
      * @description Mask length of the IPv4 address.
      *
      * @example 16
      */
-    IPPrefixLen?: number;
+    IPPrefixLen?: number
     /**
      * @description IPv6 gateway address.
      *
      * @example 2001:db8:2::100
      */
-    IPv6Gateway?: string;
+    IPv6Gateway?: string
     /**
      * @description Global IPv6 address.
      *
      * @example 2001:db8::5689
      */
-    GlobalIPv6Address?: string;
+    GlobalIPv6Address?: string
     /**
      * Format: int64
      * @description Mask length of the global IPv6 address.
      *
      * @example 64
      */
-    GlobalIPv6PrefixLen?: number;
+    GlobalIPv6PrefixLen?: number
     /**
      * @description MAC address for the endpoint on this network.
      *
      * @example 02:42:ac:11:00:04
      */
-    MacAddress?: string;
+    MacAddress?: string
     /**
      * @description DriverOpts is a mapping of driver options and values. These options
      * are passed directly to the driver and are driver specific.
      *
      * @example [object Object]
      */
-    DriverOpts?: { [key: string]: string };
-  };
+    DriverOpts?: { [key: string]: string }
+  }
   /** @description EndpointIPAMConfig represents an endpoint's IPAM configuration. */
   EndpointIPAMConfig: {
     /** @example 172.20.30.33 */
-    IPv4Address?: string;
+    IPv4Address?: string
     /** @example 2001:db8:abcd::3033 */
-    IPv6Address?: string;
+    IPv6Address?: string
     /** @example 169.254.34.68,fe80::3468 */
-    LinkLocalIPs?: string[];
-  };
+    LinkLocalIPs?: string[]
+  }
   PluginMount: {
     /** @example some-mount */
-    Name: string;
+    Name: string
     /** @example This is a mount that's used by the plugin. */
-    Description: string;
-    Settable: string[];
+    Description: string
+    Settable: string[]
     /** @example /var/lib/docker/plugins/ */
-    Source: string;
+    Source: string
     /** @example /mnt/state */
-    Destination: string;
+    Destination: string
     /** @example bind */
-    Type: string;
+    Type: string
     /** @example rbind,rw */
-    Options: string[];
-  };
+    Options: string[]
+  }
   PluginDevice: {
-    Name: string;
-    Description: string;
-    Settable: string[];
+    Name: string
+    Description: string
+    Settable: string[]
     /** @example /dev/fuse */
-    Path: string;
-  };
+    Path: string
+  }
   PluginEnv: {
-    Name: string;
-    Description: string;
-    Settable: string[];
-    Value: string;
-  };
+    Name: string
+    Description: string
+    Settable: string[]
+    Value: string
+  }
   PluginInterfaceType: {
-    Prefix: string;
-    Capability: string;
-    Version: string;
-  };
+    Prefix: string
+    Capability: string
+    Version: string
+  }
   /** @description A plugin for the Engine API */
   Plugin: {
     /** @example 5724e2c8652da337ab2eedd19fc6fc0ec908e4bd907c7421bf6a8dfc70c4c078 */
-    Id?: string;
+    Id?: string
     /** @example tiborvass/sample-volume-plugin */
-    Name: string;
+    Name: string
     /**
      * @description True if the plugin is running. False if the plugin is not running, only installed.
      * @example true
      */
-    Enabled: boolean;
+    Enabled: boolean
     /** @description Settings that can be modified by users. */
     Settings: {
-      Mounts: definitions["PluginMount"][];
+      Mounts: definitions["PluginMount"][]
       /** @example DEBUG=0 */
-      Env: string[];
-      Args: string[];
-      Devices: definitions["PluginDevice"][];
-    };
+      Env: string[]
+      Args: string[]
+      Devices: definitions["PluginDevice"][]
+    }
     /**
      * @description plugin remote reference used to push/pull the plugin
      * @example localhost:5000/tiborvass/sample-volume-plugin:latest
      */
-    PluginReference?: string;
+    PluginReference?: string
     /** @description The config of a plugin. */
     Config: {
       /**
        * @description Docker Version used to create the plugin
        * @example 17.06.0-ce
        */
-      DockerVersion?: string;
+      DockerVersion?: string
       /** @example A sample volume plugin for Docker */
-      Description: string;
+      Description: string
       /** @example https://docs.docker.com/engine/extend/plugins/ */
-      Documentation: string;
+      Documentation: string
       /** @description The interface between Docker and the plugin */
       Interface: {
         /** @example docker.volumedriver/1.0 */
-        Types: definitions["PluginInterfaceType"][];
+        Types: definitions["PluginInterfaceType"][]
         /** @example plugins.sock */
-        Socket: string;
+        Socket: string
         /**
          * @description Protocol to use for clients connecting to the plugin.
          * @example some.protocol/v1.0
          * @enum {string}
          */
-        ProtocolScheme?: "" | "moby.plugins.http/v1";
-      };
+        ProtocolScheme?: "" | "moby.plugins.http/v1"
+      }
       /** @example /usr/bin/sample-volume-plugin,/data */
-      Entrypoint: string[];
+      Entrypoint: string[]
       /** @example /bin/ */
-      WorkDir: string;
+      WorkDir: string
       User?: {
         /**
          * Format: uint32
          * @example 1000
          */
-        UID?: number;
+        UID?: number
         /**
          * Format: uint32
          * @example 1000
          */
-        GID?: number;
-      };
+        GID?: number
+      }
       Network: {
         /** @example host */
-        Type: string;
-      };
+        Type: string
+      }
       Linux: {
         /** @example CAP_SYS_ADMIN,CAP_SYSLOG */
-        Capabilities: string[];
-        AllowAllDevices: boolean;
-        Devices: definitions["PluginDevice"][];
-      };
+        Capabilities: string[]
+        AllowAllDevices: boolean
+        Devices: definitions["PluginDevice"][]
+      }
       /** @example /mnt/volumes */
-      PropagatedMount: string;
-      IpcHost: boolean;
-      PidHost: boolean;
-      Mounts: definitions["PluginMount"][];
+      PropagatedMount: string
+      IpcHost: boolean
+      PidHost: boolean
+      Mounts: definitions["PluginMount"][]
       /** @example [object Object] */
-      Env: definitions["PluginEnv"][];
+      Env: definitions["PluginEnv"][]
       Args: {
         /** @example args */
-        Name: string;
+        Name: string
         /** @example command line arguments */
-        Description: string;
-        Settable: string[];
-        Value: string[];
-      };
+        Description: string
+        Settable: string[]
+        Value: string[]
+      }
       rootfs?: {
         /** @example layers */
-        type?: string;
+        type?: string
         /** @example sha256:675532206fbf3030b8458f88d6e26d4eb1577688a25efec97154c94e8b6b4887,sha256:e216a057b1cb1efc11f8a268f37ef62083e70b1b38323ba252e25ac88904a7e8 */
-        diff_ids?: string[];
-      };
-    };
-  };
+        diff_ids?: string[]
+      }
+    }
+  }
   /**
    * @description The version number of the object such as node, service, etc. This is needed
    * to avoid conflicting writes. The client must send the version number along
@@ -2088,34 +2088,34 @@ export interface definitions {
      * Format: uint64
      * @example 373531
      */
-    Index?: number;
-  };
+    Index?: number
+  }
   /** @example [object Object] */
   NodeSpec: {
     /**
      * @description Name for the node.
      * @example my-node
      */
-    Name?: string;
+    Name?: string
     /** @description User-defined key/value metadata. */
-    Labels?: { [key: string]: string };
+    Labels?: { [key: string]: string }
     /**
      * @description Role of the node.
      * @example manager
      * @enum {string}
      */
-    Role?: "worker" | "manager";
+    Role?: "worker" | "manager"
     /**
      * @description Availability of the node.
      * @example active
      * @enum {string}
      */
-    Availability?: "active" | "pause" | "drain";
-  };
+    Availability?: "active" | "pause" | "drain"
+  }
   Node: {
     /** @example 24ifsmvkjbyhk */
-    ID?: string;
-    Version?: definitions["ObjectVersion"];
+    ID?: string
+    Version?: definitions["ObjectVersion"]
     /**
      * Format: dateTime
      * @description Date and time at which the node was added to the swarm in
@@ -2123,7 +2123,7 @@ export interface definitions {
      *
      * @example 2016-08-18T10:44:24.496525531Z
      */
-    CreatedAt?: string;
+    CreatedAt?: string
     /**
      * Format: dateTime
      * @description Date and time at which the node was last updated in
@@ -2131,24 +2131,24 @@ export interface definitions {
      *
      * @example 2017-08-09T07:09:37.632105588Z
      */
-    UpdatedAt?: string;
-    Spec?: definitions["NodeSpec"];
-    Description?: definitions["NodeDescription"];
-    Status?: definitions["NodeStatus"];
-    ManagerStatus?: definitions["ManagerStatus"];
-  };
+    UpdatedAt?: string
+    Spec?: definitions["NodeSpec"]
+    Description?: definitions["NodeDescription"]
+    Status?: definitions["NodeStatus"]
+    ManagerStatus?: definitions["ManagerStatus"]
+  }
   /**
    * @description NodeDescription encapsulates the properties of the Node as reported by the
    * agent.
    */
   NodeDescription: {
     /** @example bf3067039e47 */
-    Hostname?: string;
-    Platform?: definitions["Platform"];
-    Resources?: definitions["ResourceObject"];
-    Engine?: definitions["EngineDescription"];
-    TLSInfo?: definitions["TLSInfo"];
-  };
+    Hostname?: string
+    Platform?: definitions["Platform"]
+    Resources?: definitions["ResourceObject"]
+    Engine?: definitions["EngineDescription"]
+    TLSInfo?: definitions["TLSInfo"]
+  }
   /** @description Platform represents the platform (Arch/OS). */
   Platform: {
     /**
@@ -2157,26 +2157,26 @@ export interface definitions {
      *
      * @example x86_64
      */
-    Architecture?: string;
+    Architecture?: string
     /**
      * @description OS represents the Operating System (for example, `linux` or `windows`).
      *
      * @example linux
      */
-    OS?: string;
-  };
+    OS?: string
+  }
   /** @description EngineDescription provides information about an engine. */
   EngineDescription: {
     /** @example 17.06.0 */
-    EngineVersion?: string;
+    EngineVersion?: string
     /** @example [object Object] */
-    Labels?: { [key: string]: string };
+    Labels?: { [key: string]: string }
     /** @example [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object] */
     Plugins?: {
-      Type?: string;
-      Name?: string;
-    }[];
-  };
+      Type?: string
+      Name?: string
+    }[]
+  }
   /**
    * @description Information about the issuer of leaf TLS certificates and the trusted root
    * CA certificate.
@@ -2188,32 +2188,32 @@ export interface definitions {
      * @description The root CA certificate(s) that are used to validate leaf TLS
      * certificates.
      */
-    TrustRoot?: string;
+    TrustRoot?: string
     /** @description The base64-url-safe-encoded raw subject bytes of the issuer. */
-    CertIssuerSubject?: string;
+    CertIssuerSubject?: string
     /** @description The base64-url-safe-encoded raw public key bytes of the issuer. */
-    CertIssuerPublicKey?: string;
-  };
+    CertIssuerPublicKey?: string
+  }
   /**
    * @description NodeStatus represents the status of a node.
    *
    * It provides the current status of the node, as seen by the manager.
    */
   NodeStatus: {
-    State?: definitions["NodeState"];
-    Message?: string;
+    State?: definitions["NodeState"]
+    Message?: string
     /**
      * @description IP address of the node.
      * @example 172.17.0.2
      */
-    Addr?: string;
-  };
+    Addr?: string
+  }
   /**
    * @description NodeState represents the state of a node.
    * @example ready
    * @enum {string}
    */
-  NodeState: "unknown" | "down" | "ready" | "disconnected";
+  NodeState: "unknown" | "down" | "ready" | "disconnected"
   /**
    * @description ManagerStatus represents the status of a manager.
    *
@@ -2222,33 +2222,33 @@ export interface definitions {
    */
   ManagerStatus: {
     /** @example true */
-    Leader?: boolean;
-    Reachability?: definitions["Reachability"];
+    Leader?: boolean
+    Reachability?: definitions["Reachability"]
     /**
      * @description The IP address and port at which the manager is reachable.
      *
      * @example 10.0.0.46:2377
      */
-    Addr?: string;
-  };
+    Addr?: string
+  }
   /**
    * @description Reachability represents the reachability of a node.
    * @example reachable
    * @enum {string}
    */
-  Reachability: "unknown" | "unreachable" | "reachable";
+  Reachability: "unknown" | "unreachable" | "reachable"
   /** @description User modifiable swarm configuration. */
   SwarmSpec: {
     /**
      * @description Name of the swarm.
      * @example default
      */
-    Name?: string;
+    Name?: string
     /**
      * @description User-defined key/value metadata.
      * @example [object Object]
      */
-    Labels?: { [key: string]: string };
+    Labels?: { [key: string]: string }
     /** @description Orchestration configuration. */
     Orchestration?: {
       /**
@@ -2258,8 +2258,8 @@ export interface definitions {
        *
        * @example 10
        */
-      TaskHistoryRetentionLimit?: number;
-    };
+      TaskHistoryRetentionLimit?: number
+    }
     /** @description Raft configuration. */
     Raft?: {
       /**
@@ -2267,12 +2267,12 @@ export interface definitions {
        * @description The number of log entries between snapshots.
        * @example 10000
        */
-      SnapshotInterval?: number;
+      SnapshotInterval?: number
       /**
        * Format: uint64
        * @description The number of snapshots to keep beyond the current snapshot.
        */
-      KeepOldSnapshots?: number;
+      KeepOldSnapshots?: number
       /**
        * Format: uint64
        * @description The number of log entries to keep around to sync up slow followers
@@ -2280,7 +2280,7 @@ export interface definitions {
        *
        * @example 500
        */
-      LogEntriesForSlowFollowers?: number;
+      LogEntriesForSlowFollowers?: number
       /**
        * @description The number of ticks that a follower will wait for a message from
        * the leader before becoming a candidate and starting an election.
@@ -2291,7 +2291,7 @@ export interface definitions {
        *
        * @example 3
        */
-      ElectionTick?: number;
+      ElectionTick?: number
       /**
        * @description The number of ticks between heartbeats. Every HeartbeatTick ticks,
        * the leader will send a heartbeat to the followers.
@@ -2301,8 +2301,8 @@ export interface definitions {
        *
        * @example 1
        */
-      HeartbeatTick?: number;
-    };
+      HeartbeatTick?: number
+    }
     /** @description Dispatcher configuration. */
     Dispatcher?: {
       /**
@@ -2311,8 +2311,8 @@ export interface definitions {
        *
        * @example 5000000000
        */
-      HeartbeatPeriod?: number;
-    };
+      HeartbeatPeriod?: number
+    }
     /** @description CA configuration. */
     CAConfig?: {
       /**
@@ -2320,7 +2320,7 @@ export interface definitions {
        * @description The duration node certificates are issued for.
        * @example 7776000000000000
        */
-      NodeCertExpiry?: number;
+      NodeCertExpiry?: number
       /**
        * @description Configuration for forwarding signing requests to an external
        * certificate authority.
@@ -2333,47 +2333,47 @@ export interface definitions {
          * @default cfssl
          * @enum {string}
          */
-        Protocol?: "cfssl";
+        Protocol?: "cfssl"
         /** @description URL where certificate signing requests should be sent. */
-        URL?: string;
+        URL?: string
         /**
          * @description An object with key/value pairs that are interpreted as
          * protocol-specific options for the external CA driver.
          */
-        Options?: { [key: string]: string };
+        Options?: { [key: string]: string }
         /**
          * @description The root CA certificate (in PEM format) this external CA uses
          * to issue TLS certificates (assumed to be to the current swarm
          * root CA certificate if not provided).
          */
-        CACert?: string;
-      }[];
+        CACert?: string
+      }[]
       /**
        * @description The desired signing CA certificate for all swarm node TLS leaf
        * certificates, in PEM format.
        */
-      SigningCACert?: string;
+      SigningCACert?: string
       /**
        * @description The desired signing CA key for all swarm node TLS leaf certificates,
        * in PEM format.
        */
-      SigningCAKey?: string;
+      SigningCAKey?: string
       /**
        * Format: uint64
        * @description An integer whose purpose is to force swarm to generate a new
        * signing CA certificate and key, if none have been specified in
        * `SigningCACert` and `SigningCAKey`
        */
-      ForceRotate?: number;
-    };
+      ForceRotate?: number
+    }
     /** @description Parameters related to encryption-at-rest. */
     EncryptionConfig?: {
       /**
        * @description If set, generate a key and use it to lock data stored on the
        * managers.
        */
-      AutoLockManagers?: boolean;
-    };
+      AutoLockManagers?: boolean
+    }
     /** @description Defaults for creating tasks in this cluster. */
     TaskDefaults?: {
       /**
@@ -2389,17 +2389,17 @@ export interface definitions {
          *
          * @example json-file
          */
-        Name?: string;
+        Name?: string
         /**
          * @description Driver-specific options for the selectd log driver, specified
          * as key/value pairs.
          *
          * @example [object Object]
          */
-        Options?: { [key: string]: string };
-      };
-    };
-  };
+        Options?: { [key: string]: string }
+      }
+    }
+  }
   /**
    * @description ClusterInfo represents information about the swarm as is returned by the
    * "/info" endpoint. Join-tokens are not included.
@@ -2409,8 +2409,8 @@ export interface definitions {
      * @description The ID of the swarm.
      * @example abajmipo7b4xz5ip2nrla6b11
      */
-    ID?: string;
-    Version?: definitions["ObjectVersion"];
+    ID?: string
+    Version?: definitions["ObjectVersion"]
     /**
      * Format: dateTime
      * @description Date and time at which the swarm was initialised in
@@ -2418,7 +2418,7 @@ export interface definitions {
      *
      * @example 2016-08-18T10:44:24.496525531Z
      */
-    CreatedAt?: string;
+    CreatedAt?: string
     /**
      * Format: dateTime
      * @description Date and time at which the swarm was last updated in
@@ -2426,11 +2426,11 @@ export interface definitions {
      *
      * @example 2017-08-09T07:09:37.632105588Z
      */
-    UpdatedAt?: string;
-    Spec?: definitions["SwarmSpec"];
-    TLSInfo?: definitions["TLSInfo"];
+    UpdatedAt?: string
+    Spec?: definitions["SwarmSpec"]
+    TLSInfo?: definitions["TLSInfo"]
     /** @description Whether there is currently a root CA rotation in progress for the swarm */
-    RootRotationInProgress?: boolean;
+    RootRotationInProgress?: boolean
     /**
      * Format: uint32
      * @description DataPathPort specifies the data path port number for data traffic.
@@ -2440,12 +2440,12 @@ export interface definitions {
      * @default 4789
      * @example 4789
      */
-    DataPathPort?: number;
+    DataPathPort?: number
     /**
      * @description Default Address Pool specifies default subnet pools for global scope
      * networks.
      */
-    DefaultAddrPool?: string[];
+    DefaultAddrPool?: string[]
     /**
      * Format: uint32
      * @description SubnetSize specifies the subnet size of the networks created from the
@@ -2454,8 +2454,8 @@ export interface definitions {
      * @default 24
      * @example 24
      */
-    SubnetSize?: number;
-  };
+    SubnetSize?: number
+  }
   /** @description JoinTokens contains the tokens workers and managers need to join the swarm. */
   JoinTokens: {
     /**
@@ -2463,17 +2463,17 @@ export interface definitions {
      *
      * @example SWMTKN-1-3pu6hszjas19xyp7ghgosyx9k8atbfcr8p2is99znpy26u2lkl-1awxwuwd3z9j1z3puu7rcgdbx
      */
-    Worker?: string;
+    Worker?: string
     /**
      * @description The token managers can use to join the swarm.
      *
      * @example SWMTKN-1-3pu6hszjas19xyp7ghgosyx9k8atbfcr8p2is99znpy26u2lkl-7p73s1dx5in4tatdymyhg9hu2
      */
-    Manager?: string;
-  };
+    Manager?: string
+  }
   Swarm: definitions["ClusterInfo"] & {
-    JoinTokens?: definitions["JoinTokens"];
-  };
+    JoinTokens?: definitions["JoinTokens"]
+  }
   /** @description User modifiable task configuration. */
   TaskSpec: {
     /**
@@ -2488,17 +2488,17 @@ export interface definitions {
      */
     PluginSpec?: {
       /** @description The name or 'alias' to use for the plugin. */
-      Name?: string;
+      Name?: string
       /** @description The plugin image reference to use. */
-      Remote?: string;
+      Remote?: string
       /** @description Disable the plugin once scheduled. */
-      Disabled?: boolean;
+      Disabled?: boolean
       PluginPrivilege?: {
-        Name?: string;
-        Description?: string;
-        Value?: string[];
-      }[];
-    };
+        Name?: string
+        Description?: string
+        Value?: string[]
+      }[]
+    }
     /**
      * @description Container spec for the service.
      *
@@ -2511,26 +2511,26 @@ export interface definitions {
      */
     ContainerSpec?: {
       /** @description The image name to use for the container */
-      Image?: string;
+      Image?: string
       /** @description User-defined key/value data. */
-      Labels?: { [key: string]: string };
+      Labels?: { [key: string]: string }
       /** @description The command to be run in the image. */
-      Command?: string[];
+      Command?: string[]
       /** @description Arguments to the command. */
-      Args?: string[];
+      Args?: string[]
       /**
        * @description The hostname to use for the container, as a valid
        * [RFC 1123](https://tools.ietf.org/html/rfc1123) hostname.
        */
-      Hostname?: string;
+      Hostname?: string
       /** @description A list of environment variables in the form `VAR=value`. */
-      Env?: string[];
+      Env?: string[]
       /** @description The working directory for commands to run in. */
-      Dir?: string;
+      Dir?: string
       /** @description The user inside the container. */
-      User?: string;
+      User?: string
       /** @description A list of additional groups that the container process will run as. */
-      Groups?: string[];
+      Groups?: string[]
       /** @description Security options for the container */
       Privileges?: {
         /** @description CredentialSpec for managed service account (Windows only) */
@@ -2548,7 +2548,7 @@ export interface definitions {
            *
            * @example 0bt9dmxjvjiqermk6xrop3ekq
            */
-          Config?: string;
+          Config?: string
           /**
            * @description Load credential spec from this file. The file is read by
            * the daemon, and must be present in the `CredentialSpecs`
@@ -2565,7 +2565,7 @@ export interface definitions {
            *
            * @example spec.json
            */
-          File?: string;
+          File?: string
           /**
            * @description Load credential spec from this value in the Windows
            * registry. The specified registry value must be located in:
@@ -2578,42 +2578,42 @@ export interface definitions {
            * > **Note**: `CredentialSpec.File`, `CredentialSpec.Registry`,
            * > and `CredentialSpec.Config` are mutually exclusive.
            */
-          Registry?: string;
-        };
+          Registry?: string
+        }
         /** @description SELinux labels of the container */
         SELinuxContext?: {
           /** @description Disable SELinux */
-          Disable?: boolean;
+          Disable?: boolean
           /** @description SELinux user label */
-          User?: string;
+          User?: string
           /** @description SELinux role label */
-          Role?: string;
+          Role?: string
           /** @description SELinux type label */
-          Type?: string;
+          Type?: string
           /** @description SELinux level label */
-          Level?: string;
-        };
-      };
+          Level?: string
+        }
+      }
       /** @description Whether a pseudo-TTY should be allocated. */
-      TTY?: boolean;
+      TTY?: boolean
       /** @description Open `stdin` */
-      OpenStdin?: boolean;
+      OpenStdin?: boolean
       /** @description Mount the container's root filesystem as read only. */
-      ReadOnly?: boolean;
+      ReadOnly?: boolean
       /**
        * @description Specification for mounts to be added to containers created as part
        * of the service.
        */
-      Mounts?: definitions["Mount"][];
+      Mounts?: definitions["Mount"][]
       /** @description Signal to stop the container. */
-      StopSignal?: string;
+      StopSignal?: string
       /**
        * Format: int64
        * @description Amount of time to wait for the container to terminate before
        * forcefully killing it.
        */
-      StopGracePeriod?: number;
-      HealthCheck?: definitions["HealthConfig"];
+      StopGracePeriod?: number
+      HealthCheck?: definitions["HealthConfig"]
       /**
        * @description A list of hostname/IP mappings to add to the container's `hosts`
        * file. The format of extra hosts is specified in the
@@ -2622,22 +2622,22 @@ export interface definitions {
        *
        *     IP_address canonical_hostname [aliases...]
        */
-      Hosts?: string[];
+      Hosts?: string[]
       /**
        * @description Specification for DNS related configurations in resolver configuration
        * file (`resolv.conf`).
        */
       DNSConfig?: {
         /** @description The IP addresses of the name servers. */
-        Nameservers?: string[];
+        Nameservers?: string[]
         /** @description A search list for host-name lookup. */
-        Search?: string[];
+        Search?: string[]
         /**
          * @description A list of internal resolver variables to be modified (e.g.,
          * `debug`, `ndots:3`, etc.).
          */
-        Options?: string[];
-      };
+        Options?: string[]
+      }
       /**
        * @description Secrets contains references to zero or more secrets that will be
        * exposed to the service.
@@ -2646,29 +2646,29 @@ export interface definitions {
         /** @description File represents a specific target that is backed by a file. */
         File?: {
           /** @description Name represents the final filename in the filesystem. */
-          Name?: string;
+          Name?: string
           /** @description UID represents the file UID. */
-          UID?: string;
+          UID?: string
           /** @description GID represents the file GID. */
-          GID?: string;
+          GID?: string
           /**
            * Format: uint32
            * @description Mode represents the FileMode of the file.
            */
-          Mode?: number;
-        };
+          Mode?: number
+        }
         /**
          * @description SecretID represents the ID of the specific secret that we're
          * referencing.
          */
-        SecretID?: string;
+        SecretID?: string
         /**
          * @description SecretName is the name of the secret that this references,
          * but this is just provided for lookup/display purposes. The
          * secret in the reference will be identified by its ID.
          */
-        SecretName?: string;
-      }[];
+        SecretName?: string
+      }[]
       /**
        * @description Configs contains references to zero or more configs that will be
        * exposed to the service.
@@ -2683,17 +2683,17 @@ export interface definitions {
          */
         File?: {
           /** @description Name represents the final filename in the filesystem. */
-          Name?: string;
+          Name?: string
           /** @description UID represents the file UID. */
-          UID?: string;
+          UID?: string
           /** @description GID represents the file GID. */
-          GID?: string;
+          GID?: string
           /**
            * Format: uint32
            * @description Mode represents the FileMode of the file.
            */
-          Mode?: number;
-        };
+          Mode?: number
+        }
         /**
          * @description Runtime represents a target that is not mounted into the
          * container but is used by the task
@@ -2703,32 +2703,32 @@ export interface definitions {
          * > **Note**: `Configs.File` and `Configs.Runtime` are mutually
          * > exclusive
          */
-        Runtime?: { [key: string]: unknown };
+        Runtime?: { [key: string]: unknown }
         /**
          * @description ConfigID represents the ID of the specific config that we're
          * referencing.
          */
-        ConfigID?: string;
+        ConfigID?: string
         /**
          * @description ConfigName is the name of the config that this references,
          * but this is just provided for lookup/display purposes. The
          * config in the reference will be identified by its ID.
          */
-        ConfigName?: string;
-      }[];
+        ConfigName?: string
+      }[]
       /**
        * @description Isolation technology of the containers running the service.
        * (Windows only)
        *
        * @enum {string}
        */
-      Isolation?: "default" | "process" | "hyperv";
+      Isolation?: "default" | "process" | "hyperv"
       /**
        * @description Run an init inside the container that forwards signals and reaps
        * processes. This field is omitted if empty, and the default (as
        * configured on the daemon) is used.
        */
-      Init?: boolean;
+      Init?: boolean
       /**
        * @description Set kernel namedspaced parameters (sysctls) in the container.
        * The Sysctls option on services accepts the same sysctls as the
@@ -2738,31 +2738,31 @@ export interface definitions {
        * to determine whether a given sysctl will work properly in a
        * Service.
        */
-      Sysctls?: { [key: string]: string };
+      Sysctls?: { [key: string]: string }
       /**
        * @description A list of kernel capabilities to add to the default set
        * for the container.
        *
        * @example CAP_NET_RAW,CAP_SYS_ADMIN,CAP_SYS_CHROOT,CAP_SYSLOG
        */
-      CapabilityAdd?: string[];
+      CapabilityAdd?: string[]
       /**
        * @description A list of kernel capabilities to drop from the default set
        * for the container.
        *
        * @example CAP_NET_RAW
        */
-      CapabilityDrop?: string[];
+      CapabilityDrop?: string[]
       /** @description A list of resource limits to set in the container. For example: `{"Name": "nofile", "Soft": 1024, "Hard": 2048}`" */
       Ulimits?: {
         /** @description Name of ulimit */
-        Name?: string;
+        Name?: string
         /** @description Soft limit */
-        Soft?: number;
+        Soft?: number
         /** @description Hard limit */
-        Hard?: number;
-      }[];
-    };
+        Hard?: number
+      }[]
+    }
     /**
      * @description Read-only spec type for non-swarm containers attached to swarm overlay
      * networks.
@@ -2776,18 +2776,18 @@ export interface definitions {
      */
     NetworkAttachmentSpec?: {
       /** @description ID of the container represented by this task */
-      ContainerID?: string;
-    };
+      ContainerID?: string
+    }
     /**
      * @description Resource requirements which apply to each individual container created
      * as part of the service.
      */
     Resources?: {
       /** @description Define resources limits. */
-      Limits?: definitions["Limit"];
+      Limits?: definitions["Limit"]
       /** @description Define resources reservation. */
-      Reservation?: definitions["ResourceObject"];
-    };
+      Reservation?: definitions["ResourceObject"]
+    }
     /**
      * @description Specification for the restart policy which applies to containers
      * created as part of this service.
@@ -2797,25 +2797,25 @@ export interface definitions {
        * @description Condition for restart.
        * @enum {string}
        */
-      Condition?: "none" | "on-failure" | "any";
+      Condition?: "none" | "on-failure" | "any"
       /**
        * Format: int64
        * @description Delay between restart attempts.
        */
-      Delay?: number;
+      Delay?: number
       /**
        * Format: int64
        * @description Maximum attempts to restart a given container before giving up
        * (default value is 0, which is ignored).
        */
-      MaxAttempts?: number;
+      MaxAttempts?: number
       /**
        * Format: int64
        * @description Windows is the time window used to evaluate the restart policy
        * (default value is 0, which is unbounded).
        */
-      Window?: number;
-    };
+      Window?: number
+    }
     Placement?: {
       /**
        * @description An array of constraint expressions to limit the set of nodes where
@@ -2840,7 +2840,7 @@ export interface definitions {
        *
        * @example node.hostname!=node3.corp.example.com,node.role!=manager,node.labels.type==production,node.platform.os==linux,node.platform.arch==x86_64
        */
-      Constraints?: string[];
+      Constraints?: string[]
       /**
        * @description Preferences provide a way to make the scheduler aware of factors
        * such as topology. They are provided in order from highest to
@@ -2851,42 +2851,42 @@ export interface definitions {
       Preferences?: {
         Spread?: {
           /** @description label descriptor, such as `engine.labels.az`. */
-          SpreadDescriptor?: string;
-        };
-      }[];
+          SpreadDescriptor?: string
+        }
+      }[]
       /**
        * Format: int64
        * @description Maximum number of replicas for per node (default value is 0, which
        * is unlimited)
        */
-      MaxReplicas?: number;
+      MaxReplicas?: number
       /**
        * @description Platforms stores all the platforms that the service's image can
        * run on. This field is used in the platform filter for scheduling.
        * If empty, then the platform filter is off, meaning there are no
        * scheduling restrictions.
        */
-      Platforms?: definitions["Platform"][];
-    };
+      Platforms?: definitions["Platform"][]
+    }
     /**
      * @description A counter that triggers an update even if no relevant parameters have
      * been changed.
      */
-    ForceUpdate?: number;
+    ForceUpdate?: number
     /** @description Runtime is the type of runtime specified for the task executor. */
-    Runtime?: string;
+    Runtime?: string
     /** @description Specifies which networks the service should attach to. */
-    Networks?: definitions["NetworkAttachmentConfig"][];
+    Networks?: definitions["NetworkAttachmentConfig"][]
     /**
      * @description Specifies the log driver to use for tasks created from this spec. If
      * not present, the default one for the swarm will be used, finally
      * falling back to the engine default if not specified.
      */
     LogDriver?: {
-      Name?: string;
-      Options?: { [key: string]: string };
-    };
-  };
+      Name?: string
+      Options?: { [key: string]: string }
+    }
+  }
   /** @enum {string} */
   TaskState:
     | "new"
@@ -2903,61 +2903,61 @@ export interface definitions {
     | "failed"
     | "rejected"
     | "remove"
-    | "orphaned";
+    | "orphaned"
   /** @example [object Object] */
   Task: {
     /** @description The ID of the task. */
-    ID?: string;
-    Version?: definitions["ObjectVersion"];
+    ID?: string
+    Version?: definitions["ObjectVersion"]
     /** Format: dateTime */
-    CreatedAt?: string;
+    CreatedAt?: string
     /** Format: dateTime */
-    UpdatedAt?: string;
+    UpdatedAt?: string
     /** @description Name of the task. */
-    Name?: string;
+    Name?: string
     /** @description User-defined key/value metadata. */
-    Labels?: { [key: string]: string };
-    Spec?: definitions["TaskSpec"];
+    Labels?: { [key: string]: string }
+    Spec?: definitions["TaskSpec"]
     /** @description The ID of the service this task is part of. */
-    ServiceID?: string;
-    Slot?: number;
+    ServiceID?: string
+    Slot?: number
     /** @description The ID of the node that this task is on. */
-    NodeID?: string;
-    AssignedGenericResources?: definitions["GenericResources"];
+    NodeID?: string
+    AssignedGenericResources?: definitions["GenericResources"]
     Status?: {
       /** Format: dateTime */
-      Timestamp?: string;
-      State?: definitions["TaskState"];
-      Message?: string;
-      Err?: string;
+      Timestamp?: string
+      State?: definitions["TaskState"]
+      Message?: string
+      Err?: string
       ContainerStatus?: {
-        ContainerID?: string;
-        PID?: number;
-        ExitCode?: number;
-      };
-    };
-    DesiredState?: definitions["TaskState"];
+        ContainerID?: string
+        PID?: number
+        ExitCode?: number
+      }
+    }
+    DesiredState?: definitions["TaskState"]
     /**
      * @description If the Service this Task belongs to is a job-mode service, contains
      * the JobIteration of the Service this Task was created for. Absent if
      * the Task was created for a Replicated or Global Service.
      */
-    JobIteration?: definitions["ObjectVersion"];
-  };
+    JobIteration?: definitions["ObjectVersion"]
+  }
   /** @description User modifiable configuration for a service. */
   ServiceSpec: {
     /** @description Name of the service. */
-    Name?: string;
+    Name?: string
     /** @description User-defined key/value metadata. */
-    Labels?: { [key: string]: string };
-    TaskTemplate?: definitions["TaskSpec"];
+    Labels?: { [key: string]: string }
+    TaskTemplate?: definitions["TaskSpec"]
     /** @description Scheduling mode for the service. */
     Mode?: {
       Replicated?: {
         /** Format: int64 */
-        Replicas?: number;
-      };
-      Global?: { [key: string]: unknown };
+        Replicas?: number
+      }
+      Global?: { [key: string]: unknown }
       /**
        * @description The mode used for services with a finite number of tasks that run
        * to a completed state.
@@ -2969,20 +2969,20 @@ export interface definitions {
          *
          * @default 1
          */
-        MaxConcurrent?: number;
+        MaxConcurrent?: number
         /**
          * Format: int64
          * @description The total number of replicas desired to reach the Completed
          * state. If unset, will default to the value of `MaxConcurrent`
          */
-        TotalCompletions?: number;
-      };
+        TotalCompletions?: number
+      }
       /**
        * @description The mode used for services which run a task to the completed state
        * on each valid node.
        */
-      GlobalJob?: { [key: string]: unknown };
-    };
+      GlobalJob?: { [key: string]: unknown }
+    }
     /** @description Specification for the update strategy of the service. */
     UpdateConfig?: {
       /**
@@ -2990,31 +2990,31 @@ export interface definitions {
        * @description Maximum number of tasks to be updated in one iteration (0 means
        * unlimited parallelism).
        */
-      Parallelism?: number;
+      Parallelism?: number
       /**
        * Format: int64
        * @description Amount of time between updates, in nanoseconds.
        */
-      Delay?: number;
+      Delay?: number
       /**
        * @description Action to take if an updated task fails to run, or stops running
        * during the update.
        *
        * @enum {string}
        */
-      FailureAction?: "continue" | "pause" | "rollback";
+      FailureAction?: "continue" | "pause" | "rollback"
       /**
        * Format: int64
        * @description Amount of time to monitor each updated task for failures, in
        * nanoseconds.
        */
-      Monitor?: number;
+      Monitor?: number
       /**
        * @description The fraction of tasks that may fail during an update before the
        * failure action is invoked, specified as a floating point number
        * between 0 and 1.
        */
-      MaxFailureRatio?: number;
+      MaxFailureRatio?: number
       /**
        * @description The order of operations when rolling out an updated task. Either
        * the old task is shut down before the new task is started, or the
@@ -3022,8 +3022,8 @@ export interface definitions {
        *
        * @enum {string}
        */
-      Order?: "stop-first" | "start-first";
-    };
+      Order?: "stop-first" | "start-first"
+    }
     /** @description Specification for the rollback strategy of the service. */
     RollbackConfig?: {
       /**
@@ -3031,31 +3031,31 @@ export interface definitions {
        * @description Maximum number of tasks to be rolled back in one iteration (0 means
        * unlimited parallelism).
        */
-      Parallelism?: number;
+      Parallelism?: number
       /**
        * Format: int64
        * @description Amount of time between rollback iterations, in nanoseconds.
        */
-      Delay?: number;
+      Delay?: number
       /**
        * @description Action to take if an rolled back task fails to run, or stops
        * running during the rollback.
        *
        * @enum {string}
        */
-      FailureAction?: "continue" | "pause";
+      FailureAction?: "continue" | "pause"
       /**
        * Format: int64
        * @description Amount of time to monitor each rolled back task for failures, in
        * nanoseconds.
        */
-      Monitor?: number;
+      Monitor?: number
       /**
        * @description The fraction of tasks that may fail during a rollback before the
        * failure action is invoked, specified as a floating point number
        * between 0 and 1.
        */
-      MaxFailureRatio?: number;
+      MaxFailureRatio?: number
       /**
        * @description The order of operations when rolling back a task. Either the old
        * task is shut down before the new task is started, or the new task
@@ -3063,20 +3063,20 @@ export interface definitions {
        *
        * @enum {string}
        */
-      Order?: "stop-first" | "start-first";
-    };
+      Order?: "stop-first" | "start-first"
+    }
     /** @description Specifies which networks the service should attach to. */
-    Networks?: definitions["NetworkAttachmentConfig"][];
-    EndpointSpec?: definitions["EndpointSpec"];
-  };
+    Networks?: definitions["NetworkAttachmentConfig"][]
+    EndpointSpec?: definitions["EndpointSpec"]
+  }
   EndpointPortConfig: {
-    Name?: string;
+    Name?: string
     /** @enum {string} */
-    Protocol?: "tcp" | "udp" | "sctp";
+    Protocol?: "tcp" | "udp" | "sctp"
     /** @description The port inside the container. */
-    TargetPort?: number;
+    TargetPort?: number
     /** @description The port on the swarm hosts. */
-    PublishedPort?: number;
+    PublishedPort?: number
     /**
      * @description The mode in which port is published.
      *
@@ -3092,8 +3092,8 @@ export interface definitions {
      * @example ingress
      * @enum {string}
      */
-    PublishMode?: "ingress" | "host";
-  };
+    PublishMode?: "ingress" | "host"
+  }
   /** @description Properties that can be configured to access and load balance a service. */
   EndpointSpec: {
     /**
@@ -3102,40 +3102,40 @@ export interface definitions {
      * @default vip
      * @enum {string}
      */
-    Mode?: "vip" | "dnsrr";
+    Mode?: "vip" | "dnsrr"
     /**
      * @description List of exposed ports that this service is accessible on from the
      * outside. Ports can only be provided if `vip` resolution mode is used.
      */
-    Ports?: definitions["EndpointPortConfig"][];
-  };
+    Ports?: definitions["EndpointPortConfig"][]
+  }
   /** @example [object Object] */
   Service: {
-    ID?: string;
-    Version?: definitions["ObjectVersion"];
+    ID?: string
+    Version?: definitions["ObjectVersion"]
     /** Format: dateTime */
-    CreatedAt?: string;
+    CreatedAt?: string
     /** Format: dateTime */
-    UpdatedAt?: string;
-    Spec?: definitions["ServiceSpec"];
+    UpdatedAt?: string
+    Spec?: definitions["ServiceSpec"]
     Endpoint?: {
-      Spec?: definitions["EndpointSpec"];
-      Ports?: definitions["EndpointPortConfig"][];
+      Spec?: definitions["EndpointSpec"]
+      Ports?: definitions["EndpointPortConfig"][]
       VirtualIPs?: {
-        NetworkID?: string;
-        Addr?: string;
-      }[];
-    };
+        NetworkID?: string
+        Addr?: string
+      }[]
+    }
     /** @description The status of a service update. */
     UpdateStatus?: {
       /** @enum {string} */
-      State?: "updating" | "paused" | "completed";
+      State?: "updating" | "paused" | "completed"
       /** Format: dateTime */
-      StartedAt?: string;
+      StartedAt?: string
       /** Format: dateTime */
-      CompletedAt?: string;
-      Message?: string;
-    };
+      CompletedAt?: string
+      Message?: string
+    }
     /**
      * @description The status of the service's tasks. Provided only when requested as
      * part of a ServiceList operation.
@@ -3147,7 +3147,7 @@ export interface definitions {
        *
        * @example 7
        */
-      RunningTasks?: number;
+      RunningTasks?: number
       /**
        * Format: uint64
        * @description The number of tasks for the service desired to be running.
@@ -3158,7 +3158,7 @@ export interface definitions {
        *
        * @example 10
        */
-      DesiredTasks?: number;
+      DesiredTasks?: number
       /**
        * Format: uint64
        * @description The number of tasks for a job that are in the Completed state.
@@ -3166,8 +3166,8 @@ export interface definitions {
        * value of 0 may mean the service is not in a job mode, or it may
        * mean the job-mode service has no tasks yet Completed.
        */
-      CompletedTasks?: number;
-    };
+      CompletedTasks?: number
+    }
     /**
      * @description The status of the service when it is in one of ReplicatedJob or
      * GlobalJob modes. Absent on Replicated and Global mode services. The
@@ -3185,90 +3185,90 @@ export interface definitions {
        * increase with each subsequent execution, it may not necessarily
        * increase by 1, and so JobIteration should not be used to
        */
-      JobIteration?: definitions["ObjectVersion"];
+      JobIteration?: definitions["ObjectVersion"]
       /**
        * Format: dateTime
        * @description The last time, as observed by the server, that this job was
        * started.
        */
-      LastExecution?: string;
-    };
-  };
+      LastExecution?: string
+    }
+  }
   ImageDeleteResponseItem: {
     /** @description The image ID of an image that was untagged */
-    Untagged?: string;
+    Untagged?: string
     /** @description The image ID of an image that was deleted */
-    Deleted?: string;
-  };
+    Deleted?: string
+  }
   /** @example [object Object] */
   ServiceUpdateResponse: {
     /** @description Optional warning messages */
-    Warnings?: string[];
-  };
+    Warnings?: string[]
+  }
   ContainerSummary: {
     /** @description The ID of this container */
-    Id?: string;
+    Id?: string
     /** @description The names that this container has been given */
-    Names?: string[];
+    Names?: string[]
     /** @description The name of the image used when creating this container */
-    Image?: string;
+    Image?: string
     /** @description The ID of the image that this container was created from */
-    ImageID?: string;
+    ImageID?: string
     /** @description Command to run when starting the container */
-    Command?: string;
+    Command?: string
     /**
      * Format: int64
      * @description When the container was created
      */
-    Created?: number;
+    Created?: number
     /** @description The ports exposed by this container */
-    Ports?: definitions["Port"][];
+    Ports?: definitions["Port"][]
     /**
      * Format: int64
      * @description The size of files that have been created or changed by this container
      */
-    SizeRw?: number;
+    SizeRw?: number
     /**
      * Format: int64
      * @description The total size of all the files in this container
      */
-    SizeRootFs?: number;
+    SizeRootFs?: number
     /** @description User-defined key/value metadata. */
-    Labels?: { [key: string]: string };
+    Labels?: { [key: string]: string }
     /** @description The state of this container (e.g. `Exited`) */
-    State?: string;
+    State?: string
     /** @description Additional human-readable status of this container (e.g. `Exit 0`) */
-    Status?: string;
+    Status?: string
     HostConfig?: {
-      NetworkMode?: string;
-    };
+      NetworkMode?: string
+    }
     /** @description A summary of the container's network settings */
     NetworkSettings?: {
-      Networks?: { [key: string]: definitions["EndpointSettings"] };
-    };
-    Mounts?: definitions["Mount"][];
-  }[];
+      Networks?: { [key: string]: definitions["EndpointSettings"] }
+    }
+    Mounts?: definitions["Mount"][]
+  }[]
   /** @description Driver represents a driver (network, logging, secrets). */
   Driver: {
     /**
      * @description Name of the driver.
      * @example some-driver
      */
-    Name: string;
+    Name: string
     /**
      * @description Key/value map of driver-specific options.
      * @example [object Object]
      */
-    Options?: { [key: string]: string };
-  };
+    Options?: { [key: string]: string }
+  }
   SecretSpec: {
     /** @description User-defined name of the secret. */
-    Name?: string;
+    Name?: string
     /**
      * @description User-defined key/value metadata.
      * @example [object Object]
      */
-    Labels?: { [key: string]: string };
+    Labels?: { [key: string]: string }
     /**
      * @description Base64-url-safe-encoded ([RFC 4648](https://tools.ietf.org/html/rfc4648#section-5))
      * data to store as secret.
@@ -3276,63 +3276,63 @@ export interface definitions {
      * This field is only used to _create_ a secret, and is not returned by
      * other endpoints.
      */
-    Data?: string;
+    Data?: string
     /**
      * @description Name of the secrets driver used to fetch the secret's value from an
      * external secret store.
      */
-    Driver?: definitions["Driver"];
+    Driver?: definitions["Driver"]
     /**
      * @description Templating driver, if applicable
      *
      * Templating controls whether and how to evaluate the config payload as
      * a template. If no driver is set, no templating is used.
      */
-    Templating?: definitions["Driver"];
-  };
+    Templating?: definitions["Driver"]
+  }
   Secret: {
     /** @example blt1owaxmitz71s9v5zh81zun */
-    ID?: string;
-    Version?: definitions["ObjectVersion"];
+    ID?: string
+    Version?: definitions["ObjectVersion"]
     /**
      * Format: dateTime
      * @example 2017-07-20T13:55:28.678958722Z
      */
-    CreatedAt?: string;
+    CreatedAt?: string
     /**
      * Format: dateTime
      * @example 2017-07-20T13:55:28.678958722Z
      */
-    UpdatedAt?: string;
-    Spec?: definitions["SecretSpec"];
-  };
+    UpdatedAt?: string
+    Spec?: definitions["SecretSpec"]
+  }
   ConfigSpec: {
     /** @description User-defined name of the config. */
-    Name?: string;
+    Name?: string
     /** @description User-defined key/value metadata. */
-    Labels?: { [key: string]: string };
+    Labels?: { [key: string]: string }
     /**
      * @description Base64-url-safe-encoded ([RFC 4648](https://tools.ietf.org/html/rfc4648#section-5))
      * config data.
      */
-    Data?: string;
+    Data?: string
     /**
      * @description Templating driver, if applicable
      *
      * Templating controls whether and how to evaluate the config payload as
      * a template. If no driver is set, no templating is used.
      */
-    Templating?: definitions["Driver"];
-  };
+    Templating?: definitions["Driver"]
+  }
   Config: {
-    ID?: string;
-    Version?: definitions["ObjectVersion"];
+    ID?: string
+    Version?: definitions["ObjectVersion"]
     /** Format: dateTime */
-    CreatedAt?: string;
+    CreatedAt?: string
     /** Format: dateTime */
-    UpdatedAt?: string;
-    Spec?: definitions["ConfigSpec"];
-  };
+    UpdatedAt?: string
+    Spec?: definitions["ConfigSpec"]
+  }
   /**
    * @description ContainerState stores container's running state. It's part of ContainerJSONBase
    * and will be returned by the "inspect" command.
@@ -3345,7 +3345,7 @@ export interface definitions {
      * @example running
      * @enum {string}
      */
-    Status?: "created" | "running" | "paused" | "restarting" | "removing" | "exited" | "dead";
+    Status?: "created" | "running" | "paused" | "restarting" | "removing" | "exited" | "dead"
     /**
      * @description Whether this container is running.
      *
@@ -3360,39 +3360,39 @@ export interface definitions {
      *
      * @example true
      */
-    Running?: boolean;
+    Running?: boolean
     /** @description Whether this container is paused. */
-    Paused?: boolean;
+    Paused?: boolean
     /** @description Whether this container is restarting. */
-    Restarting?: boolean;
+    Restarting?: boolean
     /** @description Whether this container has been killed because it ran out of memory. */
-    OOMKilled?: boolean;
-    Dead?: boolean;
+    OOMKilled?: boolean
+    Dead?: boolean
     /**
      * @description The process ID of this container
      * @example 1234
      */
-    Pid?: number;
+    Pid?: number
     /** @description The last exit code of this container */
-    ExitCode?: number;
-    Error?: string;
+    ExitCode?: number
+    Error?: string
     /**
      * @description The time when this container was last started.
      * @example 2020-01-06T09:06:59.461876391Z
      */
-    StartedAt?: string;
+    StartedAt?: string
     /**
      * @description The time when this container last exited.
      * @example 2020-01-06T09:07:59.461876391Z
      */
-    FinishedAt?: string;
-    Health?: definitions["Health"];
-  };
+    FinishedAt?: string
+    Health?: definitions["Health"]
+  }
   /** @description Response of Engine API: GET "/version" */
   SystemVersion: {
     Platform?: {
-      Name: string;
-    };
+      Name: string
+    }
     /** @description Information about system components */
     Components?: {
       /**
@@ -3400,13 +3400,13 @@ export interface definitions {
        *
        * @example Engine
        */
-      Name: string;
+      Name: string
       /**
        * @description Version of the component
        *
        * @example 19.03.12
        */
-      Version: string;
+      Version: string
       /**
        * @description Key/value pairs of strings with additional information about the
        * component. These values are intended for informational purposes
@@ -3415,50 +3415,50 @@ export interface definitions {
        *
        * These messages can be printed by the client as information to the user.
        */
-      Details?: { [key: string]: unknown };
-    }[];
+      Details?: { [key: string]: unknown }
+    }[]
     /**
      * @description The version of the daemon
      * @example 19.03.12
      */
-    Version?: string;
+    Version?: string
     /**
      * @description The default (and highest) API version that is supported by the daemon
      *
      * @example 1.40
      */
-    ApiVersion?: string;
+    ApiVersion?: string
     /**
      * @description The minimum API version that is supported by the daemon
      *
      * @example 1.12
      */
-    MinAPIVersion?: string;
+    MinAPIVersion?: string
     /**
      * @description The Git commit of the source code that was used to build the daemon
      *
      * @example 48a66213fe
      */
-    GitCommit?: string;
+    GitCommit?: string
     /**
      * @description The version Go used to compile the daemon, and the version of the Go
      * runtime in use.
      *
      * @example go1.13.14
      */
-    GoVersion?: string;
+    GoVersion?: string
     /**
      * @description The operating system that the daemon is running on ("linux" or "windows")
      *
      * @example linux
      */
-    Os?: string;
+    Os?: string
     /**
      * @description The architecture that the daemon is running on
      *
      * @example amd64
      */
-    Arch?: string;
+    Arch?: string
     /**
      * @description The kernel version (`uname -r`) that the daemon is running on.
      *
@@ -3466,7 +3466,7 @@ export interface definitions {
      *
      * @example 4.19.76-linuxkit
      */
-    KernelVersion?: string;
+    KernelVersion?: string
     /**
      * @description Indicates if the daemon is started with experimental features enabled.
      *
@@ -3474,14 +3474,14 @@ export interface definitions {
      *
      * @example true
      */
-    Experimental?: boolean;
+    Experimental?: boolean
     /**
      * @description The date and time that the daemon was compiled.
      *
      * @example 2020-06-22T15:49:27.000000000+00:00
      */
-    BuildTime?: string;
-  };
+    BuildTime?: string
+  }
   SystemInfo: {
     /**
      * @description Unique identifier of the daemon.
@@ -3493,30 +3493,30 @@ export interface definitions {
      *
      * @example 7TRN:IPZB:QYBB:VPBQ:UMPP:KARE:6ZNR:XE6T:7EWV:PKF4:ZOJD:TPYS
      */
-    ID?: string;
+    ID?: string
     /**
      * @description Total number of containers on the host.
      * @example 14
      */
-    Containers?: number;
+    Containers?: number
     /**
      * @description Number of containers with status `"running"`.
      *
      * @example 3
      */
-    ContainersRunning?: number;
+    ContainersRunning?: number
     /**
      * @description Number of containers with status `"paused"`.
      *
      * @example 1
      */
-    ContainersPaused?: number;
+    ContainersPaused?: number
     /**
      * @description Number of containers with status `"stopped"`.
      *
      * @example 10
      */
-    ContainersStopped?: number;
+    ContainersStopped?: number
     /**
      * @description Total number of images on the host.
      *
@@ -3524,12 +3524,12 @@ export interface definitions {
      *
      * @example 508
      */
-    Images?: number;
+    Images?: number
     /**
      * @description Name of the storage driver in use.
      * @example overlay2
      */
-    Driver?: string;
+    Driver?: string
     /**
      * @description Information specific to the storage driver, provided as
      * "label" / "value" pairs.
@@ -3546,7 +3546,7 @@ export interface definitions {
      *
      * @example Backing Filesystem,extfs,Supports d_type,true,Native Overlay Diff,true
      */
-    DriverStatus?: string[][];
+    DriverStatus?: string[][]
     /**
      * @description Root directory of persistent Docker state.
      *
@@ -3555,18 +3555,18 @@ export interface definitions {
      *
      * @example /var/lib/docker
      */
-    DockerRootDir?: string;
-    Plugins?: definitions["PluginsInfo"];
+    DockerRootDir?: string
+    Plugins?: definitions["PluginsInfo"]
     /**
      * @description Indicates if the host has memory limit support enabled.
      * @example true
      */
-    MemoryLimit?: boolean;
+    MemoryLimit?: boolean
     /**
      * @description Indicates if the host has memory swap limit support enabled.
      * @example true
      */
-    SwapLimit?: boolean;
+    SwapLimit?: boolean
     /**
      * @description Indicates if the host has kernel memory limit support enabled.
      *
@@ -3577,27 +3577,27 @@ export interface definitions {
      *
      * @example true
      */
-    KernelMemory?: boolean;
+    KernelMemory?: boolean
     /**
      * @description Indicates if CPU CFS(Completely Fair Scheduler) period is supported by
      * the host.
      *
      * @example true
      */
-    CpuCfsPeriod?: boolean;
+    CpuCfsPeriod?: boolean
     /**
      * @description Indicates if CPU CFS(Completely Fair Scheduler) quota is supported by
      * the host.
      *
      * @example true
      */
-    CpuCfsQuota?: boolean;
+    CpuCfsQuota?: boolean
     /**
      * @description Indicates if CPU Shares limiting is supported by the host.
      *
      * @example true
      */
-    CPUShares?: boolean;
+    CPUShares?: boolean
     /**
      * @description Indicates if CPUsets (cpuset.cpus, cpuset.mems) are supported by the host.
      *
@@ -3605,36 +3605,36 @@ export interface definitions {
      *
      * @example true
      */
-    CPUSet?: boolean;
+    CPUSet?: boolean
     /**
      * @description Indicates if the host kernel has PID limit support enabled.
      * @example true
      */
-    PidsLimit?: boolean;
+    PidsLimit?: boolean
     /** @description Indicates if OOM killer disable is supported on the host. */
-    OomKillDisable?: boolean;
+    OomKillDisable?: boolean
     /**
      * @description Indicates IPv4 forwarding is enabled.
      * @example true
      */
-    IPv4Forwarding?: boolean;
+    IPv4Forwarding?: boolean
     /**
      * @description Indicates if `bridge-nf-call-iptables` is available on the host.
      * @example true
      */
-    BridgeNfIptables?: boolean;
+    BridgeNfIptables?: boolean
     /**
      * @description Indicates if `bridge-nf-call-ip6tables` is available on the host.
      * @example true
      */
-    BridgeNfIp6tables?: boolean;
+    BridgeNfIp6tables?: boolean
     /**
      * @description Indicates if the daemon is running in debug-mode / with debug-level
      * logging enabled.
      *
      * @example true
      */
-    Debug?: boolean;
+    Debug?: boolean
     /**
      * @description The total number of file Descriptors in use by the daemon process.
      *
@@ -3642,7 +3642,7 @@ export interface definitions {
      *
      * @example 64
      */
-    NFd?: number;
+    NFd?: number
     /**
      * @description The  number of goroutines that currently exist.
      *
@@ -3650,16 +3650,16 @@ export interface definitions {
      *
      * @example 174
      */
-    NGoroutines?: number;
+    NGoroutines?: number
     /**
      * @description Current system-time in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt)
      * format with nano-seconds.
      *
      * @example 2017-08-08T20:28:29.06202363Z
      */
-    SystemTime?: string;
+    SystemTime?: string
     /** @description The logging driver to use as a default for new containers. */
-    LoggingDriver?: string;
+    LoggingDriver?: string
     /**
      * @description The driver to use for managing cgroups.
      *
@@ -3667,7 +3667,7 @@ export interface definitions {
      * @example cgroupfs
      * @enum {string}
      */
-    CgroupDriver?: "cgroupfs" | "systemd" | "none";
+    CgroupDriver?: "cgroupfs" | "systemd" | "none"
     /**
      * @description The version of the cgroup.
      *
@@ -3675,12 +3675,12 @@ export interface definitions {
      * @example 1
      * @enum {string}
      */
-    CgroupVersion?: "1" | "2";
+    CgroupVersion?: "1" | "2"
     /**
      * @description Number of event listeners subscribed.
      * @example 30
      */
-    NEventsListener?: number;
+    NEventsListener?: number
     /**
      * @description Kernel version of the host.
      *
@@ -3690,14 +3690,14 @@ export interface definitions {
      *
      * @example 4.9.38-moby
      */
-    KernelVersion?: string;
+    KernelVersion?: string
     /**
      * @description Name of the host's operating system, for example: "Ubuntu 16.04.2 LTS"
      * or "Windows Server 2016 Datacenter"
      *
      * @example Alpine Linux v3.5
      */
-    OperatingSystem?: string;
+    OperatingSystem?: string
     /**
      * @description Version of the host's operating system
      *
@@ -3709,7 +3709,7 @@ export interface definitions {
      *
      * @example 16.04
      */
-    OSVersion?: string;
+    OSVersion?: string
     /**
      * @description Generic type of the operating system of the host, as returned by the
      * Go runtime (`GOOS`).
@@ -3719,7 +3719,7 @@ export interface definitions {
      *
      * @example linux
      */
-    OSType?: string;
+    OSType?: string
     /**
      * @description Hardware architecture of the host, as returned by the Go runtime
      * (`GOARCH`).
@@ -3728,7 +3728,7 @@ export interface definitions {
      *
      * @example x86_64
      */
-    Architecture?: string;
+    Architecture?: string
     /**
      * @description The number of logical CPUs usable by the daemon.
      *
@@ -3738,14 +3738,14 @@ export interface definitions {
      *
      * @example 4
      */
-    NCPU?: number;
+    NCPU?: number
     /**
      * Format: int64
      * @description Total amount of physical memory available on the host, in bytes.
      *
      * @example 2095882240
      */
-    MemTotal?: number;
+    MemTotal?: number
     /**
      * @description Address / URL of the index server that is used for image search,
      * and as a default for user authentication for Docker Hub and Docker Cloud.
@@ -3753,9 +3753,9 @@ export interface definitions {
      * @default https://index.docker.io/v1/
      * @example https://index.docker.io/v1/
      */
-    IndexServerAddress?: string;
-    RegistryConfig?: definitions["RegistryServiceConfig"];
-    GenericResources?: definitions["GenericResources"];
+    IndexServerAddress?: string
+    RegistryConfig?: definitions["RegistryServiceConfig"]
+    GenericResources?: definitions["GenericResources"]
     /**
      * @description HTTP-proxy configured for the daemon. This value is obtained from the
      * [`HTTP_PROXY`](https://www.gnu.org/software/wget/manual/html_node/Proxies.html) environment variable.
@@ -3766,7 +3766,7 @@ export interface definitions {
      *
      * @example http://xxxxx:xxxxx@proxy.corp.example.com:8080
      */
-    HttpProxy?: string;
+    HttpProxy?: string
     /**
      * @description HTTPS-proxy configured for the daemon. This value is obtained from the
      * [`HTTPS_PROXY`](https://www.gnu.org/software/wget/manual/html_node/Proxies.html) environment variable.
@@ -3777,7 +3777,7 @@ export interface definitions {
      *
      * @example https://xxxxx:xxxxx@proxy.corp.example.com:4443
      */
-    HttpsProxy?: string;
+    HttpsProxy?: string
     /**
      * @description Comma-separated list of domain extensions for which no proxy should be
      * used. This value is obtained from the [`NO_PROXY`](https://www.gnu.org/software/wget/manual/html_node/Proxies.html)
@@ -3787,12 +3787,12 @@ export interface definitions {
      *
      * @example *.local, 169.254/16
      */
-    NoProxy?: string;
+    NoProxy?: string
     /**
      * @description Hostname of the host.
      * @example node5.corp.example.com
      */
-    Name?: string;
+    Name?: string
     /**
      * @description User-defined labels (key/value metadata) as set on the daemon.
      *
@@ -3806,13 +3806,13 @@ export interface definitions {
      *
      * @example storage=ssd,production
      */
-    Labels?: string[];
+    Labels?: string[]
     /**
      * @description Indicates if experimental features are enabled on the daemon.
      *
      * @example true
      */
-    ExperimentalBuild?: boolean;
+    ExperimentalBuild?: boolean
     /**
      * @description Version string of the daemon.
      *
@@ -3822,7 +3822,7 @@ export interface definitions {
      *
      * @example 17.06.0-ce
      */
-    ServerVersion?: string;
+    ServerVersion?: string
     /**
      * @description URL of the distributed storage backend.
      *
@@ -3839,7 +3839,7 @@ export interface definitions {
      *
      * @example consul://consul.corp.example.com:8600/some/path
      */
-    ClusterStore?: string;
+    ClusterStore?: string
     /**
      * @description The network endpoint that the Engine advertises for the purpose of
      * node discovery. ClusterAdvertise is a `host:port` combination on which
@@ -3854,7 +3854,7 @@ export interface definitions {
      *
      * @example node5.corp.example.com:8000
      */
-    ClusterAdvertise?: string;
+    ClusterAdvertise?: string
     /**
      * @description List of [OCI compliant](https://github.com/opencontainers/runtime-spec)
      * runtimes configured on the daemon. Keys hold the "name" used to
@@ -3870,7 +3870,7 @@ export interface definitions {
      * @default [object Object]
      * @example [object Object]
      */
-    Runtimes?: { [key: string]: definitions["Runtime"] };
+    Runtimes?: { [key: string]: definitions["Runtime"] }
     /**
      * @description Name of the default OCI runtime that is used when starting containers.
      *
@@ -3879,15 +3879,15 @@ export interface definitions {
      * @default runc
      * @example runc
      */
-    DefaultRuntime?: string;
-    Swarm?: definitions["SwarmInfo"];
+    DefaultRuntime?: string
+    Swarm?: definitions["SwarmInfo"]
     /**
      * @description Indicates if live restore is enabled.
      *
      * If enabled, containers are kept running when the daemon is shutdown
      * or upon daemon start if running containers are detected.
      */
-    LiveRestoreEnabled?: boolean;
+    LiveRestoreEnabled?: boolean
     /**
      * @description Represents the isolation technology to use as a default for containers.
      * The supported values are platform-specific.
@@ -3900,7 +3900,7 @@ export interface definitions {
      * @default default
      * @enum {string}
      */
-    Isolation?: "default" | "hyperv" | "process";
+    Isolation?: "default" | "hyperv" | "process"
     /**
      * @description Name and, optional, path of the `docker-init` binary.
      *
@@ -3909,10 +3909,10 @@ export interface definitions {
      *
      * @example docker-init
      */
-    InitBinary?: string;
-    ContainerdCommit?: definitions["Commit"];
-    RuncCommit?: definitions["Commit"];
-    InitCommit?: definitions["Commit"];
+    InitBinary?: string
+    ContainerdCommit?: definitions["Commit"]
+    RuncCommit?: definitions["Commit"]
+    InitCommit?: definitions["Commit"]
     /**
      * @description List of security features that are enabled on the daemon, such as
      * apparmor, seccomp, SELinux, user-namespaces (userns), and rootless.
@@ -3923,7 +3923,7 @@ export interface definitions {
      *
      * @example name=apparmor,name=seccomp,profile=default,name=selinux,name=userns,name=rootless
      */
-    SecurityOptions?: string[];
+    SecurityOptions?: string[]
     /**
      * @description Reports a summary of the product license on the daemon.
      *
@@ -3932,7 +3932,7 @@ export interface definitions {
      *
      * @example Community Engine
      */
-    ProductLicense?: string;
+    ProductLicense?: string
     /**
      * @description List of custom default address pools for local networks, which can be
      * specified in the daemon.json file or dockerd option.
@@ -3945,13 +3945,13 @@ export interface definitions {
        * @description The network address in CIDR format
        * @example 10.10.0.0/16
        */
-      Base?: string;
+      Base?: string
       /**
        * @description The network pool size
        * @example 24
        */
-      Size?: number;
-    }[];
+      Size?: number
+    }[]
     /**
      * @description List of warnings / informational messages about missing features, or
      * issues related to the daemon configuration.
@@ -3960,8 +3960,8 @@ export interface definitions {
      *
      * @example WARNING: No memory limit support,WARNING: bridge-nf-call-iptables is disabled,WARNING: bridge-nf-call-ip6tables is disabled
      */
-    Warnings?: string[];
-  };
+    Warnings?: string[]
+  }
   /**
    * @description Available plugins per type.
    *
@@ -3976,23 +3976,23 @@ export interface definitions {
      * @description Names of available volume-drivers, and network-driver plugins.
      * @example local
      */
-    Volume?: string[];
+    Volume?: string[]
     /**
      * @description Names of available network-drivers, and network-driver plugins.
      * @example bridge,host,ipvlan,macvlan,null,overlay
      */
-    Network?: string[];
+    Network?: string[]
     /**
      * @description Names of available authorization plugins.
      * @example img-authz-plugin,hbm
      */
-    Authorization?: string[];
+    Authorization?: string[]
     /**
      * @description Names of available logging-drivers, and logging-driver plugins.
      * @example awslogs,fluentd,gcplogs,gelf,journald,json-file,logentries,splunk,syslog
      */
-    Log?: string[];
-  };
+    Log?: string[]
+  }
   /** @description RegistryServiceConfig stores daemon registry services configuration. */
   RegistryServiceConfig: {
     /**
@@ -4020,7 +4020,7 @@ export interface definitions {
      *
      * @example ::1/128,127.0.0.0/8
      */
-    AllowNondistributableArtifactsCIDRs?: string[];
+    AllowNondistributableArtifactsCIDRs?: string[]
     /**
      * @description List of registry hostnames to which nondistributable artifacts can be
      * pushed, using the format `<hostname>[:<port>]` or `<IP address>[:<port>]`.
@@ -4045,7 +4045,7 @@ export interface definitions {
      *
      * @example registry.internal.corp.example.com:3000,[2001:db8:a0b:12f0::1]:443
      */
-    AllowNondistributableArtifactsHostnames?: string[];
+    AllowNondistributableArtifactsHostnames?: string[]
     /**
      * @description List of IP ranges of insecure registries, using the CIDR syntax
      * ([RFC 4632](https://tools.ietf.org/html/4632)). Insecure registries
@@ -4073,17 +4073,17 @@ export interface definitions {
      *
      * @example ::1/128,127.0.0.0/8
      */
-    InsecureRegistryCIDRs?: string[];
+    InsecureRegistryCIDRs?: string[]
     /** @example [object Object] */
-    IndexConfigs?: { [key: string]: definitions["IndexInfo"] };
+    IndexConfigs?: { [key: string]: definitions["IndexInfo"] }
     /**
      * @description List of registry URLs that act as a mirror for the official
      * (`docker.io`) registry.
      *
      * @example https://hub-mirror.corp.example.com:5000/,https://[2001:db8:a0b:12f0::1]/
      */
-    Mirrors?: string[];
-  };
+    Mirrors?: string[]
+  }
   /** @description IndexInfo contains information about a registry. */
   IndexInfo: {
     /**
@@ -4091,13 +4091,13 @@ export interface definitions {
      *
      * @example docker.io
      */
-    Name?: string;
+    Name?: string
     /**
      * @description List of mirrors, expressed as URIs.
      *
      * @example https://hub-mirror.corp.example.com:5000/,https://registry-2.docker.io/,https://registry-3.docker.io/
      */
-    Mirrors?: string[];
+    Mirrors?: string[]
     /**
      * @description Indicates if the registry is part of the list of insecure
      * registries.
@@ -4114,14 +4114,14 @@ export interface definitions {
      *
      * @example true
      */
-    Secure?: boolean;
+    Secure?: boolean
     /**
      * @description Indicates whether this is an official registry (i.e., Docker Hub / docker.io)
      *
      * @example true
      */
-    Official?: boolean;
-  };
+    Official?: boolean
+  }
   /**
    * @description Runtime describes an [OCI compliant](https://github.com/opencontainers/runtime-spec)
    * runtime.
@@ -4139,14 +4139,14 @@ export interface definitions {
      *
      * @example /usr/local/bin/my-oci-runtime
      */
-    path?: string;
+    path?: string
     /**
      * @description List of command-line arguments to pass to the runtime when invoked.
      *
      * @example --debug,--systemd-cgroup=false
      */
-    runtimeArgs?: string[];
-  };
+    runtimeArgs?: string[]
+  }
   /**
    * @description Commit holds the Git-commit (SHA1) that a binary was built from, as
    * reported in the version-string of external tools, such as `containerd`,
@@ -4157,72 +4157,72 @@ export interface definitions {
      * @description Actual commit ID of external tool.
      * @example cfb82a876ecc11b5ca0977d1733adbe58599088a
      */
-    ID?: string;
+    ID?: string
     /**
      * @description Commit ID of external tool expected by dockerd as set at build time.
      *
      * @example 2d41c047c83e09a6d61d464906feb2a2f3c52aa4
      */
-    Expected?: string;
-  };
+    Expected?: string
+  }
   /** @description Represents generic information about swarm. */
   SwarmInfo: {
     /**
      * @description Unique identifier of for this node in the swarm.
      * @example k67qz4598weg5unwwffg6z1m1
      */
-    NodeID?: string;
+    NodeID?: string
     /**
      * @description IP address at which this node can be reached by other nodes in the
      * swarm.
      *
      * @example 10.0.0.46
      */
-    NodeAddr?: string;
-    LocalNodeState?: definitions["LocalNodeState"];
+    NodeAddr?: string
+    LocalNodeState?: definitions["LocalNodeState"]
     /** @example true */
-    ControlAvailable?: boolean;
-    Error?: string;
+    ControlAvailable?: boolean
+    Error?: string
     /**
      * @description List of ID's and addresses of other managers in the swarm.
      *
      * @example [object Object],[object Object],[object Object]
      */
-    RemoteManagers?: definitions["PeerNode"][];
+    RemoteManagers?: definitions["PeerNode"][]
     /**
      * @description Total number of nodes in the swarm.
      * @example 4
      */
-    Nodes?: number;
+    Nodes?: number
     /**
      * @description Total number of managers in the swarm.
      * @example 3
      */
-    Managers?: number;
-    Cluster?: definitions["ClusterInfo"];
-  };
+    Managers?: number
+    Cluster?: definitions["ClusterInfo"]
+  }
   /**
    * @description Current local status of this node.
    * @example active
    * @enum {string}
    */
-  LocalNodeState: "" | "inactive" | "pending" | "active" | "error" | "locked";
+  LocalNodeState: "" | "inactive" | "pending" | "active" | "error" | "locked"
   /** @description Represents a peer-node in the swarm */
   PeerNode: {
     /** @description Unique identifier of for this node in the swarm. */
-    NodeID?: string;
+    NodeID?: string
     /** @description IP address and ports at which this node can be reached. */
-    Addr?: string;
-  };
+    Addr?: string
+  }
   /** @description Specifies how a service should be attached to a particular network. */
   NetworkAttachmentConfig: {
     /** @description The target network for attachment. Must be a network name or ID. */
-    Target?: string;
+    Target?: string
     /** @description Discoverable alternate names for the service on this network. */
-    Aliases?: string[];
+    Aliases?: string[]
     /** @description Driver attachment options for the network target. */
-    DriverOpts?: { [key: string]: string };
-  };
+    DriverOpts?: { [key: string]: string }
+  }
 }
 
 export interface operations {
@@ -4238,14 +4238,14 @@ export interface operations {
     parameters: {
       query: {
         /** Return all containers. By default, only running containers are shown. */
-        all?: boolean;
+        all?: boolean
         /**
          * Return this number of most recently created containers, including
          * non-running ones.
          */
-        limit?: number;
+        limit?: number
         /** Return the size of container as fields `SizeRw` and `SizeRootFs`. */
-        size?: boolean;
+        size?: boolean
         /**
          * Filters to process on the container list, encoded as JSON (a
          * `map[string][]string`). For example, `{"status": ["paused"]}` will
@@ -4269,24 +4269,24 @@ export interface operations {
          * - `status=`(`created`|`restarting`|`running`|`removing`|`paused`|`exited`|`dead`)
          * - `volume`=(`<volume name>` or `<mount point destination>`)
          */
-        filters?: string;
-      };
-    };
+        filters?: string
+      }
+    }
     responses: {
       /** no error */
       200: {
-        schema: definitions["ContainerSummary"];
-      };
+        schema: definitions["ContainerSummary"]
+      }
       /** bad parameter */
       400: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   ContainerCreate: {
     parameters: {
       query: {
@@ -4294,112 +4294,112 @@ export interface operations {
          * Assign the specified name to the container. Must match
          * `/?[a-zA-Z0-9][a-zA-Z0-9_.-]+`.
          */
-        name?: string;
-      };
+        name?: string
+      }
       body: {
         /** Container to create */
         body: definitions["ContainerConfig"] & {
-          HostConfig?: definitions["HostConfig"];
-          NetworkingConfig?: definitions["NetworkingConfig"];
-        };
-      };
-    };
+          HostConfig?: definitions["HostConfig"]
+          NetworkingConfig?: definitions["NetworkingConfig"]
+        }
+      }
+    }
     responses: {
       /** Container created successfully */
       201: {
         schema: {
           /** @description The ID of the created container */
-          Id: string;
+          Id: string
           /** @description Warnings encountered when creating the container */
-          Warnings: string[];
-        };
-      };
+          Warnings: string[]
+        }
+      }
       /** bad parameter */
       400: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** no such image */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** conflict */
       409: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /** Return low-level information about a container. */
   ContainerInspect: {
     parameters: {
       path: {
         /** ID or name of the container */
-        id: string;
-      };
+        id: string
+      }
       query: {
         /** Return the size of container as fields `SizeRw` and `SizeRootFs` */
-        size?: boolean;
-      };
-    };
+        size?: boolean
+      }
+    }
     responses: {
       /** no error */
       200: {
         schema: {
           /** @description The ID of the container */
-          Id?: string;
+          Id?: string
           /** @description The time the container was created */
-          Created?: string;
+          Created?: string
           /** @description The path to the command being run */
-          Path?: string;
+          Path?: string
           /** @description The arguments to the command being run */
-          Args?: string[];
-          State?: definitions["ContainerState"];
+          Args?: string[]
+          State?: definitions["ContainerState"]
           /** @description The container's image ID */
-          Image?: string;
-          ResolvConfPath?: string;
-          HostnamePath?: string;
-          HostsPath?: string;
-          LogPath?: string;
-          Name?: string;
-          RestartCount?: number;
-          Driver?: string;
-          Platform?: string;
-          MountLabel?: string;
-          ProcessLabel?: string;
-          AppArmorProfile?: string;
+          Image?: string
+          ResolvConfPath?: string
+          HostnamePath?: string
+          HostsPath?: string
+          LogPath?: string
+          Name?: string
+          RestartCount?: number
+          Driver?: string
+          Platform?: string
+          MountLabel?: string
+          ProcessLabel?: string
+          AppArmorProfile?: string
           /** @description IDs of exec instances that are running in the container. */
-          ExecIDs?: string[];
-          HostConfig?: definitions["HostConfig"];
-          GraphDriver?: definitions["GraphDriverData"];
+          ExecIDs?: string[]
+          HostConfig?: definitions["HostConfig"]
+          GraphDriver?: definitions["GraphDriverData"]
           /**
            * Format: int64
            * @description The size of files that have been created or changed by this
            * container.
            */
-          SizeRw?: number;
+          SizeRw?: number
           /**
            * Format: int64
            * @description The total size of all the files in this container.
            */
-          SizeRootFs?: number;
-          Mounts?: definitions["MountPoint"][];
-          Config?: definitions["ContainerConfig"];
-          NetworkSettings?: definitions["NetworkSettings"];
-        };
-      };
+          SizeRootFs?: number
+          Mounts?: definitions["MountPoint"][]
+          Config?: definitions["ContainerConfig"]
+          NetworkSettings?: definitions["NetworkSettings"]
+        }
+      }
       /** no such container */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /**
    * On Unix systems, this is done by running the `ps` command. This endpoint
    * is not supported on Windows.
@@ -4408,36 +4408,36 @@ export interface operations {
     parameters: {
       path: {
         /** ID or name of the container */
-        id: string;
-      };
+        id: string
+      }
       query: {
         /** The arguments to pass to `ps`. For example, `aux` */
-        ps_args?: string;
-      };
-    };
+        ps_args?: string
+      }
+    }
     responses: {
       /** no error */
       200: {
         schema: {
           /** @description The ps column titles */
-          Titles?: string[];
+          Titles?: string[]
           /**
            * @description Each process running in the container, where each is process
            * is an array of values corresponding to the titles.
            */
-          Processes?: string[][];
-        };
-      };
+          Processes?: string[][]
+        }
+      }
       /** no such container */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /**
    * Get `stdout` and `stderr` logs from a container.
    *
@@ -4448,28 +4448,28 @@ export interface operations {
     parameters: {
       path: {
         /** ID or name of the container */
-        id: string;
-      };
+        id: string
+      }
       query: {
         /** Keep connection after returning logs. */
-        follow?: boolean;
+        follow?: boolean
         /** Return logs from `stdout` */
-        stdout?: boolean;
+        stdout?: boolean
         /** Return logs from `stderr` */
-        stderr?: boolean;
+        stderr?: boolean
         /** Only return logs since this time, as a UNIX timestamp */
-        since?: number;
+        since?: number
         /** Only return logs before this time, as a UNIX timestamp */
-        until?: number;
+        until?: number
         /** Add timestamps to every log line */
-        timestamps?: boolean;
+        timestamps?: boolean
         /**
          * Only return this number of log lines from the end of the logs.
          * Specify as an integer or `all` to output all log lines.
          */
-        tail?: string;
-      };
-    };
+        tail?: string
+      }
+    }
     responses: {
       /**
        * logs returned as a stream in response body.
@@ -4478,18 +4478,18 @@ export interface operations {
        * upgrade the connection and does not set Content-Type.
        */
       200: {
-        schema: string;
-      };
+        schema: string
+      }
       /** no such container */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /**
    * Returns which files in a container's filesystem have been added, deleted,
    * or modified. The `Kind` of modification can be one of:
@@ -4502,54 +4502,54 @@ export interface operations {
     parameters: {
       path: {
         /** ID or name of the container */
-        id: string;
-      };
-    };
+        id: string
+      }
+    }
     responses: {
       /** The list of changes */
       200: {
         schema: {
           /** @description Path to file that has changed */
-          Path: string;
+          Path: string
           /**
            * Format: uint8
            * @description Kind of change
            * @enum {integer}
            */
-          Kind: 0 | 1 | 2;
-        }[];
-      };
+          Kind: 0 | 1 | 2
+        }[]
+      }
       /** no such container */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /** Export the contents of a container as a tarball. */
   ContainerExport: {
     parameters: {
       path: {
         /** ID or name of the container */
-        id: string;
-      };
-    };
+        id: string
+      }
+    }
     responses: {
       /** no error */
-      200: unknown;
+      200: unknown
       /** no such container */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /**
    * This endpoint returns a live stream of a container’s resource usage
    * statistics.
@@ -4582,143 +4582,143 @@ export interface operations {
     parameters: {
       path: {
         /** ID or name of the container */
-        id: string;
-      };
+        id: string
+      }
       query: {
         /**
          * Stream the output. If false, the stats will be output once and then
          * it will disconnect.
          */
-        stream?: boolean;
+        stream?: boolean
         /**
          * Only get a single stat instead of waiting for 2 cycles. Must be used
          * with `stream=false`.
          */
-        "one-shot"?: boolean;
-      };
-    };
+        "one-shot"?: boolean
+      }
+    }
     responses: {
       /** no error */
       200: {
-        schema: { [key: string]: unknown };
-      };
+        schema: { [key: string]: unknown }
+      }
       /** no such container */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /** Resize the TTY for a container. */
   ContainerResize: {
     parameters: {
       path: {
         /** ID or name of the container */
-        id: string;
-      };
+        id: string
+      }
       query: {
         /** Height of the TTY session in characters */
-        h?: number;
+        h?: number
         /** Width of the TTY session in characters */
-        w?: number;
-      };
-    };
+        w?: number
+      }
+    }
     responses: {
       /** no error */
-      200: unknown;
+      200: unknown
       /** no such container */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** cannot resize container */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   ContainerStart: {
     parameters: {
       path: {
         /** ID or name of the container */
-        id: string;
-      };
+        id: string
+      }
       query: {
         /**
          * Override the key sequence for detaching a container. Format is a
          * single character `[a-Z]` or `ctrl-<value>` where `<value>` is one
          * of: `a-z`, `@`, `^`, `[`, `,` or `_`.
          */
-        detachKeys?: string;
-      };
-    };
+        detachKeys?: string
+      }
+    }
     responses: {
       /** no error */
-      204: never;
+      204: never
       /** container already started */
-      304: never;
+      304: never
       /** no such container */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   ContainerStop: {
     parameters: {
       path: {
         /** ID or name of the container */
-        id: string;
-      };
+        id: string
+      }
       query: {
         /** Number of seconds to wait before killing the container */
-        t?: number;
-      };
-    };
+        t?: number
+      }
+    }
     responses: {
       /** no error */
-      204: never;
+      204: never
       /** container already stopped */
-      304: never;
+      304: never
       /** no such container */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   ContainerRestart: {
     parameters: {
       path: {
         /** ID or name of the container */
-        id: string;
-      };
+        id: string
+      }
       query: {
         /** Number of seconds to wait before killing the container */
-        t?: number;
-      };
-    };
+        t?: number
+      }
+    }
     responses: {
       /** no error */
-      204: never;
+      204: never
       /** no such container */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /**
    * Send a POSIX signal to a container, defaulting to killing to the
    * container.
@@ -4727,30 +4727,30 @@ export interface operations {
     parameters: {
       path: {
         /** ID or name of the container */
-        id: string;
-      };
+        id: string
+      }
       query: {
         /** Signal to send to the container as an integer or string (e.g. `SIGINT`) */
-        signal?: string;
-      };
-    };
+        signal?: string
+      }
+    }
     responses: {
       /** no error */
-      204: never;
+      204: never
       /** no such container */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** container is not running */
       409: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /**
    * Change various configuration options of a container without having to
    * recreate it.
@@ -4759,59 +4759,59 @@ export interface operations {
     parameters: {
       path: {
         /** ID or name of the container */
-        id: string;
-      };
+        id: string
+      }
       body: {
         update: definitions["Resources"] & {
-          RestartPolicy?: definitions["RestartPolicy"];
-        };
-      };
-    };
+          RestartPolicy?: definitions["RestartPolicy"]
+        }
+      }
+    }
     responses: {
       /** The container has been updated. */
       200: {
         schema: {
-          Warnings?: string[];
-        };
-      };
+          Warnings?: string[]
+        }
+      }
       /** no such container */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   ContainerRename: {
     parameters: {
       path: {
         /** ID or name of the container */
-        id: string;
-      };
+        id: string
+      }
       query: {
         /** New name for the container */
-        name: string;
-      };
-    };
+        name: string
+      }
+    }
     responses: {
       /** no error */
-      204: never;
+      204: never
       /** no such container */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** name already in use */
       409: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /**
    * Use the freezer cgroup to suspend all processes in a container.
    *
@@ -4824,43 +4824,43 @@ export interface operations {
     parameters: {
       path: {
         /** ID or name of the container */
-        id: string;
-      };
-    };
+        id: string
+      }
+    }
     responses: {
       /** no error */
-      204: never;
+      204: never
       /** no such container */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /** Resume a container which has been paused. */
   ContainerUnpause: {
     parameters: {
       path: {
         /** ID or name of the container */
-        id: string;
-      };
-    };
+        id: string
+      }
+    }
     responses: {
       /** no error */
-      204: never;
+      204: never
       /** no such container */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /**
    * Attach to a container to read its output or send it input. You can attach
    * to the same container multiple times and you can reattach to containers
@@ -4960,15 +4960,15 @@ export interface operations {
     parameters: {
       path: {
         /** ID or name of the container */
-        id: string;
-      };
+        id: string
+      }
       query: {
         /**
          * Override the key sequence for detaching a container.Format is a single
          * character `[a-Z]` or `ctrl-<value>` where `<value>` is one of: `a-z`,
          * `@`, `^`, `[`, `,` or `_`.
          */
-        detachKeys?: string;
+        detachKeys?: string
         /**
          * Replay previous logs from the container.
          *
@@ -4979,169 +4979,169 @@ export interface operations {
          * returned, it will seamlessly transition into streaming current
          * output.
          */
-        logs?: boolean;
+        logs?: boolean
         /** Stream attached streams from the time the request was made onwards. */
-        stream?: boolean;
+        stream?: boolean
         /** Attach to `stdin` */
-        stdin?: boolean;
+        stdin?: boolean
         /** Attach to `stdout` */
-        stdout?: boolean;
+        stdout?: boolean
         /** Attach to `stderr` */
-        stderr?: boolean;
-      };
-    };
+        stderr?: boolean
+      }
+    }
     responses: {
       /** no error, hints proxy about hijacking */
-      101: unknown;
+      101: unknown
       /** no error, no upgrade header found */
-      200: unknown;
+      200: unknown
       /** bad parameter */
       400: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** no such container */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   ContainerAttachWebsocket: {
     parameters: {
       path: {
         /** ID or name of the container */
-        id: string;
-      };
+        id: string
+      }
       query: {
         /**
          * Override the key sequence for detaching a container.Format is a single
          * character `[a-Z]` or `ctrl-<value>` where `<value>` is one of: `a-z`,
          * `@`, `^`, `[`, `,`, or `_`.
          */
-        detachKeys?: string;
+        detachKeys?: string
         /** Return logs */
-        logs?: boolean;
+        logs?: boolean
         /** Return stream */
-        stream?: boolean;
+        stream?: boolean
         /** Attach to `stdin` */
-        stdin?: boolean;
+        stdin?: boolean
         /** Attach to `stdout` */
-        stdout?: boolean;
+        stdout?: boolean
         /** Attach to `stderr` */
-        stderr?: boolean;
-      };
-    };
+        stderr?: boolean
+      }
+    }
     responses: {
       /** no error, hints proxy about hijacking */
-      101: unknown;
+      101: unknown
       /** no error, no upgrade header found */
-      200: unknown;
+      200: unknown
       /** bad parameter */
       400: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** no such container */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /** Block until a container stops, then returns the exit code. */
   ContainerWait: {
     parameters: {
       path: {
         /** ID or name of the container */
-        id: string;
-      };
+        id: string
+      }
       query: {
         /**
          * Wait until a container state reaches the given condition, either
          * 'not-running' (default), 'next-exit', or 'removed'.
          */
-        condition?: string;
-      };
-    };
+        condition?: string
+      }
+    }
     responses: {
       /** The container has exit. */
       200: {
         schema: {
           /** @description Exit code of the container */
-          StatusCode: number;
+          StatusCode: number
           /** @description container waiting error, if any */
           Error?: {
             /** @description Details of an error */
-            Message?: string;
-          };
-        };
-      };
+            Message?: string
+          }
+        }
+      }
       /** no such container */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   ContainerDelete: {
     parameters: {
       path: {
         /** ID or name of the container */
-        id: string;
-      };
+        id: string
+      }
       query: {
         /** Remove anonymous volumes associated with the container. */
-        v?: boolean;
+        v?: boolean
         /** If the container is running, kill it before removing it. */
-        force?: boolean;
+        force?: boolean
         /** Remove the specified link associated with the container. */
-        link?: boolean;
-      };
-    };
+        link?: boolean
+      }
+    }
     responses: {
       /** no error */
-      204: never;
+      204: never
       /** bad parameter */
       400: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** no such container */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** conflict */
       409: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /** Get a tar archive of a resource in the filesystem of container id. */
   ContainerArchive: {
     parameters: {
       path: {
         /** ID or name of the container */
-        id: string;
-      };
+        id: string
+      }
       query: {
         /** Resource in the container’s filesystem to archive. */
-        path: string;
-      };
-    };
+        path: string
+      }
+    }
     responses: {
       /** no error */
-      200: unknown;
+      200: unknown
       /** Bad parameter */
       400: {
         schema: definitions["ErrorResponse"] & {
@@ -5150,71 +5150,71 @@ export interface operations {
            * (path cannot be empty) or "not a directory" (path was
            * asserted to be a directory but exists as a file).
            */
-          message?: string;
-        };
-      };
+          message?: string
+        }
+      }
       /** Container or path does not exist */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /** Upload a tar archive to be extracted to a path in the filesystem of container id. */
   PutContainerArchive: {
     parameters: {
       path: {
         /** ID or name of the container */
-        id: string;
-      };
+        id: string
+      }
       query: {
         /** Path to a directory in the container to extract the archive’s contents into. */
-        path: string;
+        path: string
         /**
          * If `1`, `true`, or `True` then it will be an error if unpacking the
          * given content would cause an existing directory to be replaced with
          * a non-directory and vice versa.
          */
-        noOverwriteDirNonDir?: string;
+        noOverwriteDirNonDir?: string
         /**
          * If `1`, `true`, then it will copy UID/GID maps to the dest file or
          * dir
          */
-        copyUIDGID?: string;
-      };
+        copyUIDGID?: string
+      }
       body: {
         /**
          * The input stream must be a tar archive compressed with one of the
          * following algorithms: `identity` (no compression), `gzip`, `bzip2`,
          * or `xz`.
          */
-        inputStream: string;
-      };
-    };
+        inputStream: string
+      }
+    }
     responses: {
       /** The content was extracted successfully */
-      200: unknown;
+      200: unknown
       /** Bad parameter */
       400: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** Permission denied, the volume or container rootfs is marked as read-only. */
       403: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** No such container or path does not exist inside the container */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /**
    * A response header `X-Docker-Container-Path-Stat` is returned, containing
    * a base64 - encoded JSON object with some filesystem header information
@@ -5224,16 +5224,16 @@ export interface operations {
     parameters: {
       path: {
         /** ID or name of the container */
-        id: string;
-      };
+        id: string
+      }
       query: {
         /** Resource in the container’s filesystem to archive. */
-        path: string;
-      };
-    };
+        path: string
+      }
+    }
     responses: {
       /** no error */
-      200: unknown;
+      200: unknown
       /** Bad parameter */
       400: {
         schema: definitions["ErrorResponse"] & {
@@ -5242,19 +5242,19 @@ export interface operations {
            * (path cannot be empty) or "not a directory" (path was
            * asserted to be a directory but exists as a file).
            */
-          message?: string;
-        };
-      };
+          message?: string
+        }
+      }
       /** Container or path does not exist */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   ContainerPrune: {
     parameters: {
       query: {
@@ -5265,34 +5265,34 @@ export interface operations {
          * - `until=<timestamp>` Prune containers created before this timestamp. The `<timestamp>` can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. `10m`, `1h30m`) computed relative to the daemon machine’s time.
          * - `label` (`label=<key>`, `label=<key>=<value>`, `label!=<key>`, or `label!=<key>=<value>`) Prune containers with (or without, in case `label!=...` is used) the specified labels.
          */
-        filters?: string;
-      };
-    };
+        filters?: string
+      }
+    }
     responses: {
       /** No error */
       200: {
         schema: {
           /** @description Container IDs that were deleted */
-          ContainersDeleted?: string[];
+          ContainersDeleted?: string[]
           /**
            * Format: int64
            * @description Disk space reclaimed in bytes
            */
-          SpaceReclaimed?: number;
-        };
-      };
+          SpaceReclaimed?: number
+        }
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /** Returns a list of images on the server. Note that it uses a different, smaller representation of an image than inspecting a single image. */
   ImageList: {
     parameters: {
       query: {
         /** Show all images. Only images from a final layer (no children) are shown by default. */
-        all?: boolean;
+        all?: boolean
         /**
          * A JSON encoded value of the filters (a `map[string][]string`) to
          * process on the images list.
@@ -5305,22 +5305,22 @@ export interface operations {
          * - `reference`=(`<image-name>[:<tag>]`)
          * - `since`=(`<image-name>[:<tag>]`,  `<image id>` or `<image@digest>`)
          */
-        filters?: string;
+        filters?: string
         /** Show digest information as a `RepoDigests` field on each image. */
-        digests?: boolean;
-      };
-    };
+        digests?: boolean
+      }
+    }
     responses: {
       /** Summary image data for the images matching the query */
       200: {
-        schema: definitions["ImageSummary"][];
-      };
+        schema: definitions["ImageSummary"][]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /**
    * Build an image from a tar archive with a `Dockerfile` in it.
    *
@@ -5334,41 +5334,41 @@ export interface operations {
     parameters: {
       body: {
         /** A tar archive compressed with one of the following algorithms: identity (no compression), gzip, bzip2, xz. */
-        inputStream?: string;
-      };
+        inputStream?: string
+      }
       query: {
         /** Path within the build context to the `Dockerfile`. This is ignored if `remote` is specified and points to an external `Dockerfile`. */
-        dockerfile?: string;
+        dockerfile?: string
         /** A name and optional tag to apply to the image in the `name:tag` format. If you omit the tag the default `latest` value is assumed. You can provide several `t` parameters. */
-        t?: string;
+        t?: string
         /** Extra hosts to add to /etc/hosts */
-        extrahosts?: string;
+        extrahosts?: string
         /** A Git repository URI or HTTP/HTTPS context URI. If the URI points to a single text file, the file’s contents are placed into a file called `Dockerfile` and the image is built from that file. If the URI points to a tarball, the file is downloaded by the daemon and the contents therein used as the context for the build. If the URI points to a tarball and the `dockerfile` parameter is also specified, there must be a file with the corresponding path inside the tarball. */
-        remote?: string;
+        remote?: string
         /** Suppress verbose build output. */
-        q?: boolean;
+        q?: boolean
         /** Do not use the cache when building the image. */
-        nocache?: boolean;
+        nocache?: boolean
         /** JSON array of images used for build cache resolution. */
-        cachefrom?: string;
+        cachefrom?: string
         /** Attempt to pull the image even if an older image exists locally. */
-        pull?: string;
+        pull?: string
         /** Remove intermediate containers after a successful build. */
-        rm?: boolean;
+        rm?: boolean
         /** Always remove intermediate containers, even upon failure. */
-        forcerm?: boolean;
+        forcerm?: boolean
         /** Set memory limit for build. */
-        memory?: number;
+        memory?: number
         /** Total memory (memory + swap). Set as `-1` to disable swap. */
-        memswap?: number;
+        memswap?: number
         /** CPU shares (relative weight). */
-        cpushares?: number;
+        cpushares?: number
         /** CPUs in which to allow execution (e.g., `0-3`, `0,1`). */
-        cpusetcpus?: string;
+        cpusetcpus?: string
         /** The length of a CPU period in microseconds. */
-        cpuperiod?: number;
+        cpuperiod?: number
         /** Microseconds of CPU time that the container can get in a CPU period. */
-        cpuquota?: number;
+        cpuquota?: number
         /**
          * JSON map of string pairs for build-time variables. Users pass these values at build-time. Docker uses the buildargs as the environment context for commands run via the `Dockerfile` RUN instruction, or for variable expansion in other `Dockerfile` instructions. This is not meant for passing secret values.
          *
@@ -5376,29 +5376,29 @@ export interface operations {
          *
          * [Read more about the buildargs instruction.](https://docs.docker.com/engine/reference/builder/#arg)
          */
-        buildargs?: string;
+        buildargs?: string
         /** Size of `/dev/shm` in bytes. The size must be greater than 0. If omitted the system uses 64MB. */
-        shmsize?: number;
+        shmsize?: number
         /** Squash the resulting images layers into a single layer. *(Experimental release only.)* */
-        squash?: boolean;
+        squash?: boolean
         /** Arbitrary key/value labels to set on the image, as a JSON map of string pairs. */
-        labels?: string;
+        labels?: string
         /**
          * Sets the networking mode for the run commands during build. Supported
          * standard values are: `bridge`, `host`, `none`, and `container:<name|id>`.
          * Any other value is taken as a custom network's name or ID to which this
          * container should connect to.
          */
-        networkmode?: string;
+        networkmode?: string
         /** Platform in the format os[/arch[/variant]] */
-        platform?: string;
+        platform?: string
         /** Target build stage */
-        target?: string;
+        target?: string
         /** BuildKit output configuration */
-        outputs?: string;
-      };
+        outputs?: string
+      }
       header: {
-        "Content-type"?: "application/x-tar";
+        "Content-type"?: "application/x-tar"
         /**
          * This is a base64-encoded JSON object with auth configurations for multiple registries that a build may refer to.
          *
@@ -5419,29 +5419,29 @@ export interface operations {
          *
          * Only the registry domain name (and port if not the default 443) are required. However, for legacy reasons, the Docker Hub registry must be specified with both a `https://` prefix and a `/v1/` suffix even though Docker will prefer to use the v2 registry API.
          */
-        "X-Registry-Config"?: string;
-      };
-    };
+        "X-Registry-Config"?: string
+      }
+    }
     responses: {
       /** no error */
-      200: unknown;
+      200: unknown
       /** Bad parameter */
       400: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   BuildPrune: {
     parameters: {
       query: {
         /** Amount of disk space in bytes to keep for cache */
-        "keep-storage"?: number;
+        "keep-storage"?: number
         /** Remove all types of build cache */
-        all?: boolean;
+        all?: boolean
         /**
          * A JSON encoded value of the filters (a `map[string][]string`) to
          * process on the list of build cache objects.
@@ -5457,48 +5457,48 @@ export interface operations {
          * - `shared`
          * - `private`
          */
-        filters?: string;
-      };
-    };
+        filters?: string
+      }
+    }
     responses: {
       /** No error */
       200: {
         schema: {
-          CachesDeleted?: string[];
+          CachesDeleted?: string[]
           /**
            * Format: int64
            * @description Disk space reclaimed in bytes
            */
-          SpaceReclaimed?: number;
-        };
-      };
+          SpaceReclaimed?: number
+        }
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /** Create an image by either pulling it from a registry or importing it. */
   ImageCreate: {
     parameters: {
       query: {
         /** Name of the image to pull. The name may include a tag or digest. This parameter may only be used when pulling an image. The pull is cancelled if the HTTP connection is closed. */
-        fromImage?: string;
+        fromImage?: string
         /** Source to import. The value may be a URL from which the image can be retrieved or `-` to read the image from the request body. This parameter may only be used when importing an image. */
-        fromSrc?: string;
+        fromSrc?: string
         /** Repository name given to an image when it is imported. The repo may include a tag. This parameter may only be used when importing an image. */
-        repo?: string;
+        repo?: string
         /** Tag or digest. If empty when pulling an image, this causes all tags for the given image to be pulled. */
-        tag?: string;
+        tag?: string
         /** Set commit message for imported image. */
-        message?: string;
+        message?: string
         /** Platform in the format os[/arch[/variant]] */
-        platform?: string;
-      };
+        platform?: string
+      }
       body: {
         /** Image content if the value `-` has been specified in fromSrc query parameter */
-        inputImage?: string;
-      };
+        inputImage?: string
+      }
       header: {
         /**
          * A base64url-encoded auth configuration.
@@ -5506,77 +5506,77 @@ export interface operations {
          * Refer to the [authentication section](#section/Authentication) for
          * details.
          */
-        "X-Registry-Auth"?: string;
-      };
-    };
+        "X-Registry-Auth"?: string
+      }
+    }
     responses: {
       /** no error */
-      200: unknown;
+      200: unknown
       /** repository does not exist or no read access */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /** Return low-level information about an image. */
   ImageInspect: {
     parameters: {
       path: {
         /** Image name or id */
-        name: string;
-      };
-    };
+        name: string
+      }
+    }
     responses: {
       /** No error */
       200: {
-        schema: definitions["Image"];
-      };
+        schema: definitions["Image"]
+      }
       /** No such image */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /** Return parent layers of an image. */
   ImageHistory: {
     parameters: {
       path: {
         /** Image name or ID */
-        name: string;
-      };
-    };
+        name: string
+      }
+    }
     responses: {
       /** List of image layers */
       200: {
         schema: {
-          Id: string;
+          Id: string
           /** Format: int64 */
-          Created: number;
-          CreatedBy: string;
-          Tags: string[];
+          Created: number
+          CreatedBy: string
+          Tags: string[]
           /** Format: int64 */
-          Size: number;
-          Comment: string;
-        }[];
-      };
+          Size: number
+          Comment: string
+        }[]
+      }
       /** No such image */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /**
    * Push an image to a registry.
    *
@@ -5590,12 +5590,12 @@ export interface operations {
     parameters: {
       path: {
         /** Image name or ID. */
-        name: string;
-      };
+        name: string
+      }
       query: {
         /** The tag to associate with the image on the registry. */
-        tag?: string;
-      };
+        tag?: string
+      }
       header: {
         /**
          * A base64url-encoded auth configuration.
@@ -5603,57 +5603,57 @@ export interface operations {
          * Refer to the [authentication section](#section/Authentication) for
          * details.
          */
-        "X-Registry-Auth": string;
-      };
-    };
+        "X-Registry-Auth": string
+      }
+    }
     responses: {
       /** No error */
-      200: unknown;
+      200: unknown
       /** No such image */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /** Tag an image so that it becomes part of a repository. */
   ImageTag: {
     parameters: {
       path: {
         /** Image name or ID to tag. */
-        name: string;
-      };
+        name: string
+      }
       query: {
         /** The repository to tag in. For example, `someuser/someimage`. */
-        repo?: string;
+        repo?: string
         /** The name of the new tag. */
-        tag?: string;
-      };
-    };
+        tag?: string
+      }
+    }
     responses: {
       /** No error */
-      201: unknown;
+      201: unknown
       /** Bad parameter */
       400: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** No such image */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** Conflict */
       409: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /**
    * Remove an image, along with any untagged parent images that were
    * referenced by that image.
@@ -5665,42 +5665,42 @@ export interface operations {
     parameters: {
       path: {
         /** Image name or ID */
-        name: string;
-      };
+        name: string
+      }
       query: {
         /** Remove the image even if it is being used by stopped containers or has other tags */
-        force?: boolean;
+        force?: boolean
         /** Do not delete untagged parent images */
-        noprune?: boolean;
-      };
-    };
+        noprune?: boolean
+      }
+    }
     responses: {
       /** The image was deleted successfully */
       200: {
-        schema: definitions["ImageDeleteResponseItem"][];
-      };
+        schema: definitions["ImageDeleteResponseItem"][]
+      }
       /** No such image */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** Conflict */
       409: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /** Search for an image on Docker Hub. */
   ImageSearch: {
     parameters: {
       query: {
         /** Term to search */
-        term: string;
+        term: string
         /** Maximum number of results to return */
-        limit?: number;
+        limit?: number
         /**
          * A JSON encoded value of the filters (a `map[string][]string`) to process on the images list. Available filters:
          *
@@ -5708,26 +5708,26 @@ export interface operations {
          * - `is-official=(true|false)`
          * - `stars=<number>` Matches images that has at least 'number' stars.
          */
-        filters?: string;
-      };
-    };
+        filters?: string
+      }
+    }
     responses: {
       /** No error */
       200: {
         schema: {
-          description?: string;
-          is_official?: boolean;
-          is_automated?: boolean;
-          name?: string;
-          star_count?: number;
-        }[];
-      };
+          description?: string
+          is_official?: boolean
+          is_automated?: boolean
+          name?: string
+          star_count?: number
+        }[]
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   ImagePrune: {
     parameters: {
       query: {
@@ -5740,28 +5740,28 @@ export interface operations {
          * - `until=<string>` Prune images created before this timestamp. The `<timestamp>` can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. `10m`, `1h30m`) computed relative to the daemon machine’s time.
          * - `label` (`label=<key>`, `label=<key>=<value>`, `label!=<key>`, or `label!=<key>=<value>`) Prune images with (or without, in case `label!=...` is used) the specified labels.
          */
-        filters?: string;
-      };
-    };
+        filters?: string
+      }
+    }
     responses: {
       /** No error */
       200: {
         schema: {
           /** @description Images that were deleted */
-          ImagesDeleted?: definitions["ImageDeleteResponseItem"][];
+          ImagesDeleted?: definitions["ImageDeleteResponseItem"][]
           /**
            * Format: int64
            * @description Disk space reclaimed in bytes
            */
-          SpaceReclaimed?: number;
-        };
-      };
+          SpaceReclaimed?: number
+        }
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /**
    * Validate credentials for a registry and, if available, get an identity
    * token for accessing the registry without password.
@@ -5770,119 +5770,119 @@ export interface operations {
     parameters: {
       body: {
         /** Authentication to check */
-        authConfig?: definitions["AuthConfig"];
-      };
-    };
+        authConfig?: definitions["AuthConfig"]
+      }
+    }
     responses: {
       /** An identity token was generated successfully. */
       200: {
         schema: {
           /** @description The status of the authentication */
-          Status: string;
+          Status: string
           /** @description An opaque token used to authenticate a user after a successful login */
-          IdentityToken?: string;
-        };
-      };
+          IdentityToken?: string
+        }
+      }
       /** No error */
-      204: never;
+      204: never
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   SystemInfo: {
     responses: {
       /** No error */
       200: {
-        schema: definitions["SystemInfo"];
-      };
+        schema: definitions["SystemInfo"]
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /** Returns the version of Docker that is running and various information about the system that Docker is running on. */
   SystemVersion: {
     responses: {
       /** no error */
       200: {
-        schema: definitions["SystemVersion"];
-      };
+        schema: definitions["SystemVersion"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /** This is a dummy endpoint you can use to test if the server is accessible. */
   SystemPing: {
     responses: {
       /** no error */
       200: {
-        headers: {};
-        schema: string;
-      };
+        headers: {}
+        schema: string
+      }
       /** server error */
       500: {
-        headers: {};
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        headers: {}
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /** This is a dummy endpoint you can use to test if the server is accessible. */
   SystemPingHead: {
     responses: {
       /** no error */
       200: {
-        headers: {};
-        schema: string;
-      };
+        headers: {}
+        schema: string
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   ImageCommit: {
     parameters: {
       body: {
         /** The container configuration */
-        containerConfig?: definitions["ContainerConfig"];
-      };
+        containerConfig?: definitions["ContainerConfig"]
+      }
       query: {
         /** The ID or name of the container to commit */
-        container?: string;
+        container?: string
         /** Repository name for the created image */
-        repo?: string;
+        repo?: string
         /** Tag name for the create image */
-        tag?: string;
+        tag?: string
         /** Commit message */
-        comment?: string;
+        comment?: string
         /** Author of the image (e.g., `John Hannibal Smith <hannibal@a-team.com>`) */
-        author?: string;
+        author?: string
         /** Whether to pause the container before committing */
-        pause?: boolean;
+        pause?: boolean
         /** `Dockerfile` instructions to apply while committing */
-        changes?: string;
-      };
-    };
+        changes?: string
+      }
+    }
     responses: {
       /** no error */
       201: {
-        schema: definitions["IdResponse"];
-      };
+        schema: definitions["IdResponse"]
+      }
       /** no such container */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /**
    * Stream real-time events from the server.
    *
@@ -5912,9 +5912,9 @@ export interface operations {
     parameters: {
       query: {
         /** Show events created since this timestamp then stream new events. */
-        since?: string;
+        since?: string
         /** Show events created until this timestamp then stop streaming. */
-        until?: string;
+        until?: string
         /**
          * A JSON encoded value of filters (a `map[string][]string`) to process on the event list. Available filters:
          *
@@ -5933,61 +5933,61 @@ export interface operations {
          * - `type=<string>` object to filter by, one of `container`, `image`, `volume`, `network`, `daemon`, `plugin`, `node`, `service`, `secret` or `config`
          * - `volume=<string>` volume name
          */
-        filters?: string;
-      };
-    };
+        filters?: string
+      }
+    }
     responses: {
       /** no error */
       200: {
         schema: {
           /** @description The type of object emitting the event */
-          Type?: string;
+          Type?: string
           /** @description The type of event */
-          Action?: string;
+          Action?: string
           Actor?: {
             /** @description The ID of the object emitting the event */
-            ID?: string;
+            ID?: string
             /** @description Various key/value attributes of the object, depending on its type */
-            Attributes?: { [key: string]: string };
-          };
+            Attributes?: { [key: string]: string }
+          }
           /** @description Timestamp of event */
-          time?: number;
+          time?: number
           /**
            * Format: int64
            * @description Timestamp of event, with nanosecond accuracy
            */
-          timeNano?: number;
-        };
-      };
+          timeNano?: number
+        }
+      }
       /** bad parameter */
       400: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   SystemDataUsage: {
     responses: {
       /** no error */
       200: {
         schema: {
           /** Format: int64 */
-          LayersSize?: number;
-          Images?: definitions["ImageSummary"][];
-          Containers?: definitions["ContainerSummary"][];
-          Volumes?: definitions["Volume"][];
-          BuildCache?: definitions["BuildCache"][];
-        };
-      };
+          LayersSize?: number
+          Images?: definitions["ImageSummary"][]
+          Containers?: definitions["ContainerSummary"][]
+          Volumes?: definitions["Volume"][]
+          BuildCache?: definitions["BuildCache"][]
+        }
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /**
    * Get a tarball containing all images and metadata for a repository.
    *
@@ -6017,20 +6017,20 @@ export interface operations {
     parameters: {
       path: {
         /** Image name or ID */
-        name: string;
-      };
-    };
+        name: string
+      }
+    }
     responses: {
       /** no error */
       200: {
-        schema: string;
-      };
+        schema: string
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /**
    * Get a tarball containing all images and metadata for several image
    * repositories.
@@ -6047,20 +6047,20 @@ export interface operations {
     parameters: {
       query: {
         /** Image names to filter by */
-        names?: string[];
-      };
-    };
+        names?: string[]
+      }
+    }
     responses: {
       /** no error */
       200: {
-        schema: string;
-      };
+        schema: string
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /**
    * Load a set of images and tags into a repository.
    *
@@ -6070,22 +6070,22 @@ export interface operations {
     parameters: {
       body: {
         /** Tar archive containing images */
-        imagesTarball?: string;
-      };
+        imagesTarball?: string
+      }
       query: {
         /** Suppress progress details during load. */
-        quiet?: boolean;
-      };
-    };
+        quiet?: boolean
+      }
+    }
     responses: {
       /** no error */
-      200: unknown;
+      200: unknown
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /** Run a command inside a running container. */
   ContainerExec: {
     parameters: {
@@ -6093,59 +6093,59 @@ export interface operations {
         /** Exec configuration */
         execConfig: {
           /** @description Attach to `stdin` of the exec command. */
-          AttachStdin?: boolean;
+          AttachStdin?: boolean
           /** @description Attach to `stdout` of the exec command. */
-          AttachStdout?: boolean;
+          AttachStdout?: boolean
           /** @description Attach to `stderr` of the exec command. */
-          AttachStderr?: boolean;
+          AttachStderr?: boolean
           /**
            * @description Override the key sequence for detaching a container. Format is
            * a single character `[a-Z]` or `ctrl-<value>` where `<value>`
            * is one of: `a-z`, `@`, `^`, `[`, `,` or `_`.
            */
-          DetachKeys?: string;
+          DetachKeys?: string
           /** @description Allocate a pseudo-TTY. */
-          Tty?: boolean;
+          Tty?: boolean
           /** @description A list of environment variables in the form `["VAR=value", ...]`. */
-          Env?: string[];
+          Env?: string[]
           /** @description Command to run, as a string or array of strings. */
-          Cmd?: string[];
+          Cmd?: string[]
           /** @description Runs the exec process with extended privileges. */
-          Privileged?: boolean;
+          Privileged?: boolean
           /**
            * @description The user, and optionally, group to run the exec process inside
            * the container. Format is one of: `user`, `user:group`, `uid`,
            * or `uid:gid`.
            */
-          User?: string;
+          User?: string
           /** @description The working directory for the exec process inside the container. */
-          WorkingDir?: string;
-        };
-      };
+          WorkingDir?: string
+        }
+      }
       path: {
         /** ID or name of container */
-        id: string;
-      };
-    };
+        id: string
+      }
+    }
     responses: {
       /** no error */
       201: {
-        schema: definitions["IdResponse"];
-      };
+        schema: definitions["IdResponse"]
+      }
       /** no such container */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** container is paused */
       409: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /**
    * Starts a previously set up exec instance. If detach is true, this endpoint
    * returns immediately after starting the command. Otherwise, it sets up an
@@ -6156,29 +6156,29 @@ export interface operations {
       body: {
         execStartConfig?: {
           /** @description Detach from the command. */
-          Detach?: boolean;
+          Detach?: boolean
           /** @description Allocate a pseudo-TTY. */
-          Tty?: boolean;
-        };
-      };
+          Tty?: boolean
+        }
+      }
       path: {
         /** Exec instance ID */
-        id: string;
-      };
-    };
+        id: string
+      }
+    }
     responses: {
       /** No error */
-      200: unknown;
+      200: unknown
       /** No such exec instance */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** Container is stopped or paused */
       409: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /**
    * Resize the TTY session used by an exec instance. This endpoint only works
    * if `tty` was specified as part of creating and starting the exec instance.
@@ -6187,68 +6187,68 @@ export interface operations {
     parameters: {
       path: {
         /** Exec instance ID */
-        id: string;
-      };
+        id: string
+      }
       query: {
         /** Height of the TTY session in characters */
-        h?: number;
+        h?: number
         /** Width of the TTY session in characters */
-        w?: number;
-      };
-    };
+        w?: number
+      }
+    }
     responses: {
       /** No error */
-      200: unknown;
+      200: unknown
       /** bad parameter */
       400: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** No such exec instance */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /** Return low-level information about an exec instance. */
   ExecInspect: {
     parameters: {
       path: {
         /** Exec instance ID */
-        id: string;
-      };
-    };
+        id: string
+      }
+    }
     responses: {
       /** No error */
       200: {
         schema: {
-          CanRemove?: boolean;
-          DetachKeys?: string;
-          ID?: string;
-          Running?: boolean;
-          ExitCode?: number;
-          ProcessConfig?: definitions["ProcessConfig"];
-          OpenStdin?: boolean;
-          OpenStderr?: boolean;
-          OpenStdout?: boolean;
-          ContainerID?: string;
+          CanRemove?: boolean
+          DetachKeys?: string
+          ID?: string
+          Running?: boolean
+          ExitCode?: number
+          ProcessConfig?: definitions["ProcessConfig"]
+          OpenStdin?: boolean
+          OpenStderr?: boolean
+          OpenStdout?: boolean
+          ContainerID?: string
           /** @description The system process ID for the exec process. */
-          Pid?: number;
-        };
-      };
+          Pid?: number
+        }
+      }
       /** No such exec instance */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   VolumeList: {
     parameters: {
       query: {
@@ -6265,109 +6265,109 @@ export interface operations {
          *    the presence of a `label` alone or a `label` and a value.
          * - `name=<volume-name>` Matches all or part of a volume name.
          */
-        filters?: string;
-      };
-    };
+        filters?: string
+      }
+    }
     responses: {
       /** Summary volume data that matches the query */
       200: {
         schema: {
           /** @description List of volumes */
-          Volumes: definitions["Volume"][];
+          Volumes: definitions["Volume"][]
           /** @description Warnings that occurred when fetching the list of volumes. */
-          Warnings: string[];
-        };
-      };
+          Warnings: string[]
+        }
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   VolumeCreate: {
     parameters: {
       body: {
         /** Volume configuration */
         volumeConfig: {
           /** @description The new volume's name. If not specified, Docker generates a name. */
-          Name?: string;
+          Name?: string
           /**
            * @description Name of the volume driver to use.
            * @default local
            */
-          Driver?: string;
+          Driver?: string
           /**
            * @description A mapping of driver options and values. These options are
            * passed directly to the driver and are driver specific.
            */
-          DriverOpts?: { [key: string]: string };
+          DriverOpts?: { [key: string]: string }
           /** @description User-defined key/value metadata. */
-          Labels?: { [key: string]: string };
-        };
-      };
-    };
+          Labels?: { [key: string]: string }
+        }
+      }
+    }
     responses: {
       /** The volume was created successfully */
       201: {
-        schema: definitions["Volume"];
-      };
+        schema: definitions["Volume"]
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   VolumeInspect: {
     parameters: {
       path: {
         /** Volume name or ID */
-        name: string;
-      };
-    };
+        name: string
+      }
+    }
     responses: {
       /** No error */
       200: {
-        schema: definitions["Volume"];
-      };
+        schema: definitions["Volume"]
+      }
       /** No such volume */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /** Instruct the driver to remove the volume. */
   VolumeDelete: {
     parameters: {
       path: {
         /** Volume name or ID */
-        name: string;
-      };
+        name: string
+      }
       query: {
         /** Force the removal of the volume */
-        force?: boolean;
-      };
-    };
+        force?: boolean
+      }
+    }
     responses: {
       /** The volume was removed */
-      204: never;
+      204: never
       /** No such volume or volume driver */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** Volume is in use and cannot be removed */
       409: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   VolumePrune: {
     parameters: {
       query: {
@@ -6377,28 +6377,28 @@ export interface operations {
          * Available filters:
          * - `label` (`label=<key>`, `label=<key>=<value>`, `label!=<key>`, or `label!=<key>=<value>`) Prune volumes with (or without, in case `label!=...` is used) the specified labels.
          */
-        filters?: string;
-      };
-    };
+        filters?: string
+      }
+    }
     responses: {
       /** No error */
       200: {
         schema: {
           /** @description Volumes that were deleted */
-          VolumesDeleted?: string[];
+          VolumesDeleted?: string[]
           /**
            * Format: int64
            * @description Disk space reclaimed in bytes
            */
-          SpaceReclaimed?: number;
-        };
-      };
+          SpaceReclaimed?: number
+        }
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /**
    * Returns a list of networks. For details on the format, see the
    * [network inspect endpoint](#operation/NetworkInspect).
@@ -6427,79 +6427,79 @@ export interface operations {
          * - `scope=["swarm"|"global"|"local"]` Filters networks by scope (`swarm`, `global`, or `local`).
          * - `type=["custom"|"builtin"]` Filters networks by type. The `custom` keyword returns all user-defined networks.
          */
-        filters?: string;
-      };
-    };
+        filters?: string
+      }
+    }
     responses: {
       /** No error */
       200: {
-        schema: definitions["Network"][];
-      };
+        schema: definitions["Network"][]
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   NetworkInspect: {
     parameters: {
       path: {
         /** Network ID or name */
-        id: string;
-      };
+        id: string
+      }
       query: {
         /** Detailed inspect output for troubleshooting */
-        verbose?: boolean;
+        verbose?: boolean
         /** Filter the network by scope (swarm, global, or local) */
-        scope?: string;
-      };
-    };
+        scope?: string
+      }
+    }
     responses: {
       /** No error */
       200: {
-        schema: definitions["Network"];
-      };
+        schema: definitions["Network"]
+      }
       /** Network not found */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   NetworkDelete: {
     parameters: {
       path: {
         /** Network ID or name */
-        id: string;
-      };
-    };
+        id: string
+      }
+    }
     responses: {
       /** No error */
-      204: never;
+      204: never
       /** operation not supported for pre-defined networks */
       403: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** no such network */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   NetworkCreate: {
     parameters: {
       body: {
         /** Network configuration */
         networkConfig: {
           /** @description The network's name. */
-          Name: string;
+          Name: string
           /**
            * @description Check for networks with duplicate names. Since Network is
            * primarily keyed based on a random ID and not on the name, and
@@ -6509,121 +6509,121 @@ export interface operations {
            * a best effort checking of any networks which has the same name
            * but it is not guaranteed to catch all name collisions.
            */
-          CheckDuplicate?: boolean;
+          CheckDuplicate?: boolean
           /**
            * @description Name of the network driver plugin to use.
            * @default bridge
            */
-          Driver?: string;
+          Driver?: string
           /** @description Restrict external access to the network. */
-          Internal?: boolean;
+          Internal?: boolean
           /**
            * @description Globally scoped network is manually attachable by regular
            * containers from workers in swarm mode.
            */
-          Attachable?: boolean;
+          Attachable?: boolean
           /**
            * @description Ingress network is the network which provides the routing-mesh
            * in swarm mode.
            */
-          Ingress?: boolean;
+          Ingress?: boolean
           /** @description Optional custom IP scheme for the network. */
-          IPAM?: definitions["IPAM"];
+          IPAM?: definitions["IPAM"]
           /** @description Enable IPv6 on the network. */
-          EnableIPv6?: boolean;
+          EnableIPv6?: boolean
           /** @description Network specific options to be used by the drivers. */
-          Options?: { [key: string]: string };
+          Options?: { [key: string]: string }
           /** @description User-defined key/value metadata. */
-          Labels?: { [key: string]: string };
-        };
-      };
-    };
+          Labels?: { [key: string]: string }
+        }
+      }
+    }
     responses: {
       /** No error */
       201: {
         schema: {
           /** @description The ID of the created network. */
-          Id?: string;
-          Warning?: string;
-        };
-      };
+          Id?: string
+          Warning?: string
+        }
+      }
       /** operation not supported for pre-defined networks */
       403: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** plugin not found */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   NetworkConnect: {
     parameters: {
       path: {
         /** Network ID or name */
-        id: string;
-      };
+        id: string
+      }
       body: {
         container: {
           /** @description The ID or name of the container to connect to the network. */
-          Container?: string;
-          EndpointConfig?: definitions["EndpointSettings"];
-        };
-      };
-    };
+          Container?: string
+          EndpointConfig?: definitions["EndpointSettings"]
+        }
+      }
+    }
     responses: {
       /** No error */
-      200: unknown;
+      200: unknown
       /** Operation not supported for swarm scoped networks */
       403: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** Network or container not found */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   NetworkDisconnect: {
     parameters: {
       path: {
         /** Network ID or name */
-        id: string;
-      };
+        id: string
+      }
       body: {
         container: {
           /** @description The ID or name of the container to disconnect from the network. */
-          Container?: string;
+          Container?: string
           /** @description Force the container to disconnect from the network. */
-          Force?: boolean;
-        };
-      };
-    };
+          Force?: boolean
+        }
+      }
+    }
     responses: {
       /** No error */
-      200: unknown;
+      200: unknown
       /** Operation not supported for swarm scoped networks */
       403: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** Network or container not found */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   NetworkPrune: {
     parameters: {
       query: {
@@ -6634,23 +6634,23 @@ export interface operations {
          * - `until=<timestamp>` Prune networks created before this timestamp. The `<timestamp>` can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. `10m`, `1h30m`) computed relative to the daemon machine’s time.
          * - `label` (`label=<key>`, `label=<key>=<value>`, `label!=<key>`, or `label!=<key>=<value>`) Prune networks with (or without, in case `label!=...` is used) the specified labels.
          */
-        filters?: string;
-      };
-    };
+        filters?: string
+      }
+    }
     responses: {
       /** No error */
       200: {
         schema: {
           /** @description Networks that were deleted */
-          NetworksDeleted?: string[];
-        };
-      };
+          NetworksDeleted?: string[]
+        }
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /** Returns information about installed plugins. */
   PluginList: {
     parameters: {
@@ -6664,20 +6664,20 @@ export interface operations {
          * - `capability=<capability name>`
          * - `enable=<true>|<false>`
          */
-        filters?: string;
-      };
-    };
+        filters?: string
+      }
+    }
     responses: {
       /** No error */
       200: {
-        schema: definitions["Plugin"][];
-      };
+        schema: definitions["Plugin"][]
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   GetPluginPrivileges: {
     parameters: {
       query: {
@@ -6685,24 +6685,24 @@ export interface operations {
          * The name of the plugin. The `:latest` tag is optional, and is the
          * default if omitted.
          */
-        remote: string;
-      };
-    };
+        remote: string
+      }
+    }
     responses: {
       /** no error */
       200: {
         schema: {
-          Name?: string;
-          Description?: string;
-          Value?: string[];
-        }[];
-      };
+          Name?: string
+          Description?: string
+          Value?: string[]
+        }[]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /**
    * Pulls and installs a plugin. After the plugin is installed, it can be
    * enabled using the [`POST /plugins/{name}/enable` endpoint](#operation/PostPluginsEnable).
@@ -6715,14 +6715,14 @@ export interface operations {
          *
          * The `:latest` tag is optional, and is used as the default if omitted.
          */
-        remote: string;
+        remote: string
         /**
          * Local name for the pulled plugin.
          *
          * The `:latest` tag is optional, and is used as the default if omitted.
          */
-        name?: string;
-      };
+        name?: string
+      }
       header: {
         /**
          * A base64url-encoded auth configuration to use when pulling a plugin
@@ -6731,25 +6731,25 @@ export interface operations {
          * Refer to the [authentication section](#section/Authentication) for
          * details.
          */
-        "X-Registry-Auth"?: string;
-      };
+        "X-Registry-Auth"?: string
+      }
       body: {
         body?: {
-          Name?: string;
-          Description?: string;
-          Value?: string[];
-        }[];
-      };
-    };
+          Name?: string
+          Description?: string
+          Value?: string[]
+        }[]
+      }
+    }
     responses: {
       /** no error */
-      204: never;
+      204: never
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   PluginInspect: {
     parameters: {
       path: {
@@ -6757,24 +6757,24 @@ export interface operations {
          * The name of the plugin. The `:latest` tag is optional, and is the
          * default if omitted.
          */
-        name: string;
-      };
-    };
+        name: string
+      }
+    }
     responses: {
       /** no error */
       200: {
-        schema: definitions["Plugin"];
-      };
+        schema: definitions["Plugin"]
+      }
       /** plugin is not installed */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   PluginDelete: {
     parameters: {
       path: {
@@ -6782,31 +6782,31 @@ export interface operations {
          * The name of the plugin. The `:latest` tag is optional, and is the
          * default if omitted.
          */
-        name: string;
-      };
+        name: string
+      }
       query: {
         /**
          * Disable the plugin before removing. This may result in issues if the
          * plugin is in use by a container.
          */
-        force?: boolean;
-      };
-    };
+        force?: boolean
+      }
+    }
     responses: {
       /** no error */
       200: {
-        schema: definitions["Plugin"];
-      };
+        schema: definitions["Plugin"]
+      }
       /** plugin is not installed */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   PluginEnable: {
     parameters: {
       path: {
@@ -6814,26 +6814,26 @@ export interface operations {
          * The name of the plugin. The `:latest` tag is optional, and is the
          * default if omitted.
          */
-        name: string;
-      };
+        name: string
+      }
       query: {
         /** Set the HTTP client timeout (in seconds) */
-        timeout?: number;
-      };
-    };
+        timeout?: number
+      }
+    }
     responses: {
       /** no error */
-      200: unknown;
+      200: unknown
       /** plugin is not installed */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   PluginDisable: {
     parameters: {
       path: {
@@ -6841,22 +6841,22 @@ export interface operations {
          * The name of the plugin. The `:latest` tag is optional, and is the
          * default if omitted.
          */
-        name: string;
-      };
-    };
+        name: string
+      }
+    }
     responses: {
       /** no error */
-      200: unknown;
+      200: unknown
       /** plugin is not installed */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   PluginUpgrade: {
     parameters: {
       path: {
@@ -6864,16 +6864,16 @@ export interface operations {
          * The name of the plugin. The `:latest` tag is optional, and is the
          * default if omitted.
          */
-        name: string;
-      };
+        name: string
+      }
       query: {
         /**
          * Remote reference to upgrade to.
          *
          * The `:latest` tag is optional, and is used as the default if omitted.
          */
-        remote: string;
-      };
+        remote: string
+      }
       header: {
         /**
          * A base64url-encoded auth configuration to use when pulling a plugin
@@ -6882,29 +6882,29 @@ export interface operations {
          * Refer to the [authentication section](#section/Authentication) for
          * details.
          */
-        "X-Registry-Auth"?: string;
-      };
+        "X-Registry-Auth"?: string
+      }
       body: {
         body?: {
-          Name?: string;
-          Description?: string;
-          Value?: string[];
-        }[];
-      };
-    };
+          Name?: string
+          Description?: string
+          Value?: string[]
+        }[]
+      }
+    }
     responses: {
       /** no error */
-      204: never;
+      204: never
       /** plugin not installed */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   PluginCreate: {
     parameters: {
       query: {
@@ -6912,22 +6912,22 @@ export interface operations {
          * The name of the plugin. The `:latest` tag is optional, and is the
          * default if omitted.
          */
-        name: string;
-      };
+        name: string
+      }
       body: {
         /** Path to tar containing plugin rootfs and manifest */
-        tarContext?: string;
-      };
-    };
+        tarContext?: string
+      }
+    }
     responses: {
       /** no error */
-      204: never;
+      204: never
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /** Push a plugin to the registry. */
   PluginPush: {
     parameters: {
@@ -6936,22 +6936,22 @@ export interface operations {
          * The name of the plugin. The `:latest` tag is optional, and is the
          * default if omitted.
          */
-        name: string;
-      };
-    };
+        name: string
+      }
+    }
     responses: {
       /** no error */
-      200: unknown;
+      200: unknown
       /** plugin not installed */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   PluginSet: {
     parameters: {
       path: {
@@ -6959,25 +6959,25 @@ export interface operations {
          * The name of the plugin. The `:latest` tag is optional, and is the
          * default if omitted.
          */
-        name: string;
-      };
+        name: string
+      }
       body: {
-        body?: string[];
-      };
-    };
+        body?: string[]
+      }
+    }
     responses: {
       /** No error */
-      204: never;
+      204: never
       /** Plugin not installed */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   NodeList: {
     parameters: {
       query: {
@@ -6992,136 +6992,136 @@ export interface operations {
          * - `node.label=<node label>`
          * - `role=`(`manager`|`worker`)`
          */
-        filters?: string;
-      };
-    };
+        filters?: string
+      }
+    }
     responses: {
       /** no error */
       200: {
-        schema: definitions["Node"][];
-      };
+        schema: definitions["Node"][]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is not part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   NodeInspect: {
     parameters: {
       path: {
         /** The ID or name of the node */
-        id: string;
-      };
-    };
+        id: string
+      }
+    }
     responses: {
       /** no error */
       200: {
-        schema: definitions["Node"];
-      };
+        schema: definitions["Node"]
+      }
       /** no such node */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is not part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   NodeDelete: {
     parameters: {
       path: {
         /** The ID or name of the node */
-        id: string;
-      };
+        id: string
+      }
       query: {
         /** Force remove a node from the swarm */
-        force?: boolean;
-      };
-    };
+        force?: boolean
+      }
+    }
     responses: {
       /** no error */
-      200: unknown;
+      200: unknown
       /** no such node */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is not part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   NodeUpdate: {
     parameters: {
       path: {
         /** The ID of the node */
-        id: string;
-      };
+        id: string
+      }
       body: {
-        body?: definitions["NodeSpec"];
-      };
+        body?: definitions["NodeSpec"]
+      }
       query: {
         /**
          * The version number of the node object being updated. This is required
          * to avoid conflicting writes.
          */
-        version: number;
-      };
-    };
+        version: number
+      }
+    }
     responses: {
       /** no error */
-      200: unknown;
+      200: unknown
       /** bad parameter */
       400: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** no such node */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is not part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   SwarmInspect: {
     responses: {
       /** no error */
       200: {
-        schema: definitions["Swarm"];
-      };
+        schema: definitions["Swarm"]
+      }
       /** no such swarm */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is not part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   SwarmInit: {
     parameters: {
       body: {
@@ -7134,7 +7134,7 @@ export interface operations {
            * followed by a port number, like `eth0:4567`. If the port number
            * is omitted, the default swarm listening port is used.
            */
-          ListenAddr?: string;
+          ListenAddr?: string
           /**
            * @description Externally reachable address advertised to other nodes. This
            * can either be an address/port combination in the form
@@ -7143,7 +7143,7 @@ export interface operations {
            * number from the listen address is used. If `AdvertiseAddr` is
            * not specified, it will be automatically detected when possible.
            */
-          AdvertiseAddr?: string;
+          AdvertiseAddr?: string
           /**
            * @description Address or interface to use for data path traffic (format:
            * `<ip|interface>`), for example,  `192.168.1.1`, or an interface,
@@ -7156,50 +7156,50 @@ export interface operations {
            * it is possible to separate the container data traffic from the
            * management traffic of the cluster.
            */
-          DataPathAddr?: string;
+          DataPathAddr?: string
           /**
            * Format: uint32
            * @description DataPathPort specifies the data path port number for data traffic.
            * Acceptable port range is 1024 to 49151.
            * if no port is set or is set to 0, default port 4789 will be used.
            */
-          DataPathPort?: number;
+          DataPathPort?: number
           /**
            * @description Default Address Pool specifies default subnet pools for global
            * scope networks.
            */
-          DefaultAddrPool?: string[];
+          DefaultAddrPool?: string[]
           /** @description Force creation of a new swarm. */
-          ForceNewCluster?: boolean;
+          ForceNewCluster?: boolean
           /**
            * Format: uint32
            * @description SubnetSize specifies the subnet size of the networks created
            * from the default subnet pool.
            */
-          SubnetSize?: number;
-          Spec?: definitions["SwarmSpec"];
-        };
-      };
-    };
+          SubnetSize?: number
+          Spec?: definitions["SwarmSpec"]
+        }
+      }
+    }
     responses: {
       /** no error */
       200: {
-        schema: string;
-      };
+        schema: string
+      }
       /** bad parameter */
       400: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is already part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   SwarmJoin: {
     parameters: {
       body: {
@@ -7209,7 +7209,7 @@ export interface operations {
            * gets promoted to manager, as well as determining the networking
            * interface used for the VXLAN Tunnel Endpoint (VTEP).
            */
-          ListenAddr?: string;
+          ListenAddr?: string
           /**
            * @description Externally reachable address advertised to other nodes. This
            * can either be an address/port combination in the form
@@ -7218,7 +7218,7 @@ export interface operations {
            * number from the listen address is used. If `AdvertiseAddr` is
            * not specified, it will be automatically detected when possible.
            */
-          AdvertiseAddr?: string;
+          AdvertiseAddr?: string
           /**
            * @description Address or interface to use for data path traffic (format:
            * `<ip|interface>`), for example,  `192.168.1.1`, or an interface,
@@ -7231,31 +7231,31 @@ export interface operations {
            * it is possible to separate the container data traffic from the
            * management traffic of the cluster.
            */
-          DataPathAddr?: string;
+          DataPathAddr?: string
           /** @description Addresses of manager nodes already participating in the swarm. */
-          RemoteAddrs?: string[];
+          RemoteAddrs?: string[]
           /** @description Secret token for joining this swarm. */
-          JoinToken?: string;
-        };
-      };
-    };
+          JoinToken?: string
+        }
+      }
+    }
     responses: {
       /** no error */
-      200: unknown;
+      200: unknown
       /** bad parameter */
       400: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is already part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   SwarmLeave: {
     parameters: {
       query: {
@@ -7263,99 +7263,99 @@ export interface operations {
          * Force leave swarm, even if this is the last manager or that it will
          * break the cluster.
          */
-        force?: boolean;
-      };
-    };
+        force?: boolean
+      }
+    }
     responses: {
       /** no error */
-      200: unknown;
+      200: unknown
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is not part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   SwarmUpdate: {
     parameters: {
       body: {
-        body: definitions["SwarmSpec"];
-      };
+        body: definitions["SwarmSpec"]
+      }
       query: {
         /**
          * The version number of the swarm object being updated. This is
          * required to avoid conflicting writes.
          */
-        version: number;
+        version: number
         /** Rotate the worker join token. */
-        rotateWorkerToken?: boolean;
+        rotateWorkerToken?: boolean
         /** Rotate the manager join token. */
-        rotateManagerToken?: boolean;
+        rotateManagerToken?: boolean
         /** Rotate the manager unlock key. */
-        rotateManagerUnlockKey?: boolean;
-      };
-    };
+        rotateManagerUnlockKey?: boolean
+      }
+    }
     responses: {
       /** no error */
-      200: unknown;
+      200: unknown
       /** bad parameter */
       400: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is not part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   SwarmUnlockkey: {
     responses: {
       /** no error */
       200: {
         schema: {
           /** @description The swarm's unlock key. */
-          UnlockKey?: string;
-        };
-      };
+          UnlockKey?: string
+        }
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is not part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   SwarmUnlock: {
     parameters: {
       body: {
         body: {
           /** @description The swarm's unlock key. */
-          UnlockKey?: string;
-        };
-      };
-    };
+          UnlockKey?: string
+        }
+      }
+    }
     responses: {
       /** no error */
-      200: unknown;
+      200: unknown
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is not part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   ServiceList: {
     parameters: {
       query: {
@@ -7370,31 +7370,31 @@ export interface operations {
          * - `mode=["replicated"|"global"]`
          * - `name=<service name>`
          */
-        filters?: string;
+        filters?: string
         /** Include service status, with count of running and desired tasks. */
-        status?: boolean;
-      };
-    };
+        status?: boolean
+      }
+    }
     responses: {
       /** no error */
       200: {
-        schema: definitions["Service"][];
-      };
+        schema: definitions["Service"][]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is not part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   ServiceCreate: {
     parameters: {
       body: {
-        body: definitions["ServiceSpec"] & { [key: string]: unknown };
-      };
+        body: definitions["ServiceSpec"] & { [key: string]: unknown }
+      }
       header: {
         /**
          * A base64url-encoded auth configuration for pulling from private
@@ -7403,104 +7403,104 @@ export interface operations {
          * Refer to the [authentication section](#section/Authentication) for
          * details.
          */
-        "X-Registry-Auth"?: string;
-      };
-    };
+        "X-Registry-Auth"?: string
+      }
+    }
     responses: {
       /** no error */
       201: {
         schema: {
           /** @description The ID of the created service. */
-          ID?: string;
+          ID?: string
           /** @description Optional warning message */
-          Warning?: string;
-        };
-      };
+          Warning?: string
+        }
+      }
       /** bad parameter */
       400: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** network is not eligible for services */
       403: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** name conflicts with an existing service */
       409: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is not part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   ServiceInspect: {
     parameters: {
       path: {
         /** ID or name of service. */
-        id: string;
-      };
+        id: string
+      }
       query: {
         /** Fill empty fields with default values. */
-        insertDefaults?: boolean;
-      };
-    };
+        insertDefaults?: boolean
+      }
+    }
     responses: {
       /** no error */
       200: {
-        schema: definitions["Service"];
-      };
+        schema: definitions["Service"]
+      }
       /** no such service */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is not part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   ServiceDelete: {
     parameters: {
       path: {
         /** ID or name of service. */
-        id: string;
-      };
-    };
+        id: string
+      }
+    }
     responses: {
       /** no error */
-      200: unknown;
+      200: unknown
       /** no such service */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is not part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   ServiceUpdate: {
     parameters: {
       path: {
         /** ID or name of service. */
-        id: string;
-      };
+        id: string
+      }
       body: {
-        body: definitions["ServiceSpec"] & { [key: string]: unknown };
-      };
+        body: definitions["ServiceSpec"] & { [key: string]: unknown }
+      }
       query: {
         /**
          * The version number of the service object being updated. This is
@@ -7509,19 +7509,19 @@ export interface operations {
          * service *before* the update. You can find the current version by
          * calling `GET /services/{id}`
          */
-        version: number;
+        version: number
         /**
          * If the `X-Registry-Auth` header is not specified, this parameter
          * indicates where to find registry authorization credentials.
          */
-        registryAuthFrom?: "spec" | "previous-spec";
+        registryAuthFrom?: "spec" | "previous-spec"
         /**
          * Set to this parameter to `previous` to cause a server-side rollback
          * to the previous service spec. The supplied spec will be ignored in
          * this case.
          */
-        rollback?: string;
-      };
+        rollback?: string
+      }
       header: {
         /**
          * A base64url-encoded auth configuration for pulling from private
@@ -7530,32 +7530,32 @@ export interface operations {
          * Refer to the [authentication section](#section/Authentication) for
          * details.
          */
-        "X-Registry-Auth"?: string;
-      };
-    };
+        "X-Registry-Auth"?: string
+      }
+    }
     responses: {
       /** no error */
       200: {
-        schema: definitions["ServiceUpdateResponse"];
-      };
+        schema: definitions["ServiceUpdateResponse"]
+      }
       /** bad parameter */
       400: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** no such service */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is not part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /**
    * Get `stdout` and `stderr` logs from a service. See also
    * [`/containers/{id}/logs`](#operation/ContainerLogs).
@@ -7567,47 +7567,47 @@ export interface operations {
     parameters: {
       path: {
         /** ID or name of the service */
-        id: string;
-      };
+        id: string
+      }
       query: {
         /** Show service context and extra details provided to logs. */
-        details?: boolean;
+        details?: boolean
         /** Keep connection after returning logs. */
-        follow?: boolean;
+        follow?: boolean
         /** Return logs from `stdout` */
-        stdout?: boolean;
+        stdout?: boolean
         /** Return logs from `stderr` */
-        stderr?: boolean;
+        stderr?: boolean
         /** Only return logs since this time, as a UNIX timestamp */
-        since?: number;
+        since?: number
         /** Add timestamps to every log line */
-        timestamps?: boolean;
+        timestamps?: boolean
         /**
          * Only return this number of log lines from the end of the logs.
          * Specify as an integer or `all` to output all log lines.
          */
-        tail?: string;
-      };
-    };
+        tail?: string
+      }
+    }
     responses: {
       /** logs returned as a stream in response body */
       200: {
-        schema: string;
-      };
+        schema: string
+      }
       /** no such service */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is not part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   TaskList: {
     parameters: {
       query: {
@@ -7624,50 +7624,50 @@ export interface operations {
          * - `node=<node id or name>`
          * - `service=<service name>`
          */
-        filters?: string;
-      };
-    };
+        filters?: string
+      }
+    }
     responses: {
       /** no error */
       200: {
-        schema: definitions["Task"][];
-      };
+        schema: definitions["Task"][]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is not part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   TaskInspect: {
     parameters: {
       path: {
         /** ID of the task */
-        id: string;
-      };
-    };
+        id: string
+      }
+    }
     responses: {
       /** no error */
       200: {
-        schema: definitions["Task"];
-      };
+        schema: definitions["Task"]
+      }
       /** no such task */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is not part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /**
    * Get `stdout` and `stderr` logs from a task.
    * See also [`/containers/{id}/logs`](#operation/ContainerLogs).
@@ -7679,47 +7679,47 @@ export interface operations {
     parameters: {
       path: {
         /** ID of the task */
-        id: string;
-      };
+        id: string
+      }
       query: {
         /** Show task context and extra details provided to logs. */
-        details?: boolean;
+        details?: boolean
         /** Keep connection after returning logs. */
-        follow?: boolean;
+        follow?: boolean
         /** Return logs from `stdout` */
-        stdout?: boolean;
+        stdout?: boolean
         /** Return logs from `stderr` */
-        stderr?: boolean;
+        stderr?: boolean
         /** Only return logs since this time, as a UNIX timestamp */
-        since?: number;
+        since?: number
         /** Add timestamps to every log line */
-        timestamps?: boolean;
+        timestamps?: boolean
         /**
          * Only return this number of log lines from the end of the logs.
          * Specify as an integer or `all` to output all log lines.
          */
-        tail?: string;
-      };
-    };
+        tail?: string
+      }
+    }
     responses: {
       /** logs returned as a stream in response body */
       200: {
-        schema: string;
-      };
+        schema: string
+      }
       /** no such task */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is not part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   SecretList: {
     parameters: {
       query: {
@@ -7734,142 +7734,142 @@ export interface operations {
          * - `name=<secret name>`
          * - `names=<secret name>`
          */
-        filters?: string;
-      };
-    };
+        filters?: string
+      }
+    }
     responses: {
       /** no error */
       200: {
-        schema: definitions["Secret"][];
-      };
+        schema: definitions["Secret"][]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is not part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   SecretCreate: {
     parameters: {
       body: {
-        body?: definitions["SecretSpec"] & { [key: string]: unknown };
-      };
-    };
+        body?: definitions["SecretSpec"] & { [key: string]: unknown }
+      }
+    }
     responses: {
       /** no error */
       201: {
-        schema: definitions["IdResponse"];
-      };
+        schema: definitions["IdResponse"]
+      }
       /** name conflicts with an existing object */
       409: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is not part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   SecretInspect: {
     parameters: {
       path: {
         /** ID of the secret */
-        id: string;
-      };
-    };
+        id: string
+      }
+    }
     responses: {
       /** no error */
       200: {
-        schema: definitions["Secret"];
-      };
+        schema: definitions["Secret"]
+      }
       /** secret not found */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is not part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   SecretDelete: {
     parameters: {
       path: {
         /** ID of the secret */
-        id: string;
-      };
-    };
+        id: string
+      }
+    }
     responses: {
       /** no error */
-      204: never;
+      204: never
       /** secret not found */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is not part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   SecretUpdate: {
     parameters: {
       path: {
         /** The ID or name of the secret */
-        id: string;
-      };
+        id: string
+      }
       body: {
         /**
          * The spec of the secret to update. Currently, only the Labels field
          * can be updated. All other fields must remain unchanged from the
          * [SecretInspect endpoint](#operation/SecretInspect) response values.
          */
-        body?: definitions["SecretSpec"];
-      };
+        body?: definitions["SecretSpec"]
+      }
       query: {
         /**
          * The version number of the secret object being updated. This is
          * required to avoid conflicting writes.
          */
-        version: number;
-      };
-    };
+        version: number
+      }
+    }
     responses: {
       /** no error */
-      200: unknown;
+      200: unknown
       /** bad parameter */
       400: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** no such secret */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is not part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   ConfigList: {
     parameters: {
       query: {
@@ -7884,183 +7884,183 @@ export interface operations {
          * - `name=<config name>`
          * - `names=<config name>`
          */
-        filters?: string;
-      };
-    };
+        filters?: string
+      }
+    }
     responses: {
       /** no error */
       200: {
-        schema: definitions["Config"][];
-      };
+        schema: definitions["Config"][]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is not part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   ConfigCreate: {
     parameters: {
       body: {
-        body?: definitions["ConfigSpec"] & { [key: string]: unknown };
-      };
-    };
+        body?: definitions["ConfigSpec"] & { [key: string]: unknown }
+      }
+    }
     responses: {
       /** no error */
       201: {
-        schema: definitions["IdResponse"];
-      };
+        schema: definitions["IdResponse"]
+      }
       /** name conflicts with an existing object */
       409: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is not part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   ConfigInspect: {
     parameters: {
       path: {
         /** ID of the config */
-        id: string;
-      };
-    };
+        id: string
+      }
+    }
     responses: {
       /** no error */
       200: {
-        schema: definitions["Config"];
-      };
+        schema: definitions["Config"]
+      }
       /** config not found */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is not part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   ConfigDelete: {
     parameters: {
       path: {
         /** ID of the config */
-        id: string;
-      };
-    };
+        id: string
+      }
+    }
     responses: {
       /** no error */
-      204: never;
+      204: never
       /** config not found */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is not part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   ConfigUpdate: {
     parameters: {
       path: {
         /** The ID or name of the config */
-        id: string;
-      };
+        id: string
+      }
       body: {
         /**
          * The spec of the config to update. Currently, only the Labels field
          * can be updated. All other fields must remain unchanged from the
          * [ConfigInspect endpoint](#operation/ConfigInspect) response values.
          */
-        body?: definitions["ConfigSpec"];
-      };
+        body?: definitions["ConfigSpec"]
+      }
       query: {
         /**
          * The version number of the config object being updated. This is
          * required to avoid conflicting writes.
          */
-        version: number;
-      };
-    };
+        version: number
+      }
+    }
     responses: {
       /** no error */
-      200: unknown;
+      200: unknown
       /** bad parameter */
       400: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** no such config */
       404: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** node is not part of a swarm */
       503: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /** Return image digest and platform information by contacting the registry. */
   DistributionInspect: {
     parameters: {
       path: {
         /** Image name or id */
-        name: string;
-      };
-    };
+        name: string
+      }
+    }
     responses: {
       /** descriptor and platform information */
       200: {
         schema: {
           /** @description A descriptor struct containing digest, media type, and size. */
           Descriptor: {
-            MediaType?: string;
+            MediaType?: string
             /** Format: int64 */
-            Size?: number;
-            Digest?: string;
-            URLs?: string[];
-          };
+            Size?: number
+            Digest?: string
+            URLs?: string[]
+          }
           /** @description An array containing all platforms supported by the image. */
           Platforms: {
-            Architecture?: string;
-            OS?: string;
-            OSVersion?: string;
-            OSFeatures?: string[];
-            Variant?: string;
-            Features?: string[];
-          }[];
-        };
-      };
+            Architecture?: string
+            OS?: string
+            OSVersion?: string
+            OSFeatures?: string[]
+            Variant?: string
+            Features?: string[]
+          }[]
+        }
+      }
       /** Failed authentication or no image found */
       401: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** Server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
   /**
    * Start a new interactive session with a server. Session allows server to
    * call back to the client for advanced capabilities.
@@ -8090,17 +8090,17 @@ export interface operations {
   Session: {
     responses: {
       /** no error, hijacking successful */
-      101: unknown;
+      101: unknown
       /** bad parameter */
       400: {
-        schema: definitions["ErrorResponse"];
-      };
+        schema: definitions["ErrorResponse"]
+      }
       /** server error */
       500: {
-        schema: definitions["ErrorResponse"];
-      };
-    };
-  };
+        schema: definitions["ErrorResponse"]
+      }
+    }
+  }
 }
 
 export interface external {}

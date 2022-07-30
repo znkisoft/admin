@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { createStyles, Title, Text, Button, Container, Group } from "@mantine/core";
-import { Link } from "react-router-dom";
-import HomePage from "./Home";
+import React, { useEffect } from "react"
+import { createStyles, Title, Text, Button, Container, Group } from "@mantine/core"
+import { Link } from "react-router-dom"
+import HomePage from "./Home"
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -39,10 +39,10 @@ const useStyles = createStyles((theme) => ({
     marginTop: theme.spacing.xl,
     marginBottom: theme.spacing.xl * 1.5,
   },
-}));
+}))
 
 export default function NotFound() {
-  const { classes } = useStyles();
+  const { classes } = useStyles()
 
   // useEffect(() => {
   //   setTimeout(() => {
@@ -63,5 +63,5 @@ export default function NotFound() {
         </Button>
       </Group>
     </Container>
-  );
+  )
 }

@@ -1,12 +1,12 @@
-import { lazy } from "react"; // TODO lazy load routes
-import { useRoutes } from "react-router-dom";
-import MainLayout from "./layout/MainLayout";
-import Dashboard from "./pages/Dashboard";
-import DockerPage from "./pages/DockerPage";
-import FAQ from "./pages/FAQ";
-import HomePage from "./pages/Home";
-import NotFound from "./pages/NotFound";
-import TTY from "./pages/TTY";
+import { lazy } from "react" // TODO lazy load routes
+import { useRoutes } from "react-router-dom"
+import MainLayout from "./layout/MainLayout"
+import Dashboard from "./pages/Dashboard"
+import DockerPage from "./pages/DockerPage"
+import FAQ from "./pages/FAQ"
+import HomePage from "./pages/Home"
+import NotFound from "./pages/NotFound"
+import TTY from "./pages/TTY"
 
 // TODO add dynamic import
 // TODO add auth page
@@ -40,7 +40,7 @@ const MainRoutes = {
       element: <NotFound />,
     },
   ],
-};
+}
 
 // const LoginRoutes = {
 //   path: "/",
@@ -59,5 +59,5 @@ const MainRoutes = {
 
 export default function Routes() {
   // return useRoutes([MainRoutes, LoginRoutes]);
-  return useRoutes([MainRoutes]);
+  return useRoutes([MainRoutes])
 }

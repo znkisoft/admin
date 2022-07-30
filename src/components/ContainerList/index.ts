@@ -1,3 +1,3 @@
-import ContainerList from "./ContainerList";
+import ContainerList from "./ContainerList"
 
-export default ContainerList;
+export default ContainerList

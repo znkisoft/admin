@@ -1,5 +1,5 @@
-import ServerCard from "../components/ServerCard/ServerCard";
-import AppContent from "../layout/Content";
+import ServerCard from "../components/ServerCard/ServerCard"
+import AppContent from "../layout/Content"
 
 export default function Dashboard() {
   return (
@@ -9,5 +9,5 @@ export default function Dashboard() {
         <ServerCard />
       </AppContent>
     </>
-  );
+  )
 }

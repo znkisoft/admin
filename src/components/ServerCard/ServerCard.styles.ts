@@ -1,4 +1,4 @@
-import { createStyles } from "@mantine/core";
+import { createStyles } from "@mantine/core"
 
 export default createStyles((theme) => ({
   root: {
@@ -25,4 +25,4 @@ export default createStyles((theme) => ({
     fontWeight: 700,
     textTransform: "uppercase",
   },
-}));
+}))

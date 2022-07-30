@@ -1,7 +1,7 @@
-import React from "react";
-import { createStyles, Text, Container, ActionIcon, Group } from "@mantine/core";
-import { BrandTwitter, BrandYoutube, BrandInstagram } from "tabler-icons-react";
-import { FooterLinksProps } from "../types/layout";
+import React from "react"
+import { createStyles, Text, Container, ActionIcon, Group } from "@mantine/core"
+import { BrandTwitter, BrandYoutube, BrandInstagram } from "tabler-icons-react"
+import { FooterLinksProps } from "../types/layout"
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -92,10 +92,10 @@ const useStyles = createStyles((theme) => ({
       marginTop: theme.spacing.xs,
     },
   },
-}));
+}))
 
 export default function Footer({ data }: FooterLinksProps) {
-  const { classes } = useStyles();
+  const { classes } = useStyles()
   const groups = data.map((group) => {
     const links = group.links.map((link, index) => (
       <Text<"a">
@@ -107,15 +107,15 @@ export default function Footer({ data }: FooterLinksProps) {
       >
         {link.label}
       </Text>
-    ));
+    ))
 
     return (
       <div className={classes.wrapper} key={group.title}>
         <Text className={classes.title}>{group.title}</Text>
         {links}
       </div>
-    );
-  });
+    )
+  })
   return (
     <footer className={classes.footer}>
       <Container className={classes.inner}>
@@ -145,5 +145,5 @@ export default function Footer({ data }: FooterLinksProps) {
         </Group>
       </Container>
     </footer>
-  );
+  )
 }

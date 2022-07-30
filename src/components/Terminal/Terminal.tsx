@@ -1,17 +1,17 @@
-import React, { useEffect } from "react";
-import { TerminalService } from "./Terminal.service";
+import React, { useEffect } from "react"
+import { TerminalService } from "./Terminal.service"
 
 export default function WebTerminal() {
   useEffect(() => {
-    const termService = new TerminalService();
+    const termService = new TerminalService()
     return () => {
-      termService.Destory();
-    };
-  }, []);
+      termService.Destory()
+    }
+  }, [])
 
   return (
     <>
       <div id="terminal"></div>
     </>
-  );
+  )
 }

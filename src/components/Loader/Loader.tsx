@@ -1,5 +1,5 @@
 // import { MantineTheme } from "@mantine/core";
-import { Suspense } from "react";
+import { Suspense } from "react"
 
 // const LoaderWrapper = (theme: MantineTheme) => ({
 //   position: "fixed",
@@ -13,9 +13,9 @@ import { Suspense } from "react";
 // });
 
 const Loader = (Component: any) => (props: any) => {
-  <Suspense fallback={<>TODO Loader</>}>
+  ;<Suspense fallback={<>TODO Loader</>}>
     <Component {...props} />
-  </Suspense>;
-};
+  </Suspense>
+}
 
-export default Loader;
+export default Loader

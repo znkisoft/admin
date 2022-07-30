@@ -1,8 +1,8 @@
-import { Center, createStyles, Group, Navbar as MNavbar, Tooltip, UnstyledButton } from "@mantine/core";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Logout } from "tabler-icons-react";
-import { NavbarLinkProps } from "../types/layout";
+import { Center, createStyles, Group, Navbar as MNavbar, Tooltip, UnstyledButton } from "@mantine/core"
+import { useState } from "react"
+import { Link } from "react-router-dom"
+import { Logout } from "tabler-icons-react"
+import { NavbarLinkProps } from "../types/layout"
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -28,10 +28,10 @@ const useStyles = createStyles((theme) => ({
       color: theme.colors[theme.primaryColor][theme.colorScheme === "dark" ? 4 : 7],
     },
   },
-}));
+}))
 
 function NavbarLink({ icon: Icon, label, link, active, onClick }: NavbarLinkProps) {
-  const { classes, cx } = useStyles();
+  const { classes, cx } = useStyles()
   return (
     <Tooltip label={label} position="right" withArrow transitionDuration={0}>
       <UnstyledButton
@@ -43,15 +43,15 @@ function NavbarLink({ icon: Icon, label, link, active, onClick }: NavbarLinkProp
         <Icon />
       </UnstyledButton>
     </Tooltip>
-  );
+  )
 }
 
 export default function Navbar(navbarItems: NavbarLinkProps[]) {
-  const [active, setActive] = useState(2);
+  const [active, setActive] = useState(2)
 
   const links = navbarItems.map((link, index) => (
     <NavbarLink {...link} key={link.label} active={index === active} onClick={() => setActive(index)} />
-  ));
+  ))
 
   return (
     <MNavbar width={{ base: 80 }} p="md">
@@ -67,5 +67,5 @@ export default function Navbar(navbarItems: NavbarLinkProps[]) {
         </Group>
       </MNavbar.Section>
     </MNavbar>
-  );
+  )
 }
