@@ -1,17 +1,6 @@
-import React from "react";
-import {
-  TextInput,
-  PasswordInput,
-  Checkbox,
-  Anchor,
-  Paper,
-  Title,
-  Text,
-  Container,
-  Group,
-  Button,
-} from "@mantine/core";
-import "firebase/compat/auth";
+import React from "react"
+import { TextInput, PasswordInput, Checkbox, Anchor, Paper, Title, Text, Container, Group, Button } from "@mantine/core"
+import "firebase/compat/auth"
 
 export default function Auth() {
   return (
@@ -40,5 +29,5 @@ export default function Auth() {
         </Button>
       </Paper>
     </Container>
-  );
+  )
 }

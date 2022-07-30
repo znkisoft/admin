@@ -1,10 +1,10 @@
-import * as React from "react";
-import Footer from "./Footer";
-import Header from "./Header";
-import Navbar from "./Navbar";
-import { AppShell } from "@mantine/core";
-import { Outlet } from "react-router-dom";
-import { footerConfig, headerConfig, navbarConfig } from "../config/layout.config";
+import * as React from "react"
+import Footer from "./Footer"
+import Header from "./Header"
+import Navbar from "./Navbar"
+import { AppShell } from "@mantine/core"
+import { Outlet } from "react-router-dom"
+import { footerConfig, headerConfig, navbarConfig } from "../config/layout.config"
 
 export default function MainLayout() {
   return (
@@ -21,5 +21,5 @@ export default function MainLayout() {
     >
       <Outlet />
     </AppShell>
-  );
+  )
 }

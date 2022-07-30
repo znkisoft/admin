@@ -1,7 +1,7 @@
-import { Container, createStyles, Header as MHeader } from "@mantine/core";
-import UserMenu from "components/UserMenu";
-import { ColorSchemeToggle } from "../components/ColorSchemeToggle/ColorSchemeToggle";
-import { HeaderSearchProps } from "../types/layout";
+import { Container, createStyles, Header as MHeader } from "@mantine/core"
+import UserMenu from "components/UserMenu"
+import { ColorSchemeToggle } from "../components/ColorSchemeToggle/ColorSchemeToggle"
+import { HeaderSearchProps } from "../types/layout"
 
 const useStyles = createStyles((theme) => ({
   inner: {
@@ -35,20 +35,18 @@ const useStyles = createStyles((theme) => ({
   linkLabel: {
     marginRight: 5,
   },
-}));
+}))
 
 export default function Header({ links }: HeaderSearchProps) {
-  const { classes } = useStyles();
+  const { classes } = useStyles()
 
   return (
     <MHeader height={56}>
-      <Container>
-        <div className={classes.inner}>
-          {/* TODO logo */}
-          <ColorSchemeToggle />
-          <UserMenu />
-        </div>
+      <Container className={classes.inner}>
+        {/* TODO logo */}
+        <ColorSchemeToggle />
+        <UserMenu />
       </Container>
     </MHeader>
-  );
+  )
 }

@@ -1,7 +1,7 @@
-import React from "react";
-import { Group, Paper, SimpleGrid, Text, RingProgress, Center } from "@mantine/core";
-import { UserPlus, Discount2, Receipt2, Coin, ArrowUpRight, ArrowDownRight } from "tabler-icons-react";
-import useStyles from "./ServerCard.styles";
+import React from "react"
+import { Group, Paper, SimpleGrid, Text, RingProgress, Center } from "@mantine/core"
+import { UserPlus, Discount2, Receipt2, Coin, ArrowUpRight, ArrowDownRight } from "tabler-icons-react"
+import useStyles from "./ServerCard.styles"
 
 const icons = {
   user: UserPlus,
@@ -10,18 +10,18 @@ const icons = {
   coin: Coin,
   up: ArrowUpRight,
   down: ArrowDownRight,
-};
+}
 
 interface HWInfoProps {
-  label: string;
-  stats: string;
-  progress: number;
-  color: string;
-  icon: "memory" | "cpu" | "disk" | "network";
+  label: string
+  stats: string
+  progress: number
+  color: string
+  icon: "memory" | "cpu" | "disk" | "network"
 }
 
 export default function ServerCard() {
-  const { classes } = useStyles();
+  const { classes } = useStyles()
 
   return (
     <div className={classes.root}>
@@ -41,7 +41,7 @@ export default function ServerCard() {
                   Compared to previous month
                 </Text>
               </Paper>
-            );
+            )
           }
           return (
             <Paper withBorder radius="md" p="xs">
@@ -64,9 +64,9 @@ export default function ServerCard() {
                 </div>
               </Group>
             </Paper>
-          );
+          )
         })}
       </SimpleGrid>
     </div>
-  );
+  )
 }

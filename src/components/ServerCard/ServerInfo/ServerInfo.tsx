@@ -1,25 +1,25 @@
-import React from "react";
-import { RingProgress, Text, SimpleGrid, Paper, Center, Group } from "@mantine/core";
-import { ArrowUpRight, ArrowDownRight } from "tabler-icons-react";
+import React from "react"
+import { RingProgress, Text, SimpleGrid, Paper, Center, Group } from "@mantine/core"
+import { ArrowUpRight, ArrowDownRight } from "tabler-icons-react"
 
 interface StatsRingProps {
   data: {
-    label: string;
-    stats: string;
-    progress: number;
-    color: string;
-    icon: "up" | "down";
-  }[];
+    label: string
+    stats: string
+    progress: number
+    color: string
+    icon: "up" | "down"
+  }[]
 }
 
 const icons = {
   up: ArrowUpRight,
   down: ArrowDownRight,
-};
+}
 
 export function StatsRing({ data }: StatsRingProps) {
   const stats = data.map((stat) => {
-    const Icon = icons[stat.icon];
+    const Icon = icons[stat.icon]
     return (
       <Paper withBorder radius="md" p="xs" key={stat.label}>
         <Group>
@@ -45,11 +45,11 @@ export function StatsRing({ data }: StatsRingProps) {
           </div>
         </Group>
       </Paper>
-    );
-  });
+    )
+  })
   return (
     <SimpleGrid cols={3} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
       {stats}
     </SimpleGrid>
-  );
+  )
 }

@@ -1,4 +1,4 @@
-import { Col, Container, createStyles, Grid, Title } from "@mantine/core";
+import { Col, Container, createStyles, Grid, Title } from "@mantine/core"
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -17,13 +17,13 @@ const useStyles = createStyles((theme) => ({
     fontSize: theme.fontSizes.sm,
     color: theme.colorScheme === "dark" ? theme.colors.dark[1] : theme.colors.gray[7],
   },
-}));
+}))
 
 const placeholder =
-  "It can’t help but hear a pin drop from over half a mile away, so it lives deep in the mountains where there aren’t many people or Pokémon.";
+  "It can’t help but hear a pin drop from over half a mile away, so it lives deep in the mountains where there aren’t many people or Pokémon."
 
 export default function FAQ() {
-  const { classes } = useStyles();
+  const { classes } = useStyles()
   return (
     <div className={classes.wrapper}>
       <Container size="lg">
@@ -39,5 +39,5 @@ export default function FAQ() {
         </Grid>
       </Container>
     </div>
-  );
+  )
 }

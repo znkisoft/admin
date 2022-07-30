@@ -1,5 +1,5 @@
-import { Terminal } from "tabler-icons-react";
-import WebTerminal from "../components/Terminal/Terminal";
+import { Terminal } from "tabler-icons-react"
+import WebTerminal from "../components/Terminal/Terminal"
 
 export default function TTYPage() {
   return (
@@ -8,5 +8,5 @@ export default function TTYPage() {
       <p>TTY page</p>
       <WebTerminal />
     </>
-  );
+  )
 }

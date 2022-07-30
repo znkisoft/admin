@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import {
   createStyles,
   Paper,
@@ -11,8 +11,8 @@ import {
   Anchor,
   Center,
   Box,
-} from "@mantine/core";
-import { ArrowLeft } from "tabler-icons-react";
+} from "@mantine/core"
+import { ArrowLeft } from "tabler-icons-react"
 
 const useStyles = createStyles((theme) => ({
   title: {
@@ -33,10 +33,10 @@ const useStyles = createStyles((theme) => ({
       textAlign: "center",
     },
   },
-}));
+}))
 
 export default function ForgotPassword() {
-  const { classes } = useStyles();
+  const { classes } = useStyles()
 
   return (
     <Container size={460} my={30}>
@@ -60,5 +60,5 @@ export default function ForgotPassword() {
         </Group>
       </Paper>
     </Container>
-  );
+  )
 }

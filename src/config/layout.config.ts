@@ -1,18 +1,14 @@
 import {
-  Home2,
-  Gauge,
-  DeviceDesktopAnalytics,
-  Fingerprint,
-  CalendarStats,
-  User,
-  BrandDocker,
-  Settings,
-  Link,
   AppWindow,
-  ZoomQuestion,
+  BrandDocker,
+  CalendarStats,
+  DeviceDesktopAnalytics,
+  Link,
+  Settings,
   Terminal,
-} from "tabler-icons-react";
-import { FooterLinksProps, HeaderSearchProps, NavbarLinkProps } from "../types/layout";
+  ZoomQuestion,
+} from "tabler-icons-react"
+import { FooterLinksProps, HeaderSearchProps, NavbarLinkProps, UserMenuProps } from "../types/layout"
 
 export const navbarConfig: NavbarLinkProps[] = [
   { icon: Terminal, label: "Terminal", link: "/tty" },
@@ -21,10 +17,9 @@ export const navbarConfig: NavbarLinkProps[] = [
   { icon: BrandDocker, label: "Docker Management", link: "/docker" },
   { icon: Link, label: "URL Shortener", link: "/uRL" },
   { icon: CalendarStats, label: "Releases", link: "/releases" },
-  { icon: User, label: "Account", link: "/account" },
   { icon: ZoomQuestion, label: "FAQ", link: "/faq" },
   { icon: Settings, label: "Settings", link: "/settings" },
-];
+]
 
 export const headerConfig: HeaderSearchProps = {
   links: [
@@ -34,8 +29,16 @@ export const headerConfig: HeaderSearchProps = {
       links: [],
     },
   ],
-};
+}
 
 export const footerConfig: FooterLinksProps = {
   data: [],
-};
+}
+
+export const UserMenuConfig: UserMenuProps = {
+  data: [
+    { icon: Terminal, label: "Terminal", link: "/tty" },
+    { icon: Terminal, label: "Terminal", link: "/tty" },
+    { icon: Terminal, label: "Terminal", link: "/tty" },
+  ],
+}

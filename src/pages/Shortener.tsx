@@ -3,5 +3,5 @@ export default function Shortener() {
     <>
       <h1>Shortener Page</h1>
     </>
-  );
+  )
 }
