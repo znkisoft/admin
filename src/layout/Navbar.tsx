@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { Navbar as MNavbar, Center, Tooltip, UnstyledButton, createStyles, Group } from "@mantine/core";
+import { Center, createStyles, Group, Navbar as MNavbar, Tooltip, UnstyledButton } from "@mantine/core";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Logout } from "tabler-icons-react";
 import { NavbarLinkProps } from "../types/layout";
-import { Link } from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -57,12 +57,12 @@ export default function Navbar(navbarItems: NavbarLinkProps[]) {
     <MNavbar width={{ base: 80 }} p="md">
       <Center>TODO</Center>
       <MNavbar.Section grow mt={50}>
-        <Group direction="column" align="center" spacing={0}>
+        <Group position="center" align="center" spacing={0}>
           {links}
         </Group>
       </MNavbar.Section>
       <MNavbar.Section>
-        <Group direction="column" align="center" spacing={0}>
+        <Group position="center" align="center" spacing={0}>
           <NavbarLink icon={Logout} label="Logout" link="/logout" />
         </Group>
       </MNavbar.Section>
