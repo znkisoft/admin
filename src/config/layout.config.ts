@@ -1,14 +1,18 @@
-import {
-  AppWindow,
-  BrandDocker,
-  CalendarStats,
-  DeviceDesktopAnalytics,
-  Link,
-  Settings,
-  Terminal,
-  ZoomQuestion,
-} from "tabler-icons-react"
-import { FooterLinksProps, HeaderSearchProps, NavbarLinkProps, UserMenuProps } from "../types/layout"
+import
+  {
+    AppWindow,
+    BrandDocker,
+    CalendarStats,
+    DeviceDesktopAnalytics,
+    InfoCircle,
+    Link,
+    Login,
+    Logout,
+    Settings,
+    Terminal,
+    ZoomQuestion
+  } from "tabler-icons-react"
+import { FooterLinksProps, HeaderSearchProps, NavbarLinkProps, UserMenuItemsProps } from "../types/layout"
 
 export const navbarConfig: NavbarLinkProps[] = [
   { icon: Terminal, label: "Terminal", link: "/tty" },
@@ -35,10 +39,8 @@ export const footerConfig: FooterLinksProps = {
   data: [],
 }
 
-export const UserMenuConfig: UserMenuProps = {
-  data: [
-    { icon: Terminal, label: "Terminal", link: "/tty" },
-    { icon: Terminal, label: "Terminal", link: "/tty" },
-    { icon: Terminal, label: "Terminal", link: "/tty" },
-  ],
-}
+export const UserMenuItems: UserMenuItemsProps = [
+  { loggedIn:false, icon: Login, label: "Sign in", link: "/tty" },
+  { loggedIn:true, icon: Logout, label: "Log out", link: "/tty" },
+  { loggedIn:true, icon: InfoCircle, label: "My Info", link: "/tty" },
+]
