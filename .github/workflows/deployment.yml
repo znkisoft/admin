@@ -1,5 +1,5 @@
 name: ZnkiSoft Admin Deployment
-on: 
+on:
   push:
     branches:
       - main
@@ -7,33 +7,33 @@ jobs:
   Build:
     runs-on: ubuntu-latest
     steps:
-    - name: checkout code
-      uses: actions/checkout@v2
-    - name: actions/setup-node@v2
-      uses: actions/setup-node@v2   
-      with:
-        node-version: '16.14'
-        cache: 'yarn'
-        cache-dependency-path: '**/yarn.lock'
-    - name: yarn cache
-      id: yarn-cahce-dir-path
-      run: echo "::set-output name=dir::$(yarn cache dir)"
-    - uses: actions/cache@v2
-      id: yarn-cache
-      with: 
-        path: ${{ steps.yarn-cahce-dir-path.outputs.dir }}
-        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: | 
-          ${{ runner.os }}-yarn-    
-    - run: yarn install && yarn build  
-    - name: upload files 
-      uses: actions/upload-artifact@v2
-      with: 
-        name: build-pages
-        path: build
-        retention-days: 1
-  Deploy: 
-    needs: Build 
+      - name: checkout code
+        uses: actions/checkout@v2
+      - name: actions/setup-node@v2
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16.14"
+          cache: "yarn"
+          cache-dependency-path: "**/yarn.lock"
+      - name: yarn cache
+        id: yarn-cahce-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cahce-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - run: yarn install && yarn build
+      - name: upload files
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-pages
+          path: build
+          retention-days: 1
+  Deploy:
+    needs: Build
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
@@ -47,5 +47,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.2.3
         with:
           branch: gh-pages
-          folder: build 
-          token: "${{ secrets.DEPLOY_TOKEN }}"  
+          folder: build
+          token: "${{ secrets.DEPLOY_TOKEN }}"

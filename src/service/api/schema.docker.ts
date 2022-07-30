@@ -754,13 +754,7 @@ export interface definitions {
        * @description A propagation mode with the value `[r]private`, `[r]shared`, or `[r]slave`.
        * @enum {string}
        */
-      Propagation?:
-        | "private"
-        | "rprivate"
-        | "shared"
-        | "rshared"
-        | "slave"
-        | "rslave";
+      Propagation?: "private" | "rprivate" | "shared" | "rshared" | "slave" | "rslave";
       /** @description Disable recursive bind mount. */
       NonRecursive?: boolean;
     };
@@ -1194,16 +1188,7 @@ export interface definitions {
     /** @description The logging configuration for this container */
     LogConfig?: {
       /** @enum {string} */
-      Type?:
-        | "json-file"
-        | "syslog"
-        | "journald"
-        | "gelf"
-        | "fluentd"
-        | "awslogs"
-        | "splunk"
-        | "etwlogs"
-        | "none";
+      Type?: "json-file" | "syslog" | "journald" | "gelf" | "fluentd" | "awslogs" | "splunk" | "etwlogs" | "none";
       Config?: { [key: string]: string };
     };
     /**
@@ -3360,14 +3345,7 @@ export interface definitions {
      * @example running
      * @enum {string}
      */
-    Status?:
-      | "created"
-      | "running"
-      | "paused"
-      | "restarting"
-      | "removing"
-      | "exited"
-      | "dead";
+    Status?: "created" | "running" | "paused" | "restarting" | "removing" | "exited" | "dead";
     /**
      * @description Whether this container is running.
      *
