@@ -2,7 +2,11 @@
   "compilerOptions": {
     "target": "ES6",
     "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
     "strict": true,
     "allowJs": false,
     "skipLibCheck": false,
@@ -19,5 +23,7 @@
     "incremental": true,
     "paths": {}
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }

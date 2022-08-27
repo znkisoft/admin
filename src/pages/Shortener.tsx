@@ -1,7 +1,7 @@
 export default function Shortener() {
-  return (
-    <>
-      <h1>Shortener Page</h1>
-    </>
-  )
+    return (
+        <>
+            <h1>Shortener Page</h1>
+        </>
+    )
 }

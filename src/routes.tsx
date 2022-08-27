@@ -1,63 +1,70 @@
-import { lazy } from "react" // TODO lazy load routes
+import React from "react"
 import { useRoutes } from "react-router-dom"
 import MainLayout from "./layout/MainLayout"
-import Dashboard from "./pages/Dashboard"
-import DockerPage from "./pages/DockerPage"
-import FAQ from "./pages/FAQ"
-import HomePage from "./pages/Home"
-import NotFound from "./pages/NotFound"
-import TTY from "./pages/TTY"
+import Login from "./pages/Login"
+import Signup from "./pages/Signup"
+import ForgetPwd from "./pages/ForgetPwd"
 
-// TODO add dynamic import
-// TODO add auth page
+const Dashboard = React.lazy(() => import("./pages/Dashboard"))
+const DockerPage = React.lazy(() => import("./pages/DockerPage"))
+const FAQ = React.lazy(() => import("./pages/FAQ"))
+const HomePage = React.lazy(() => import("./pages/Home"))
+const NotFound = React.lazy(() => import("./pages/NotFound"))
+const TTY = React.lazy(() => import("./pages/TTY"))
 
 const MainRoutes = {
-  path: "/",
-  element: <MainLayout />,
-  children: [
-    {
-      path: "/",
-      element: <HomePage />,
-    },
-    {
-      path: "/dashboard",
-      element: <Dashboard />,
-    },
-    {
-      path: "/faq",
-      element: <FAQ />,
-    },
-    {
-      path: "/docker",
-      element: <DockerPage />,
-    },
-    {
-      path: "/tty",
-      element: <TTY />,
-    },
-    {
-      path: "*",
-      element: <NotFound />,
-    },
-  ],
+    path: "/",
+    element: <MainLayout />,
+    children: [
+        {
+            path: "/",
+            element: <HomePage />,
+        },
+        {
+            path: "/dashboard",
+            element: <Dashboard />,
+        },
+        {
+            path: "/faq",
+            element: <FAQ />,
+        },
+        {
+            path: "/docker",
+            element: <DockerPage />,
+        },
+        {
+            path: "/tty",
+            element: <TTY />,
+        },
+    ],
 }
 
-// const LoginRoutes = {
-//   path: "/",
-//   element: <MinimalLayout />,
-//   children: [
-//     {
-//       path: "login",
-//       element: <AuthLogin />,
-//     },
-//     {
-//       path: "register",
-//       element: <AuthRegister />,
-//     },
-//   ],
-// };
+const LoginRoutes = {
+    path: "",
+    children: [
+        {
+            path: "",
+            element: <Login />,
+        },
+        {
+            path: "/login",
+            element: <Login />,
+        },
+        {
+            path: "/signup",
+            element: <Signup />,
+        },
+        {
+            path: "/pwd",
+            element: <ForgetPwd />,
+        },
+    ],
+}
 
+const NotFoundRoutes = {
+    path: "*",
+    element: <NotFound />,
+}
 export default function Routes() {
-  // return useRoutes([MainRoutes, LoginRoutes]);
-  return useRoutes([MainRoutes])
+    return useRoutes([MainRoutes, LoginRoutes, NotFoundRoutes])
 }

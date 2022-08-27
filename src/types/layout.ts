@@ -1,23 +1,23 @@
 import { Icon as TablerIcon } from "tabler-icons-react"
 
 export interface NavbarLinkProps {
-  icon: TablerIcon
-  label: string
-  link: string
-  active?: boolean
-  onClick?(): void
+    icon: TablerIcon
+    label: string
+    link: string
+    active?: boolean
+
+    onClick?(): void
 }
 
 export interface HeaderSearchProps {
-  links: { link: string; label: string; links: { link: string; label: string }[] }[]
+    links: { link: string; label: string; links: { link: string; label: string }[] }[]
 }
 
 export interface FooterLinksProps {
-  data: {
-    title: string
-    links: { label: string; link: string }[]
-  }[]
+    data: {
+        title: string
+        links: { label: string; link: string }[]
+    }[]
 }
 
-export type UserMenuItemsProps = (Omit<NavbarLinkProps, "active"> & {loggedIn:boolean})[]
-
+export type UserMenuItemsProps = (Omit<NavbarLinkProps, "active"> & { loggedIn: boolean })[]

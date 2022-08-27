@@ -13,9 +13,9 @@ import { Suspense } from "react"
 // });
 
 const Loader = (Component: any) => (props: any) => {
-  ;<Suspense fallback={<>TODO Loader</>}>
-    <Component {...props} />
-  </Suspense>
+    ;<Suspense fallback={<>TODO Loader</>}>
+        <Component {...props} />
+    </Suspense>
 }
 
 export default Loader
