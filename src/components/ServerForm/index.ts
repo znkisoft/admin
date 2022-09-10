@@ -1,3 +1,1 @@
-import ServerForm from "./ServerForm"
-
-export default ServerForm
+export * from "./ServerForm"

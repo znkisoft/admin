@@ -1,27 +1,26 @@
 import { FitAddon } from "xterm-addon-fit"
 import { Terminal } from "xterm"
-import "xterm/css/xterm.css"
 
 const socketURL = "ws://127.0.0.1:8080/api/ws"
 const ws = new WebSocket(socketURL)
-const term = new Terminal({
-    fontFamily: 'Menlo, Monaco, "Courier New", monospace',
-    fontWeight: 300,
-    fontSize: 14,
-    cursorBlink: true,
-})
-// const attachAddon = new AttachAddon(ws);
+
+// const attachAddon = new AttachAddon(ws);0
 const fitAddon = new FitAddon()
 
 // term.loadAddon(attachAddon);
-term.loadAddon(fitAddon)
 
 export class TerminalService {
     term: Terminal
     cmdBuffer: string
 
     constructor() {
-        this.term = term
+        this.term = new Terminal({
+            fontFamily: 'Menlo, Monaco, "Courier New", monospace',
+            fontWeight: 300,
+            fontSize: 14,
+            cursorBlink: true,
+        })
+        this.term.loadAddon(fitAddon)
         this.cmdBuffer = ""
 
         //@ts-ignore
@@ -53,23 +52,18 @@ export class TerminalService {
             //   //@ts-ignore
             //   term.write(this.cmdBuffer);
             // }
-            term.write("\r\n ok")
+            this.term.write("\r\n ok")
         })
     }
 
-    public OnConnectionOpen() {}
+    OnConnectionOpen() {}
 
-    public OnConnectionClose() {
+    OnConnectionClose() {
         this.dispose()
     }
 
-    public Destory() {
+    Destory() {
         this.term.dispose()
-    }
-
-    private prompt = () => {
-        const shellprompt = ">sss "
-        term.write("\r\n" + shellprompt)
     }
 
     private dispose() {

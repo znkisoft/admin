@@ -4,13 +4,21 @@ import MainLayout from "./layout/MainLayout"
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import ForgetPwd from "./pages/ForgetPwd"
+import Dashboard from "./pages/Dashboard"
+import DockerPage from "./pages/DockerPage"
+import FAQ from "./pages/FAQ"
+import NotFound from "./pages/NotFound"
+import TTY from "./pages/TTY"
+import HomePage from "./pages/Home"
+import Cattv from "./pages/Cattv"
 
-const Dashboard = React.lazy(() => import("./pages/Dashboard"))
-const DockerPage = React.lazy(() => import("./pages/DockerPage"))
-const FAQ = React.lazy(() => import("./pages/FAQ"))
-const HomePage = React.lazy(() => import("./pages/Home"))
-const NotFound = React.lazy(() => import("./pages/NotFound"))
-const TTY = React.lazy(() => import("./pages/TTY"))
+// TODO solve suspense issue
+// const Dashboard = React.lazy(() => import("./pages/Dashboard"))
+// const DockerPage = React.lazy(() => import("./pages/DockerPage"))
+// const FAQ = React.lazy(() => import("./pages/FAQ"))
+// const HomePage = React.lazy(() => import("./pages/Home"))
+// const NotFound = React.lazy(() => import("./pages/NotFound"))
+// const TTY = React.lazy(() => import("./pages/TTY"))
 
 const MainRoutes = {
     path: "/",
@@ -35,6 +43,10 @@ const MainRoutes = {
         {
             path: "/tty",
             element: <TTY />,
+        },
+        {
+            path: "/cattv",
+            element: <Cattv />,
         },
     ],
 }
