@@ -1,35 +1,35 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@mantine/core': ^5.0.2
-  '@mantine/dates': ^5.0.2
-  '@mantine/dropzone': ^5.0.2
-  '@mantine/form': ^5.0.2
-  '@mantine/hooks': ^5.0.2
-  '@mantine/modals': ^5.0.2
-  '@mantine/notifications': ^5.0.2
-  '@mantine/prism': ^5.0.2
-  '@mantine/spotlight': ^5.0.2
+  '@mantine/core': ^5.3.0
+  '@mantine/dates': ^5.3.0
+  '@mantine/dropzone': ^5.3.0
+  '@mantine/form': ^5.3.0
+  '@mantine/hooks': ^5.3.0
+  '@mantine/modals': ^5.3.0
+  '@mantine/notifications': ^5.3.0
+  '@mantine/prism': ^5.3.0
+  '@mantine/spotlight': ^5.3.0
   '@types/long': ^4.0.2
-  '@types/react': ^18.0.15
+  '@types/react': ^18.0.19
   '@types/react-dom': ^18.0.6
   axios: ^0.27.2
-  dayjs: ^1.11.4
-  firebase: ^9.9.1
+  dayjs: ^1.11.5
+  firebase: ^9.9.4
   openapi-typescript: ^5.4.1
   prettier: ^2.7.1
-  protobufjs: ^7.0.0
+  protobufjs: ^7.1.1
   react: ^18.2.0
   react-dom: ^18.2.0
   react-firebase-hooks: ^5.0.3
   react-router-dom: ^6.3.0
   react-scripts: ^5.0.1
   tabler-icons-react: ^1.54.0
-  typescript: ^4.7.4
+  typescript: ^4.8.3
   xterm: ^4.19.0
   xterm-addon-attach: ^0.6.0
   xterm-addon-fit: ^0.5.0
-  zod: ^3.17.10
+  zod: ^3.19.0
 
 dependencies:
   '@mantine/core': 5.3.0_gzrclps6bvnfjnhifzxhlog7ga
@@ -2445,7 +2445,7 @@ packages:
     resolution: {integrity: sha512-/l/VWsdt/aBXgjshLWOFyFt3IVdYypu5y2Wn2rOO1un6nkqIn8SLXzgIMYXFyYsRWDyF5EthmKJMIdJvk08grg==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     dependencies:
-      '@sinclair/typebox': 0.24.39
+      '@sinclair/typebox': 0.24.40
     dev: false
 
   /@jest/source-map/27.5.1:
@@ -3001,8 +3001,8 @@ packages:
     resolution: {integrity: sha512-LwzQKA4vzIct1zNZzBmRKI9QuNpLgTQMEjsQLf3BXuGYb3QPTP4Yjf6mkdX+X1mYttZ808QpOwAzZjv28kq7DA==}
     dev: false
 
-  /@sinclair/typebox/0.24.39:
-    resolution: {integrity: sha512-GqtkxoAjhTzoMwFg/JYRl+1+miOoyvp6mkLpbMSd2fIQak2KvY00ndlXxxkDBpuCPYkorZeEZf0LEQn9V9NRVQ==}
+  /@sinclair/typebox/0.24.40:
+    resolution: {integrity: sha512-Xint60L8rF0+nRy+6fCjW9jQMmu7fTpbwTBrXZiK6eq/RHDJS7LvWX/0oXC8O7fCePmrY/XdfaTv2HiUDeCq4g==}
     dev: false
 
   /@sinonjs/commons/1.8.3:
@@ -4506,7 +4506,7 @@ packages:
     dev: false
 
   /concat-map/0.0.1:
-    resolution: {integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=}
+    resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
     dev: false
 
   /confusing-browser-globals/1.0.11:
@@ -7570,7 +7570,7 @@ packages:
     dev: false
 
   /media-typer/0.3.0:
-    resolution: {integrity: sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=}
+    resolution: {integrity: sha512-dq+qelQ9akHpcOl/gUVRTxVIOkAJ1wR3QAvb4RsVjS8oVoFjDGTc679wJYmUmknUF5HwMLOgb5O+a3KxfWapPQ==}
     engines: {node: '>= 0.6'}
     dev: false
 
@@ -7582,7 +7582,7 @@ packages:
     dev: false
 
   /merge-descriptors/1.0.1:
-    resolution: {integrity: sha1-sAqqVW3YtEVoFQ7J0blT8/kMu2E=}
+    resolution: {integrity: sha512-cCi6g3/Zr1iqQi6ySbseM1Xvooa98N0w31jzUYrXPX2xqObmFGHJ0tQ5u74H3mVh7wLouTseZyYIq39g8cNp1w==}
     dev: false
 
   /merge-stream/2.0.0:
@@ -8054,7 +8054,7 @@ packages:
     dev: false
 
   /path-to-regexp/0.1.7:
-    resolution: {integrity: sha1-32BBeABfUi8V60SQ5yR6G/qmf4w=}
+    resolution: {integrity: sha512-5DFkuoqlv1uYQKxy8omFBeJPQcdoE07Kv2sferDCrAq1ohOU+MSDswDIbnx3YAM60qIOnYa53wBhXW0EbMonrQ==}
     dev: false
 
   /path-type/4.0.0:
@@ -10551,7 +10551,7 @@ packages:
     dev: false
 
   /utils-merge/1.0.1:
-    resolution: {integrity: sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=}
+    resolution: {integrity: sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==}
     engines: {node: '>= 0.4.0'}
     dev: false
 
