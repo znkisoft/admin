@@ -1,7 +1,6 @@
-import { createStyles, Header as MHeader } from "@mantine/core"
-import UserMenu from "components/UserMenu"
-import { UserMenuItems } from "config/layout.config"
+import { createStyles, Header as MHeader, Image } from "@mantine/core"
 import { HeaderSearchProps } from "../types/layout"
+import Logo from "assets/logo.znkisoft.png"
 
 const useStyles = createStyles((theme) => ({
     inner: {
@@ -9,6 +8,10 @@ const useStyles = createStyles((theme) => ({
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
+    },
+    logo: {
+        padding: "0.1rem 0.2rem",
+        marginLeft: "1rem",
     },
 
     links: {
@@ -43,8 +46,7 @@ export default function Header({ links }: HeaderSearchProps) {
     return (
         <MHeader height={56}>
             <div className={classes.inner}>
-                <div>{/* TODO logo */}</div>
-                <UserMenu menuItems={UserMenuItems} />
+                <Image className={classes.logo} src={Logo} height={40} width={200} fit={"scale-down"} />
             </div>
         </MHeader>
     )

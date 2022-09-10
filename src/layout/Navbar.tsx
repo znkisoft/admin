@@ -2,8 +2,9 @@ import { createStyles, Group, Navbar as MNavbar, Tooltip, UnstyledButton } from 
 import { ColorSchemeToggle } from "components/ColorSchemeToggle/ColorSchemeToggle"
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import { Logout } from "tabler-icons-react"
 import { NavbarLinkProps } from "../types/layout"
+import UserMenu from "../components/UserMenu"
+import { UserMenuItems } from "../config/layout.config"
 
 const useStyles = createStyles((theme) => ({
     link: {
@@ -63,8 +64,8 @@ export default function Navbar(navbarItems: NavbarLinkProps[]) {
             </MNavbar.Section>
             <MNavbar.Section>
                 <Group position="center" align="center" spacing={0}>
+                    <UserMenu menuItems={UserMenuItems} />
                     <ColorSchemeToggle />
-                    <NavbarLink icon={Logout} label="Logout" link="/logout" />
                 </Group>
             </MNavbar.Section>
         </MNavbar>
