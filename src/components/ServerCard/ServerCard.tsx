@@ -1,72 +1,53 @@
 import React from "react"
-import { Center, Group, Paper, RingProgress, SimpleGrid, Text } from "@mantine/core"
-import { ArrowDownRight, ArrowUpRight, Coin, Discount2, Receipt2, UserPlus } from "tabler-icons-react"
 import useStyles from "./ServerCard.styles"
+import { ActionIcon, Card, Divider, Group, Menu, Stack, Text } from "@mantine/core"
+import { IconDots, IconTrash } from "@tabler/icons"
+import PingBadge from "./ServerCardPingBadge"
+import StatsRing from "./ServerCardRing"
 
-const icons = {
-    user: UserPlus,
-    discount: Discount2,
-    receipt: Receipt2,
-    coin: Coin,
-    up: ArrowUpRight,
-    down: ArrowDownRight,
+interface ServerCardProps {
+    data: {
+        label: string
+        stats: "online" | "offline" | "unknown"
+    }
 }
 
-interface HWInfoProps {
-    label: string
-    stats: string
-    progress: number
-    color: string
-    icon: "memory" | "cpu" | "disk" | "network"
-}
-
-export default function ServerCard() {
+export default function ServerCard({ data: { label } }: ServerCardProps) {
     const { classes } = useStyles()
 
     return (
-        <div className={classes.root}>
-            <SimpleGrid cols={4}>
-                {Array.from({ length: 4 }, (_, i) => {
-                    if (i == 0) {
-                        return (
-                            <Paper withBorder p="md" radius="md">
-                                <Group position="apart">
-                                    <Text size="xs" color="dimmed" className={classes.title}>
-                                        test
-                                    </Text>
-                                    {/* <Icon className={classes.icon} size={22} /> */}
-                                </Group>
-                                <Group align="flex-end" spacing="xs" mt={25}></Group>
-                                <Text size="xs" color="dimmed" mt={7}>
-                                    Compared to previous month
-                                </Text>
-                            </Paper>
-                        )
-                    }
-                    return (
-                        <Paper withBorder radius="md" p="xs">
-                            <Group>
-                                <RingProgress
-                                    size={80}
-                                    roundCaps
-                                    thickness={8}
-                                    sections={[{ value: 12, color: "red" }]}
-                                    label={<Center>{/* <Icon size={22} /> */}</Center>}
-                                />
+        <Card withBorder shadow="sm" radius="md" className={classes.root}>
+            <Group className={classes.group}>
+                <Card.Section className={classes.content}>
+                    <Stack ml="md" align="flex-start">
+                        <Group position="apart">
+                            <Text weight={500}>{label}</Text>
 
-                                <div>
-                                    <Text color="dimmed" size="xs" transform="uppercase" weight={700}>
-                                        test
-                                    </Text>
-                                    <Text weight={700} size="xl">
-                                        good
-                                    </Text>
-                                </div>
-                            </Group>
-                        </Paper>
-                    )
-                })}
-            </SimpleGrid>
-        </div>
+                            <PingBadge status={"offline"} />
+                        </Group>
+                    </Stack>
+
+                    <Menu withinPortal position="bottom-end" shadow="sm">
+                        <Menu.Target>
+                            <ActionIcon className={classes.menu}>
+                                <IconDots size={16} />
+                            </ActionIcon>
+                        </Menu.Target>
+
+                        <Menu.Dropdown>
+                            <Menu.Item icon={<IconTrash size={14} />} color="red"></Menu.Item>
+                        </Menu.Dropdown>
+                    </Menu>
+                </Card.Section>
+                <Divider orientation="vertical" />
+                <Card.Section className={classes.rings} inheritPadding>
+                    <Group spacing={"xs"}>
+                        {Array.from({ length: 2 }).map((_, index) => {
+                            return <StatsRing key={index} label="CPU" progress={20} />
+                        })}
+                    </Group>
+                </Card.Section>
+            </Group>
+        </Card>
     )
 }

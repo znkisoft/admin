@@ -2,7 +2,6 @@ import {
     AppWindow,
     BrandDocker,
     CalendarStats,
-    DeviceCctv,
     DeviceDesktopAnalytics,
     InfoCircle,
     Link,
@@ -16,7 +15,7 @@ import { FooterLinksProps, HeaderSearchProps, NavbarLinkProps, UserMenuItemsProp
 
 export const navbarConfig: NavbarLinkProps[] = [
     { icon: Terminal, label: "Terminal", link: "/tty" },
-    { icon: DeviceCctv, label: "Cattv", link: "/cattv" },
+    // { icon: DeviceCctv, label: "Cattv", link: "/cattv" },
     { icon: DeviceDesktopAnalytics, label: "Dashboard", link: "/dashboard" },
     { icon: AppWindow, label: "Server Stats", link: "/server" },
     { icon: BrandDocker, label: "Docker Management", link: "/docker" },

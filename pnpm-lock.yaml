@@ -10,6 +10,7 @@ specifiers:
   '@mantine/notifications': ^5.3.0
   '@mantine/prism': ^5.3.0
   '@mantine/spotlight': ^5.3.0
+  '@tabler/icons': ^1.95.1
   '@types/long': ^4.0.2
   '@types/react': ^18.0.19
   '@types/react-dom': ^18.0.6
@@ -41,6 +42,7 @@ dependencies:
   '@mantine/notifications': 5.3.0_6blp46xt7iaxtjhzvv24eh6u6a
   '@mantine/prism': 5.3.0_6blp46xt7iaxtjhzvv24eh6u6a
   '@mantine/spotlight': 5.3.0_6blp46xt7iaxtjhzvv24eh6u6a
+  '@tabler/icons': 1.95.1_biqbaboplfbrettd7655fr4n2y
   axios: 0.27.2
   dayjs: 1.11.5
   firebase: 9.9.4
@@ -3133,6 +3135,21 @@ packages:
       loader-utils: 2.0.2
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@tabler/icons/1.95.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-b3fwRzYwQPKqMT9Vw1AMv2I/uEAwrPgicMeGg9Qvg1mckFvy60iTC4MQkdVlgUeLxdPKDO+yGystfVrQp2OPyA==}
+    peerDependencies:
+      react: ^16.x || 17.x || 18.x
+      react-dom: ^16.x || 17.x || 18.x
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /@tootallnate/once/1.1.2:
