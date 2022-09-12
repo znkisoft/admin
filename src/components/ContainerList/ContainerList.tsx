@@ -60,7 +60,7 @@ const ContainerList: FC = () => {
     const head = Rows.map((row) => <th key={row}>{row}</th>)
 
     return (
-        <Table highlightOnHover>
+        <Table striped highlightOnHover>
             <thead>
                 <tr>{head}</tr>
             </thead>
