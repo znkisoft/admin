@@ -6,13 +6,20 @@ import PingBadge from "./ServerCardPingBadge"
 import StatsRing from "./ServerCardRing"
 
 interface ServerCardProps {
-    data: {
-        label: string
-        stats: "online" | "offline" | "unknown"
-    }
+    label: string
+    stats: "online" | "offline" | "unknown"
 }
 
-export default function ServerCard({ data: { label } }: ServerCardProps) {
+const statsRing = [
+    {
+        label: "CPU",
+    },
+    {
+        label: "MEM",
+    },
+]
+
+export const ServerCard = ({ label, stats }: ServerCardProps) => {
     const { classes } = useStyles()
 
     return (
@@ -22,8 +29,7 @@ export default function ServerCard({ data: { label } }: ServerCardProps) {
                     <Stack ml="md" align="flex-start">
                         <Group position="apart">
                             <Text weight={500}>{label}</Text>
-
-                            <PingBadge status={"offline"} />
+                            <PingBadge status={stats} />
                         </Group>
                     </Stack>
 
@@ -42,12 +48,14 @@ export default function ServerCard({ data: { label } }: ServerCardProps) {
                 <Divider orientation="vertical" />
                 <Card.Section className={classes.rings} inheritPadding>
                     <Group spacing={"xs"}>
-                        {Array.from({ length: 2 }).map((_, index) => {
-                            return <StatsRing key={index} label="CPU" progress={20} />
-                        })}
+                        {statsRing.map((item, index) => (
+                            <StatsRing key={index} label={item.label} progress={20} />
+                        ))}
                     </Group>
                 </Card.Section>
             </Group>
         </Card>
     )
 }
+
+export default ServerCard

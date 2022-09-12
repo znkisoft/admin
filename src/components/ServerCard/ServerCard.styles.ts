@@ -2,7 +2,7 @@ import { createStyles } from "@mantine/core"
 
 export default createStyles((theme) => ({
     root: {
-        width: "90%",
+        width: "100%",
         position: "relative",
         cursor: "pointer",
         overflow: "hidden",
@@ -12,7 +12,7 @@ export default createStyles((theme) => ({
 
         "&:hover": {
             boxShadow: theme.shadows.md,
-            transform: "scale(1.02)",
+            transform: "scale(1.01)",
         },
 
         "&::before": {

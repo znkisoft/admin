@@ -42,7 +42,7 @@ const quickActions: Array<IActionButtonConfig> = [
     },
 ]
 
-// TODO repalce with React-Table
+// TODO replace with https://github.com/Kuechlin/mantine-data-grid
 const ContainerList: FC = () => {
     const rows = elements.map((element) => (
         <tr key={element.name}>

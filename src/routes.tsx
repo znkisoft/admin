@@ -4,7 +4,7 @@ import MainLayout from "./layout/MainLayout"
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import ForgetPwd from "./pages/ForgetPwd"
-import ServerList from "./pages/ServerList"
+import Userver from "./pages/Userver"
 import DockerPage from "./pages/DockerPage"
 import FAQ from "./pages/FAQ"
 import NotFound from "./pages/NotFound"
@@ -30,7 +30,7 @@ const MainRoutes = {
         },
         {
             path: "/dashboard",
-            element: <ServerList />,
+            element: <Userver />,
         },
         {
             path: "/faq",
