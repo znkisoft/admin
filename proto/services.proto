@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "github.com/znkisoft/watchdog/schema";
+
+import "models.proto";
+import "requests.proto";
+import "responses.proto";
+
+service UserverService {
+  rpc GerUservers (Pagination) returns (UserverResponse) {}
+  rpc GetUserverById (Id) returns (Userver) {}
+  rpc CreateUserver (Userver) returns (Userver) {}
+  rpc UpdateUserver (Userver) returns (Userver) {}
+  rpc DeleteUserver (Id) returns (Userver) {}
+}

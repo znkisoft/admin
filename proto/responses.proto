@@ -1,21 +1,18 @@
 syntax = "proto3";
 
-option go_package = "github.com/znkisoft/watchdog";
+option go_package = "github.com/znkisoft/watchdog/schema";
 
-import "server.proto";
 import "google/protobuf/timestamp.proto";
-
-message ServerStatusRequest {
-  string server_id = 1;
-}
+import "models.proto";
 
 message ServerStatusResponse {
-  ServerStatus status = 1;
+  enum Status {
+    SERVER_STATUS_UNKNOWN = 0;
+    UP = 1;
+    DOWN = 2;
+  }
+  Status status = 1;
   google.protobuf.Timestamp last_updated = 2;
-}
-
-message PluginRequest {
-  PluginType type = 1;
 }
 
 message PluginResponse {
@@ -27,4 +24,9 @@ message PluginResponse {
 
 message PluginListResponse {
   repeated string plugins = 1;
+}
+
+
+message UserverResponse {
+  repeated Userver uservers = 1;
 }

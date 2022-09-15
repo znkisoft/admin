@@ -1,14 +1,8 @@
 syntax = "proto3";
 
-option go_package = "github.com/znkisoft/watchdog";
+option go_package = "github.com/znkisoft/watchdog/schema";
 
 import "google/protobuf/timestamp.proto";
-
-enum ServerStatus {
-  SERVER_STATUS_UNKNOWN = 0;
-  UP = 1;
-  DOWN = 2;
-}
 
 enum PluginType {
   PLUGIN_TYPE_UNKNOWN = 0;
@@ -24,20 +18,26 @@ message Ping {
   string message = 1;
 }
 
-// target server info
-message ServerInfo {
-  string name = 1;
-  string ip = 2;
-  string port = 3;
-  string protocol = 4;
-  int32 check_interval = 5;
-  int32 timeout = 6;
+message Userver {
+  // TODO set primary key with option field
+  string id = 1;
+  string name = 2;
+  string ip = 3;
+  string port = 4;
+  string protocol = 5;
+  int32 check_interval = 6;
+  int32 timeout = 7;
 }
 
 message UptimeInfo {
   int32 seconds = 1;
 }
 
+message Id{
+  string uid = 1;
+}
+
 message SysTimeInfo {
   google.protobuf.Timestamp time = 1;
 }
+

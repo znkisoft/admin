@@ -5,6 +5,10 @@ import { IconGripVertical, IconServerCog } from "@tabler/icons"
 import { useListState } from "@mantine/hooks"
 // @ts-ignore
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd"
+import { useEffect } from "react"
+import { Get } from "../service/api/fetch"
+import { Userver as UserverModel } from "../service/api/schema/models"
+import { UserverResponse } from "../service/api/schema/responses"
 
 const useStyles = createStyles((theme) => ({
     item: {
@@ -55,35 +59,45 @@ export default function Userver() {
                 </Group>
                 <Divider mb={16} mt={8} />
                 <CardList
-                    data={[
-                        {
-                            alias: "homelab 1",
-                            name: "ubuntu",
-                            ip: "192.168.3.98",
-                            id: "b8b9c9d0-5d6d-11eb-ae93-0242ac130002",
-                        },
-                        {
-                            alias: "homelab 2",
-                            name: "ubuntu",
-                            ip: "192.168.3.98",
-                            id: "b8b9c9d0-5d6d-11eb-ae93-0242ac130003",
-                        },
-                        {
-                            alias: "homelab 3",
-                            name: "ubuntu",
-                            ip: "192.168.3.98",
-                            id: "b8b9c9d0-5d6d-11eb-ae93-0242ac130004",
-                        },
-                    ]}
+                // data={[
+                //     {
+                //         alias: "homelab 1",
+                //         name: "ubuntu",
+                //         ip: "192.168.3.98",
+                //         id: "b8b9c9d0-5d6d-11eb-ae93-0242ac130002",
+                //     },
+                //     {
+                //         alias: "homelab 2",
+                //         name: "ubuntu",
+                //         ip: "192.168.3.98",
+                //         id: "b8b9c9d0-5d6d-11eb-ae93-0242ac130003",
+                //     },
+                //     {
+                //         alias: "homelab 3",
+                //         name: "ubuntu",
+                //         ip: "192.168.3.98",
+                //         id: "b8b9c9d0-5d6d-11eb-ae93-0242ac130004",
+                //     },
+                // ]}
                 />
             </AppContent>
         </>
     )
 }
 
-const CardList = ({ data }: ServerListProps) => {
+const CardList = () => {
     const { classes, cx } = useStyles()
-    const [state, handlers] = useListState(data)
+    const [state, handlers] = useListState<UserverModel>([])
+
+    useEffect(() => {
+        Get("api/userver", {
+            skip: 0,
+            limit: 10,
+        }).then((res: any) => {
+            handlers.setState((res as UserverResponse).uservers)
+        })
+        return () => {}
+    }, [])
 
     const items = state.map((item, index) => (
         <Draggable key={item.id} index={index} draggableId={item.id}>
@@ -96,7 +110,7 @@ const CardList = ({ data }: ServerListProps) => {
                     <div {...provided.dragHandleProps} className={classes.dragHandle}>
                         <IconGripVertical size={18} stroke={1.5} />
                     </div>
-                    <ServerCard key={index} label={item.alias} stats={"unknown"} />
+                    <ServerCard key={index} label={item.name} stats={"unknown"} />
                 </div>
             )}
         </Draggable>
