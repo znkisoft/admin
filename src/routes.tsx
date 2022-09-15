@@ -4,13 +4,12 @@ import MainLayout from "./layout/MainLayout"
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import ForgetPwd from "./pages/ForgetPwd"
-import Userver from "./pages/Userver"
+import Userver from "./pages/UserverPage/Userver"
 import DockerPage from "./pages/DockerPage"
 import FAQ from "./pages/FAQ"
 import NotFound from "./pages/NotFound"
 import TTY from "./pages/TTY"
 import HomePage from "./pages/Home"
-import Cattv from "./pages/Cattv"
 
 // TODO solve suspense issue
 // const Dashboard = React.lazy(() => import("./pages/Dashboard"))
@@ -43,10 +42,6 @@ const MainRoutes = {
         {
             path: "/tty",
             element: <TTY />,
-        },
-        {
-            path: "/cattv",
-            element: <Cattv />,
         },
     ],
 }

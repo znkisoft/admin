@@ -1,14 +1,15 @@
-import AppContent from "../layout/Content"
-import { Button, createStyles, Divider, Group } from "@mantine/core"
-import ServerCard from "../components/ServerCard/ServerCard"
+import AppContent from "../../layout/Content"
+import { Button, createStyles, Divider, Drawer, Group } from "@mantine/core"
+import ServerCard from "../../components/ServerCard/ServerCard"
 import { IconGripVertical, IconServerCog } from "@tabler/icons"
 import { useListState } from "@mantine/hooks"
+import { useEffect, useState } from "react"
+import { Get } from "../../service/api/fetch"
+import { Userver as UserverModel } from "../../service/api/schema/models"
+import { UserverResponse } from "../../service/api/schema/responses"
 // @ts-ignore
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd"
-import { useEffect } from "react"
-import { Get } from "../service/api/fetch"
-import { Userver as UserverModel } from "../service/api/schema/models"
-import { UserverResponse } from "../service/api/schema/responses"
+import CreateUserver from "./CreateUserver"
 
 const useStyles = createStyles((theme) => ({
     item: {
@@ -49,37 +50,28 @@ interface ServerListProps {
 }
 
 export default function Userver() {
+    const [opened, setOpened] = useState(false)
+
     return (
         <>
             <AppContent title="ServerList">
                 <Group>
-                    <Button leftIcon={<IconServerCog />} variant="outline">
+                    <Button leftIcon={<IconServerCog />} variant="outline" onClick={() => setOpened(true)}>
                         Add New Server
                     </Button>
+                    <Drawer
+                        opened={opened}
+                        onClose={() => setOpened(false)}
+                        position="right"
+                        title="add new server"
+                        padding="xl"
+                        size="xl"
+                    >
+                        <CreateUserver />
+                    </Drawer>
                 </Group>
                 <Divider mb={16} mt={8} />
-                <CardList
-                // data={[
-                //     {
-                //         alias: "homelab 1",
-                //         name: "ubuntu",
-                //         ip: "192.168.3.98",
-                //         id: "b8b9c9d0-5d6d-11eb-ae93-0242ac130002",
-                //     },
-                //     {
-                //         alias: "homelab 2",
-                //         name: "ubuntu",
-                //         ip: "192.168.3.98",
-                //         id: "b8b9c9d0-5d6d-11eb-ae93-0242ac130003",
-                //     },
-                //     {
-                //         alias: "homelab 3",
-                //         name: "ubuntu",
-                //         ip: "192.168.3.98",
-                //         id: "b8b9c9d0-5d6d-11eb-ae93-0242ac130004",
-                //     },
-                // ]}
-                />
+                <CardList />
             </AppContent>
         </>
     )
@@ -96,7 +88,6 @@ const CardList = () => {
         }).then((res: any) => {
             handlers.setState((res as UserverResponse).uservers)
         })
-        return () => {}
     }, [])
 
     const items = state.map((item, index) => (
