@@ -4,8 +4,10 @@ import { ActionIcon, Card, Divider, Group, Menu, Stack, Text } from "@mantine/co
 import { IconDots, IconTrash } from "@tabler/icons"
 import PingBadge from "./ServerCardPingBadge"
 import StatsRing from "./ServerCardRing"
+import { Userver } from "../../service/api/schema/models"
+import { Delete } from "../../service/api/fetch"
 
-interface ServerCardProps {
+interface ServerCardProps extends Partial<Userver> {
     label: string
     stats: "online" | "offline" | "unknown"
 }
@@ -19,8 +21,12 @@ const statsRing = [
     },
 ]
 
-export const ServerCard = ({ label, stats }: ServerCardProps) => {
+export const ServerCard = ({ label, stats, id }: ServerCardProps) => {
     const { classes } = useStyles()
+
+    const deleteServer = () => {
+        Delete(`api/userver/${id}`)
+    }
 
     return (
         <Card withBorder shadow="sm" radius="md" className={classes.root}>
@@ -33,7 +39,7 @@ export const ServerCard = ({ label, stats }: ServerCardProps) => {
                         </Group>
                     </Stack>
 
-                    <Menu withinPortal position="bottom-end" shadow="sm">
+                    <Menu withinPortal position="right-start" shadow="sm">
                         <Menu.Target>
                             <ActionIcon className={classes.menu}>
                                 <IconDots size={16} />
@@ -41,7 +47,9 @@ export const ServerCard = ({ label, stats }: ServerCardProps) => {
                         </Menu.Target>
 
                         <Menu.Dropdown>
-                            <Menu.Item icon={<IconTrash size={14} />} color="red"></Menu.Item>
+                            <Menu.Item icon={<IconTrash size={14} />} color="red" onClick={deleteServer}>
+                                delelte server
+                            </Menu.Item>
                         </Menu.Dropdown>
                     </Menu>
                 </Card.Section>

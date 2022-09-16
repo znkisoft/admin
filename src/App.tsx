@@ -4,7 +4,7 @@ import { useState } from "react"
 import Routes from "./routes"
 
 function App() {
-    const [colorScheme, setColorScheme] = useState<ColorScheme>("dark") // default to dark mode
+    const [colorScheme, setColorScheme] = useState<ColorScheme>("light") // default to light mode
 
     const toggleColorScheme = () => {
         setColorScheme(colorScheme === "light" ? "dark" : "light")

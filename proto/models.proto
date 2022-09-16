@@ -14,19 +14,18 @@ enum PluginType {
   SYS_TIME = 6;
 }
 
-message Ping {
-  string message = 1;
-}
-
 message Userver {
   // TODO set primary key with option field
+  // server base info
   string id = 1;
-  string name = 2;
-  string ip = 3;
-  string port = 4;
-  string protocol = 5;
-  int32 check_interval = 6;
-  int32 timeout = 7;
+  string hostname = 2;
+  string alias = 3;
+  string ip = 4;
+  // dial info
+  int32 port = 5; // dial port
+  string protocol = 6; // dial protocol to check if server is alive
+  int32 check_interval = 7; // check interval in seconds
+  int32 timeout = 8; // timeout in seconds
 }
 
 message UptimeInfo {

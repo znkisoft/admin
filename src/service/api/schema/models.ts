@@ -67,18 +67,22 @@ export function pluginTypeToJSON(object: PluginType): string {
   }
 }
 
-export interface Ping {
-  message: string;
-}
-
 export interface Userver {
-  /** TODO set primary key with option field */
+  /**
+   * TODO set primary key with option field
+   * server base info
+   */
   id: string;
-  name: string;
+  hostname: string;
+  alias: string;
   ip: string;
-  port: string;
+  /** dial info */
+  port: number;
+  /** dial protocol to check if server is alive */
   protocol: string;
+  /** check interval in seconds */
   checkInterval: number;
+  /** timeout in seconds */
   timeout: number;
 }
 
@@ -94,55 +98,8 @@ export interface SysTimeInfo {
   time: Date | undefined;
 }
 
-function createBasePing(): Ping {
-  return { message: "" };
-}
-
-export const Ping = {
-  encode(message: Ping, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.message !== "") {
-      writer.uint32(10).string(message.message);
-    }
-    return writer;
-  },
-
-  decode(input: _m0.Reader | Uint8Array, length?: number): Ping {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBasePing();
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-      switch (tag >>> 3) {
-        case 1:
-          message.message = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-    return message;
-  },
-
-  fromJSON(object: any): Ping {
-    return { message: isSet(object.message) ? String(object.message) : "" };
-  },
-
-  toJSON(message: Ping): unknown {
-    const obj: any = {};
-    message.message !== undefined && (obj.message = message.message);
-    return obj;
-  },
-
-  fromPartial<I extends Exact<DeepPartial<Ping>, I>>(object: I): Ping {
-    const message = createBasePing();
-    message.message = object.message ?? "";
-    return message;
-  },
-};
-
 function createBaseUserver(): Userver {
-  return { id: "", name: "", ip: "", port: "", protocol: "", checkInterval: 0, timeout: 0 };
+  return { id: "", hostname: "", alias: "", ip: "", port: 0, protocol: "", checkInterval: 0, timeout: 0 };
 }
 
 export const Userver = {
@@ -150,23 +107,26 @@ export const Userver = {
     if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
-    if (message.name !== "") {
-      writer.uint32(18).string(message.name);
+    if (message.hostname !== "") {
+      writer.uint32(18).string(message.hostname);
+    }
+    if (message.alias !== "") {
+      writer.uint32(26).string(message.alias);
     }
     if (message.ip !== "") {
-      writer.uint32(26).string(message.ip);
+      writer.uint32(34).string(message.ip);
     }
-    if (message.port !== "") {
-      writer.uint32(34).string(message.port);
+    if (message.port !== 0) {
+      writer.uint32(40).int32(message.port);
     }
     if (message.protocol !== "") {
-      writer.uint32(42).string(message.protocol);
+      writer.uint32(50).string(message.protocol);
     }
     if (message.checkInterval !== 0) {
-      writer.uint32(48).int32(message.checkInterval);
+      writer.uint32(56).int32(message.checkInterval);
     }
     if (message.timeout !== 0) {
-      writer.uint32(56).int32(message.timeout);
+      writer.uint32(64).int32(message.timeout);
     }
     return writer;
   },
@@ -182,21 +142,24 @@ export const Userver = {
           message.id = reader.string();
           break;
         case 2:
-          message.name = reader.string();
+          message.hostname = reader.string();
           break;
         case 3:
-          message.ip = reader.string();
+          message.alias = reader.string();
           break;
         case 4:
-          message.port = reader.string();
+          message.ip = reader.string();
           break;
         case 5:
-          message.protocol = reader.string();
+          message.port = reader.int32();
           break;
         case 6:
-          message.checkInterval = reader.int32();
+          message.protocol = reader.string();
           break;
         case 7:
+          message.checkInterval = reader.int32();
+          break;
+        case 8:
           message.timeout = reader.int32();
           break;
         default:
@@ -210,9 +173,10 @@ export const Userver = {
   fromJSON(object: any): Userver {
     return {
       id: isSet(object.id) ? String(object.id) : "",
-      name: isSet(object.name) ? String(object.name) : "",
+      hostname: isSet(object.hostname) ? String(object.hostname) : "",
+      alias: isSet(object.alias) ? String(object.alias) : "",
       ip: isSet(object.ip) ? String(object.ip) : "",
-      port: isSet(object.port) ? String(object.port) : "",
+      port: isSet(object.port) ? Number(object.port) : 0,
       protocol: isSet(object.protocol) ? String(object.protocol) : "",
       checkInterval: isSet(object.checkInterval) ? Number(object.checkInterval) : 0,
       timeout: isSet(object.timeout) ? Number(object.timeout) : 0,
@@ -222,9 +186,10 @@ export const Userver = {
   toJSON(message: Userver): unknown {
     const obj: any = {};
     message.id !== undefined && (obj.id = message.id);
-    message.name !== undefined && (obj.name = message.name);
+    message.hostname !== undefined && (obj.hostname = message.hostname);
+    message.alias !== undefined && (obj.alias = message.alias);
     message.ip !== undefined && (obj.ip = message.ip);
-    message.port !== undefined && (obj.port = message.port);
+    message.port !== undefined && (obj.port = Math.round(message.port));
     message.protocol !== undefined && (obj.protocol = message.protocol);
     message.checkInterval !== undefined && (obj.checkInterval = Math.round(message.checkInterval));
     message.timeout !== undefined && (obj.timeout = Math.round(message.timeout));
@@ -234,9 +199,10 @@ export const Userver = {
   fromPartial<I extends Exact<DeepPartial<Userver>, I>>(object: I): Userver {
     const message = createBaseUserver();
     message.id = object.id ?? "";
-    message.name = object.name ?? "";
+    message.hostname = object.hostname ?? "";
+    message.alias = object.alias ?? "";
     message.ip = object.ip ?? "";
-    message.port = object.port ?? "";
+    message.port = object.port ?? 0;
     message.protocol = object.protocol ?? "";
     message.checkInterval = object.checkInterval ?? 0;
     message.timeout = object.timeout ?? 0;

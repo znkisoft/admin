@@ -4,13 +4,13 @@ import ServerCard from "../../components/ServerCard/ServerCard"
 import { IconGripVertical, IconServerCog, IconSettings } from "@tabler/icons"
 import { useListState } from "@mantine/hooks"
 import { useEffect, useState } from "react"
-import { Get } from "../../service/api/fetch"
 import { Userver as UserverModel } from "../../service/api/schema/models"
-import { UserverResponse } from "../../service/api/schema/responses"
 // @ts-ignore
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd"
 import CreateUserver from "./CreateUserver"
 import { Refresh } from "tabler-icons-react"
+import { Get } from "../../service/api/fetch"
+import { UserverResponse } from "../../service/api/schema/responses"
 
 const useStyles = createStyles((theme) => ({
     item: {
@@ -46,17 +46,25 @@ const useStyles = createStyles((theme) => ({
 }))
 
 interface ServerListProps {
-    data: {
-        alias: string
-        name: string
-        ip: string
-        id: string
-    }[]
+    data: UserverModel[]
 }
 
 export default function Userver() {
     const [opened, setOpened] = useState(false)
     const { classes, cx } = useStyles()
+    const [srvList, setSrvList] = useState<UserverModel[]>([])
+
+    useEffect(() => {
+        Get("api/userver", {
+            skip: 0,
+            limit: 10,
+        }).then((res: any) => {
+            console.log(res)
+            if (res && res?.uservers?.length > 0) {
+                setSrvList((res as UserverResponse).uservers)
+            }
+        })
+    }, [])
 
     return (
         <>
@@ -73,7 +81,7 @@ export default function Userver() {
                     </Button>
                 </Group>
                 <Divider mb={16} mt={8} />
-                <CardList />
+                <CardList data={srvList} />
             </AppContent>
             <Drawer
                 opened={opened}
@@ -89,18 +97,13 @@ export default function Userver() {
     )
 }
 
-const CardList = () => {
+const CardList = ({ data }: ServerListProps) => {
     const { classes, cx } = useStyles()
     const [state, handlers] = useListState<UserverModel>([])
 
     useEffect(() => {
-        Get("api/userver", {
-            skip: 0,
-            limit: 10,
-        }).then((res: any) => {
-            handlers.setState((res as UserverResponse).uservers)
-        })
-    }, [])
+        handlers.setState(data)
+    }, [data])
 
     const items = state.map((item, index) => (
         <Draggable key={item.id} index={index} draggableId={item.id}>
@@ -113,7 +116,7 @@ const CardList = () => {
                     <div {...provided.dragHandleProps} className={classes.dragHandle}>
                         <IconGripVertical size={18} stroke={1.5} />
                     </div>
-                    <ServerCard key={index} label={item.name} stats={"unknown"} />
+                    <ServerCard key={index} label={item.alias} id={item.id} stats={"unknown"} />
                 </div>
             )}
         </Draggable>
