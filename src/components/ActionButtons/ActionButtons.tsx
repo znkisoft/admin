@@ -20,7 +20,7 @@ const ActionButtons: FC<IActionButtonsProps> = ({ data }: IActionButtonsProps) =
     return (
         <Group className={classes.root} spacing={4}>
             {data.map((item) => (
-                <Tooltip label={item.label} withArrow>
+                <Tooltip label={item.label} key={item.label} withArrow>
                     <ActionIcon variant="default">
                         <item.icon size={16} />
                     </ActionIcon>
