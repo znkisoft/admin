@@ -9,13 +9,13 @@ interface StatsRingProps {
 export default function StatsRing({ label, progress }: StatsRingProps) {
     return (
         <RingProgress
-            size={80}
+            size={100}
             roundCaps
             thickness={8}
             sections={[{ value: progress, color: "green" }]}
             label={
                 <Center>
-                    <Text color="dimmed" size="xs" transform="uppercase" weight={700}>
+                    <Text color="dimmed" size="xs" transform="uppercase" weight={400}>
                         {label}
                     </Text>
                 </Center>

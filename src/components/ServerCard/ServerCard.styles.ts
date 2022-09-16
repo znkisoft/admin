@@ -38,8 +38,10 @@ export default createStyles((theme) => ({
     },
     content: {
         flexGrow: 1,
+        height: "100%",
     },
+
     rings: {
-        width: 300,
+        width: 360,
     },
 }))
