@@ -1,7 +1,7 @@
 import AppContent from "../../layout/Content"
 import { Button, createStyles, Divider, Drawer, Group } from "@mantine/core"
 import ServerCard from "../../components/ServerCard/ServerCard"
-import { IconGripVertical, IconServerCog } from "@tabler/icons"
+import { IconGripVertical, IconServerCog, IconSettings } from "@tabler/icons"
 import { useListState } from "@mantine/hooks"
 import { useEffect, useState } from "react"
 import { Get } from "../../service/api/fetch"
@@ -10,6 +10,7 @@ import { UserverResponse } from "../../service/api/schema/responses"
 // @ts-ignore
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd"
 import CreateUserver from "./CreateUserver"
+import { Refresh } from "tabler-icons-react"
 
 const useStyles = createStyles((theme) => ({
     item: {
@@ -38,6 +39,10 @@ const useStyles = createStyles((theme) => ({
         paddingLeft: theme.spacing.md,
         paddingRight: theme.spacing.md,
     },
+
+    iconButton: {
+        padding: 8,
+    },
 }))
 
 interface ServerListProps {
@@ -51,28 +56,35 @@ interface ServerListProps {
 
 export default function Userver() {
     const [opened, setOpened] = useState(false)
+    const { classes, cx } = useStyles()
 
     return (
         <>
             <AppContent title="ServerList">
-                <Group>
+                <Group position="left">
+                    <Button variant="outline" className={classes.iconButton}>
+                        <Refresh size={16} />
+                    </Button>
+                    <Button variant="outline" className={classes.iconButton}>
+                        <IconSettings size={16} />
+                    </Button>
                     <Button leftIcon={<IconServerCog />} variant="outline" onClick={() => setOpened(true)}>
                         Add New Server
                     </Button>
-                    <Drawer
-                        opened={opened}
-                        onClose={() => setOpened(false)}
-                        position="right"
-                        title="add new server"
-                        padding="xl"
-                        size="xl"
-                    >
-                        <CreateUserver />
-                    </Drawer>
                 </Group>
                 <Divider mb={16} mt={8} />
                 <CardList />
             </AppContent>
+            <Drawer
+                opened={opened}
+                onClose={() => setOpened(false)}
+                position="right"
+                title="add new server"
+                padding="xl"
+                size="xl"
+            >
+                <CreateUserver />
+            </Drawer>
         </>
     )
 }
