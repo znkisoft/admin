@@ -69,15 +69,17 @@ export default function Userver() {
     return (
         <>
             <AppContent title="ServerList">
-                <Group position="left">
-                    <Button variant="outline" className={classes.iconButton}>
-                        <Refresh size={16} />
-                    </Button>
+                <Group position="apart">
+                    <Group position="left">
+                        <Button variant="outline" className={classes.iconButton}>
+                            <Refresh size={16} />
+                        </Button>
+                        <Button leftIcon={<IconServerCog />} variant="outline" onClick={() => setOpened(true)}>
+                            Add New Server
+                        </Button>
+                    </Group>
                     <Button variant="outline" className={classes.iconButton}>
                         <IconSettings size={16} />
-                    </Button>
-                    <Button leftIcon={<IconServerCog />} variant="outline" onClick={() => setOpened(true)}>
-                        Add New Server
                     </Button>
                 </Group>
                 <Divider mb={16} mt={8} />
