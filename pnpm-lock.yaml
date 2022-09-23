@@ -23,6 +23,7 @@ specifiers:
   eslint-plugin-react: ^7.31.8
   eslint-plugin-react-hooks: ^4.6.0
   firebase: ^9.9.4
+  mantine-datatable: ^1.5.3
   openapi-typescript: ^5.4.1
   prettier: ^2.7.1
   protobufjs: ^7.1.1
@@ -54,6 +55,7 @@ dependencies:
   axios: 0.27.2
   dayjs: 1.11.5
   firebase: 9.9.4
+  mantine-datatable: 1.5.3_kw4ard5pvzr27ltmafuzbm2bce
   protobufjs: 7.1.1
   react: 18.2.0
   react-beautiful-dnd: 13.1.1_biqbaboplfbrettd7655fr4n2y
@@ -1644,7 +1646,7 @@ packages:
       babel-plugin-macros: 3.1.0
       convert-source-map: 1.8.0
       escape-string-regexp: 4.0.0
-      find-root: 1.1.0
+      find-root: mirrors.tencent.com/find-root/1.1.0
       source-map: 0.5.7
       stylis: 4.0.13
     dev: false
@@ -1688,7 +1690,7 @@ packages:
       '@emotion/utils': 1.2.0
       '@emotion/weak-memoize': 0.3.0
       '@types/react': 18.0.20
-      hoist-non-react-statics: 3.3.2
+      hoist-non-react-statics: mirrors.tencent.com/hoist-non-react-statics/3.3.2
       react: 18.2.0
     dev: false
 
@@ -1699,7 +1701,7 @@ packages:
       '@emotion/memoize': 0.8.0
       '@emotion/unitless': 0.8.0
       '@emotion/utils': 1.2.0
-      csstype: 3.1.1
+      csstype: mirrors.tencent.com/csstype/3.1.1
     dev: false
 
   /@emotion/sheet/1.2.0:
@@ -5546,10 +5548,6 @@ packages:
       pkg-dir: 4.2.0
     dev: false
 
-  /find-root/1.1.0:
-    resolution: {integrity: sha512-NKfW6bec6GfKc0SGx1e07QZY9PE99u0Bft/0rzSD5k3sO/vwkVUpDUKVm5Gpp5Ue3YfShPFTX2070tDs5kB9Ng==}
-    dev: false
-
   /find-up/3.0.0:
     resolution: {integrity: sha512-1yD6RmLI1XBfxugvORwlck6f75tYL+iR0jqwsOrOxMZyGYqUuDhJ0l4AXdO1iX/FTs9cBAMEk1gWSEx1kSbylg==}
     engines: {node: '>=6'}
@@ -7114,6 +7112,18 @@ packages:
     resolution: {integrity: sha512-JmqCvUhmt43madlpFzG4BQzG2Z3m6tvQDNKdClZnO3VbIudJYmxsT0FNJMeiB2+JTSlTQTSbU8QdesVmwJcmLg==}
     dependencies:
       tmpl: 1.0.5
+    dev: false
+
+  /mantine-datatable/1.5.3_kw4ard5pvzr27ltmafuzbm2bce:
+    resolution: {integrity: sha512-Y6ACiaXSX3TKtg1V3gGW5zgz9Sy1DkBCa7g0YT2Otlt+jOaR9mBzq6/2CeEXT0GKgogekvYkLEMBhloTSCahQQ==}
+    peerDependencies:
+      '@mantine/core': ^5.3.1
+      '@mantine/hooks': ^5.3.1
+      react: ^18.2.0
+    dependencies:
+      '@mantine/core': 5.3.1_x426wtfxzkv7g4kfcqgit377lu
+      '@mantine/hooks': 5.3.1_react@18.2.0
+      react: 18.2.0
     dev: false
 
   /mdn-data/2.0.14:
@@ -9120,7 +9130,7 @@ packages:
     dev: false
 
   /source-map/0.5.7:
-    resolution: {integrity: sha512-LbrmJOMUSdEVxIKvdcJzQC+nQhe8FUZQTXQy6+I75skNgn3OoQ0DZA8YnFa7gp8tqtL3KPf1kmo0R5DoApeSGQ==}
+    resolution: {integrity: sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=}
     engines: {node: '>=0.10.0'}
     dev: false
 
@@ -10442,6 +10452,12 @@ packages:
       yaml: 1.10.2
     dev: false
 
+  mirrors.tencent.com/csstype/3.1.1:
+    resolution: {integrity: sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==, registry: http://mirrors.cloud.tencent.com/npm/, tarball: https://mirrors.tencent.com/npm/csstype/-/csstype-3.1.1.tgz}
+    name: csstype
+    version: 3.1.1
+    dev: false
+
   mirrors.tencent.com/dataloader/1.4.0:
     resolution: {integrity: sha512-68s5jYdlvasItOJnCuI2Q9s4q98g0pCyL3HrcKJu8KNugUl8ahgmZYg38ysLTgQjjXX3H8CJLkAvWrclWfcalw==, registry: http://mirrors.cloud.tencent.com/npm/, tarball: https://mirrors.tencent.com/npm/dataloader/-/dataloader-1.4.0.tgz}
     name: dataloader
@@ -10585,6 +10601,12 @@ packages:
       minimatch: 5.1.0
     dev: false
 
+  mirrors.tencent.com/find-root/1.1.0:
+    resolution: {integrity: sha512-NKfW6bec6GfKc0SGx1e07QZY9PE99u0Bft/0rzSD5k3sO/vwkVUpDUKVm5Gpp5Ue3YfShPFTX2070tDs5kB9Ng==, registry: http://mirrors.cloud.tencent.com/npm/, tarball: https://mirrors.tencent.com/npm/find-root/-/find-root-1.1.0.tgz}
+    name: find-root
+    version: 1.1.0
+    dev: false
+
   mirrors.tencent.com/find-up/5.0.0:
     resolution: {integrity: sha512-78/PXT1wlLLDgTzDs7sjq9hzz0vXD+zn+7wypEe4fXQxCmdmqfGsEPQxmiCSQI3ajFV91bVSsvNtrJRiW6nGng==, registry: http://mirrors.cloud.tencent.com/npm/, tarball: https://mirrors.tencent.com/npm/find-up/-/find-up-5.0.0.tgz}
     name: find-up
@@ -10621,6 +10643,14 @@ packages:
     name: he
     version: 1.2.0
     hasBin: true
+    dev: false
+
+  mirrors.tencent.com/hoist-non-react-statics/3.3.2:
+    resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==, registry: http://mirrors.cloud.tencent.com/npm/, tarball: https://mirrors.tencent.com/npm/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz}
+    name: hoist-non-react-statics
+    version: 3.3.2
+    dependencies:
+      react-is: mirrors.tencent.com/react-is/16.13.1
     dev: false
 
   mirrors.tencent.com/html-entities/2.3.3:
@@ -11102,6 +11132,12 @@ packages:
       - typescript
       - vue-template-compiler
       - webpack
+    dev: false
+
+  mirrors.tencent.com/react-is/16.13.1:
+    resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==, registry: http://mirrors.cloud.tencent.com/npm/, tarball: https://mirrors.tencent.com/npm/react-is/-/react-is-16.13.1.tgz}
+    name: react-is
+    version: 16.13.1
     dev: false
 
   mirrors.tencent.com/readdirp/3.6.0:
